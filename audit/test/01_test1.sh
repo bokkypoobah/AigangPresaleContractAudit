@@ -124,35 +124,233 @@ echo "var mmOutput=`solc --optimize --combined-json abi,bin,interface $MINIMETOK
 
 echo "var psOutput=`solc --optimize --combined-json abi,bin,interface $PRESALETEMPSOL`;" > $PRESALEJS
 
-exit;
 
 geth --verbosity 3 attach $GETHATTACHPOINT << EOF | tee $TEST1OUTPUT
-loadScript("$CROWDSALETOKENJS");
-loadScript("$ETHTRANCHEPRICINGJS");
-loadScript("$MINTEDETHCAPPEDJS");
-loadScript("$BONUSFINALIZEAGENTJS");
+loadScript("$AITJS");
+loadScript("$MIGRATIONSJS");
+loadScript("$MINIMETOKENJS");
+loadScript("$PRESALEJS");
 loadScript("functions.js");
 
-var cstAbi = JSON.parse(cstOutput.contracts["$CROWDSALETOKENTEMPSOL:CrowdsaleToken"].abi);
-var cstBin = "0x" + cstOutput.contracts["$CROWDSALETOKENTEMPSOL:CrowdsaleToken"].bin;
+var aitAbi = JSON.parse(aitOutput.contracts["$AITTEMPSOL:AIT"].abi);
+var aitBin = "0x" + aitOutput.contracts["$AITTEMPSOL:AIT"].bin;
 
-var etpAbi = JSON.parse(etpOutput.contracts["$ETHTRANCHEPRICINGTEMPSOL:EthTranchePricing"].abi);
-var etpBin = "0x" + etpOutput.contracts["$ETHTRANCHEPRICINGTEMPSOL:EthTranchePricing"].bin;
+var migAbi = JSON.parse(migOutput.contracts["$MIGRATIONSTEMPSOL:Migrations"].abi);
+var migBin = "0x" + migOutput.contracts["$MIGRATIONSTEMPSOL:Migrations"].bin;
 
-var mecAbi = JSON.parse(mecOutput.contracts["$MINTEDETHCAPPEDTEMPSOL:MintedEthCappedCrowdsale"].abi);
-var mecBin = "0x" + mecOutput.contracts["$MINTEDETHCAPPEDTEMPSOL:MintedEthCappedCrowdsale"].bin;
+var mmtfAbi = JSON.parse(mmOutput.contracts["$MINIMETOKENSOL:MiniMeTokenFactory"].abi);
+var mmtfBin = "0x" + mmOutput.contracts["$MINIMETOKENSOL:MiniMeTokenFactory"].bin;
 
-var bfaAbi = JSON.parse(bfaOutput.contracts["$BONUSFINALIZEAGENTTEMPSOL:BonusFinalizeAgent"].abi);
-var bfaBin = "0x" + bfaOutput.contracts["$BONUSFINALIZEAGENTTEMPSOL:BonusFinalizeAgent"].bin;
+var psAbi = JSON.parse(psOutput.contracts["$PRESALETEMPSOL:PreSale"].abi);
+var psBin = "0x" + psOutput.contracts["$PRESALETEMPSOL:PreSale"].bin;
 
-// console.log("DATA: cstAbi=" + JSON.stringify(cstAbi));
-// console.log("DATA: etpAbi=" + JSON.stringify(etpAbi));
-// console.log("DATA: mecAbi=" + JSON.stringify(mecAbi));
-// console.log("DATA: bfaAbi=" + JSON.stringify(bfaAbi));
+// console.log("DATA: aitAbi=" + JSON.stringify(aitAbi));
+// console.log("DATA: migAbi=" + JSON.stringify(migAbi));
+// console.log("DATA: mmtfAbi=" + JSON.stringify(mmtfAbi));
+// console.log("DATA: psAbi=" + JSON.stringify(psAbi));
+// console.log("DATA: psBin=" + psBin);
 
 unlockAccounts("$PASSWORD");
 printBalances();
 console.log("RESULT: ");
+
+// -----------------------------------------------------------------------------
+// Deploy MiniMeTokenFactory
+// -----------------------------------------------------------------------------
+var mmtfMessage = "Deploy MiniMeTokenFactory";
+console.log("RESULT: " + mmtfMessage);
+var mmtfContract = web3.eth.contract(mmtfAbi);
+var mmtfTx = null;
+var mmtfAddress = null;
+var mmtf = mmtfContract.new({from: contractOwnerAccount, data: mmtfBin, gas: 4000000},
+  function(e, contract) {
+    if (!e) {
+      if (!contract.address) {
+        mmtfTx = contract.transactionHash;
+      } else {
+        mmtfAddress = contract.address;
+        addAccount(mmtfAddress, "MiniMeTokenFactory");
+        printTxData("mmtfAddress=" + mmtfAddress, mmtfTx);
+      }
+    }
+  }
+);
+while (txpool.status.pending > 0) {
+}
+printBalances();
+failIfGasEqualsGasUsed(mmtfTx, mmtfMessage);
+console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+// Deploy AIT
+// -----------------------------------------------------------------------------
+var aitMessage = "Deploy AIT";
+console.log("RESULT: " + aitMessage);
+var aitContract = web3.eth.contract(aitAbi);
+var aitTx = null;
+var aitAddress = null;
+var ait = aitContract.new(mmtfAddress, {from: contractOwnerAccount, data: aitBin, gas: 4000000},
+  function(e, contract) {
+    if (!e) {
+      if (!contract.address) {
+        aitTx = contract.transactionHash;
+      } else {
+        aitAddress = contract.address;
+        addAccount(aitAddress, "AIT");
+        addTokenContractAddressAndAbi(aitAddress, aitAbi);
+        printTxData("aitAddress=" + aitAddress, aitTx);
+      }
+    }
+  }
+);
+while (txpool.status.pending > 0) {
+}
+printBalances();
+failIfGasEqualsGasUsed(aitTx, aitMessage);
+printTokenContractDetails();
+console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+// Deploy PreSale
+// -----------------------------------------------------------------------------
+var psMessage = "Deploy PreSale";
+console.log("RESULT: " + psMessage);
+var psContract = web3.eth.contract(psAbi);
+var psTx = null;
+var psAddress = null;
+var ps = psContract.new(aitAddress, {from: contractOwnerAccount, data: psBin, gas: 4000000},
+  function(e, contract) {
+    if (!e) {
+      if (!contract.address) {
+        psTx = contract.transactionHash;
+      } else {
+        psAddress = contract.address;
+        addAccount(psAddress, "PreSale");
+        addCrowdsaleContractAddressAndAbi(psAddress, psAbi);
+        printTxData("psAddress=" + psAddress, psTx);
+      }
+    }
+  }
+);
+while (txpool.status.pending > 0) {
+}
+printBalances();
+failIfGasEqualsGasUsed(psTx, psMessage);
+printCrowdsaleContractDetails();
+printTokenContractDetails();
+console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+// AIT ChangeController To PreSale 
+// -----------------------------------------------------------------------------
+var aitChangeControllerMessage = "AIT ChangeController To PreSale";
+console.log("RESULT: " + aitChangeControllerMessage);
+var aitChangeControllerTx = ait.changeController(psAddress, {from: contractOwnerAccount, gas: 2000000});
+while (txpool.status.pending > 0) {
+}
+printTxData("aitChangeControllerTx", aitChangeControllerTx);
+printBalances();
+failIfGasEqualsGasUsed(aitChangeControllerTx, aitChangeControllerMessage);
+printCrowdsaleContractDetails();
+printTokenContractDetails();
+console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+// Initialise PreSale 
+// -----------------------------------------------------------------------------
+var initialisePresaleMessage = "Initialise PreSale";
+var maxAitSupply = "1000000000000000000000000";
+// Minimum investment in wei
+var minimumInvestment = 10;
+var startBlock = parseInt(eth.blockNumber) + 5;
+var endBlock = parseInt(eth.blockNumber) + 10; 
+console.log("RESULT: " + initialisePresaleMessage);
+var initialisePresaleTx = ps.initialize(maxAitSupply, minimumInvestment, startBlock, endBlock, {from: contractOwnerAccount, gas: 2000000});
+while (txpool.status.pending > 0) {
+}
+printTxData("initialisePresaleTx", initialisePresaleTx);
+printBalances();
+failIfGasEqualsGasUsed(initialisePresaleTx, initialisePresaleMessage);
+printCrowdsaleContractDetails();
+printTokenContractDetails();
+console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+// Wait until startBlock 
+// -----------------------------------------------------------------------------
+console.log("RESULT: Waiting until startBlock #" + startBlock + " currentBlock=" + eth.blockNumber);
+while (eth.blockNumber <= startBlock) {
+}
+console.log("RESULT: Waited until startBlock #" + startBlock + " currentBlock=" + eth.blockNumber);
+console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+var validContribution1Message = "Send Valid Contribution - 100 ETH From Account3";
+console.log("RESULT: " + validContribution1Message);
+var validContribution1Tx = eth.sendTransaction({from: account3, to: psAddress, gas: 400000, value: web3.toWei("100", "ether")});
+var validContribution2Tx = eth.sendTransaction({from: account4, to: aitAddress, gas: 400000, value: web3.toWei("10", "ether")});
+while (txpool.status.pending > 0) {
+}
+printTxData("validContribution1Tx", validContribution1Tx);
+printTxData("validContribution2Tx", validContribution2Tx);
+printBalances();
+failIfGasEqualsGasUsed(validContribution1Tx, validContribution1Message + " ac3->ps 100 ETH");
+failIfGasEqualsGasUsed(validContribution2Tx, validContribution1Message + " ac4->ait 10 ETH");
+printCrowdsaleContractDetails();
+printTokenContractDetails();
+console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+// Wait until endBlock 
+// -----------------------------------------------------------------------------
+console.log("RESULT: Waiting until endBlock #" + endBlock + " currentBlock=" + eth.blockNumber);
+while (eth.blockNumber <= endBlock) {
+}
+console.log("RESULT: Waited until endBlock #" + endBlock + " currentBlock=" + eth.blockNumber);
+console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+// Claim ETH 
+// -----------------------------------------------------------------------------
+var claimEthersMessage = "Claim Ethers";
+console.log("RESULT: " + claimEthersMessage);
+var claimEthersTx = ps.claimTokens(0, {from: contractOwnerAccount, gas: 2000000});
+while (txpool.status.pending > 0) {
+}
+printTxData("claimEthersTx", claimEthersTx);
+printBalances();
+failIfGasEqualsGasUsed(claimEthersTx, claimEthersMessage);
+printCrowdsaleContractDetails();
+printTokenContractDetails();
+console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+// Finalise PreSale 
+// -----------------------------------------------------------------------------
+var finalisePresaleMessage = "Initialise PreSale";
+console.log("RESULT: " + finalisePresaleMessage);
+var finalisePresaleTx = ps.finalize({from: contractOwnerAccount, gas: 2000000});
+while (txpool.status.pending > 0) {
+}
+printTxData("finalisePresaleTx", finalisePresaleTx);
+printBalances();
+failIfGasEqualsGasUsed(finalisePresaleTx, finalisePresaleMessage);
+printCrowdsaleContractDetails();
+printTokenContractDetails();
+console.log("RESULT: ");
+
+
+exit;
+
 
 var name = "Feed";
 var symbol = "FEED";

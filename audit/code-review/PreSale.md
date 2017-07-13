@@ -23,6 +23,7 @@ contract PreSale is Controlled, TokenController {
   uint256 public totalSupplyCap;            // Total AIT supply to be generated
   uint256 public totalSold;                 // How much tokens have been sold
 
+  // BK Ok - This is the minimum contribution per tx, in wei
   uint256 public minimum_investment;
 
   uint256 public startBlock;
@@ -76,6 +77,7 @@ contract PreSale is Controlled, TokenController {
     require(_totalSupplyCap > 0);
     totalSupplyCap = _totalSupplyCap;
 
+    // BK Ok
     minimum_investment = _minimum_investment;
 
     initializedBlock = getBlockNumber();
@@ -111,6 +113,7 @@ contract PreSale is Controlled, TokenController {
   }
 
   function doBuy(address _th) internal {
+    // BK Ok
     require(msg.value >= minimum_investment);
 
     // Antispam mechanism

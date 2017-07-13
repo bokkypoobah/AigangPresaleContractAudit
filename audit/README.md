@@ -86,7 +86,7 @@ the deployment parameters are correctly set, including the constant parameters.
 
 ## Testing
 
-See [test/README.md](test/README.md), [test/01_test1.sh](test/01_test1.sh] and [test/test1results.txt](test/test1results.txt).
+See [test/README.md](test/README.md), [test/01_test1.sh](test/01_test1.sh) and [test/test1results.txt](test/test1results.txt).
 
 <br />
 

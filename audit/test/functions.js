@@ -1,5 +1,5 @@
-// Jul 7 2017
-var ethPriceUSD = 262.3980;
+// Jul 14 2017
+var ethPriceUSD = 205.452;
 
 // -----------------------------------------------------------------------------
 // Accounts
@@ -10,9 +10,9 @@ var accountNames = {};
 addAccount(eth.accounts[0], "Account #0 - Miner");
 addAccount(eth.accounts[1], "Account #1 - Contract Owner");
 addAccount(eth.accounts[2], "Account #2 - Multisig");
-addAccount(eth.accounts[3], "Account #3 - Team #1");
-addAccount(eth.accounts[4], "Account #4 - Team #2");
-addAccount(eth.accounts[5], "Account #5 - Team #3");
+addAccount(eth.accounts[3], "Account #3");
+addAccount(eth.accounts[4], "Account #4");
+addAccount(eth.accounts[5], "Account #5");
 addAccount(eth.accounts[6], "Account #6");
 addAccount(eth.accounts[7], "Account #7");
 addAccount(eth.accounts[8], "Account #8");
@@ -22,9 +22,9 @@ addAccount(eth.accounts[9], "Account #9");
 var minerAccount = eth.accounts[0];
 var contractOwnerAccount = eth.accounts[1];
 var multisig = eth.accounts[2];
-var team1 = eth.accounts[3];
-var team2 = eth.accounts[4];
-var team3 = eth.accounts[5];
+var account3 = eth.accounts[3];
+var account4 = eth.accounts[4];
+var account5 = eth.accounts[5];
 var account6 = eth.accounts[6];
 var account7 = eth.accounts[7];
 var account8 = eth.accounts[8];
@@ -194,14 +194,21 @@ function printCrowdsaleContractDetails() {
   // console.log("RESULT: crowdsaleContractAbi=" + JSON.stringify(crowdsaleContractAbi));
   if (crowdsaleContractAddress != null && crowdsaleContractAbi != null) {
     var contract = eth.contract(crowdsaleContractAbi).at(crowdsaleContractAddress);
-    console.log("RESULT: crowdsale.owner=" + contract.owner());
-    var startsAt = contract.startsAt();
-    console.log("RESULT: crowdsale.startsAt=" + startsAt + " " + new Date(startsAt * 1000).toUTCString());
-    var endsAt = contract.endsAt();
-    console.log("RESULT: crowdsale.endsAt=" + endsAt + " " + new Date(endsAt * 1000).toUTCString());
+    console.log("RESULT: crowdsale.controller=" + contract.controller());
+    console.log("RESULT: crowdsale.exchangeRate=" + contract.exchangeRate());
+    console.log("RESULT: crowdsale.investor_bonus=" + contract.investor_bonus());
+    console.log("RESULT: crowdsale.ait=" + contract.ait());
+    console.log("RESULT: crowdsale.totalSupplyCap=" + contract.totalSupplyCap().shift(-18));
+    console.log("RESULT: crowdsale.totalSold=" + contract.totalSold().shift(-18));
+    console.log("RESULT: crowdsale.minimum_investment=" + contract.minimum_investment().shift(-18));
+    console.log("RESULT: crowdsale.startBlock=" + contract.startBlock());
+    console.log("RESULT: crowdsale.endBlock=" + contract.endBlock());
+    console.log("RESULT: crowdsale.initializedBlock=" + contract.initializedBlock());
+    console.log("RESULT: crowdsale.finalizedBlock=" + contract.finalizedBlock());
+    console.log("RESULT: crowdsale.paused=" + contract.paused());
+    console.log("RESULT: crowdsale.transferable=" + contract.transferable());
   }
 }
-
 
 
 //-----------------------------------------------------------------------------
@@ -213,12 +220,13 @@ function printTokenContractDetails() {
   // console.log("RESULT: tokenContractAbi=" + JSON.stringify(tokenContractAbi));
   if (tokenContractAddress != null && tokenContractAbi != null) {
     var contract = eth.contract(tokenContractAbi).at(tokenContractAddress);
-    console.log("RESULT: token.owner=" + contract.owner());
+    var decimals = contract.decimals();
+    console.log("RESULT: token.controller=" + contract.controller());
     console.log("RESULT: token.symbol=" + contract.symbol());
     console.log("RESULT: token.name=" + contract.name());
     console.log("RESULT: token.decimals=" + decimals);
     console.log("RESULT: token.totalSupply=" + contract.totalSupply().shift(-decimals));
-    console.log("RESULT: token.mintingFinished=" + contract.mintingFinished());
+    // console.log("RESULT: token.mintingFinished=" + contract.mintingFinished());
 
     var latestBlock = eth.blockNumber;
     var i;
@@ -226,16 +234,16 @@ function printTokenContractDetails() {
     var approvalEvents = contract.Approval({}, { fromBlock: tokenFromBlock, toBlock: latestBlock });
     i = 0;
     approvalEvents.watch(function (error, result) {
-      console.log("RESULT: Approval " + i++ + " #" + result.blockNumber + " owner=" + result.args.owner + " spender=" + result.args.spender + " _value=" +
-        result.args.value.shift(-decimals));
+      console.log("RESULT: Approval " + i++ + " #" + result.blockNumber + " _owner=" + result.args._owner + " _spender=" + result.args._spender + " _amount=" +
+        result.args._amount.shift(-decimals));
     });
     approvalEvents.stopWatching();
 
     var transferEvents = contract.Transfer({}, { fromBlock: tokenFromBlock, toBlock: latestBlock });
     i = 0;
     transferEvents.watch(function (error, result) {
-      console.log("RESULT: Transfer " + i++ + " #" + result.blockNumber + ": from=" + result.args.from + " to=" + result.args.to +
-        " value=" + result.args.value.shift(-decimals));
+      console.log("RESULT: Transfer " + i++ + " #" + result.blockNumber + ": _from=" + result.args._from + " _to=" + result.args._to +
+        " _amount=" + result.args._amount.shift(-decimals));
     });
     transferEvents.stopWatching();
 
