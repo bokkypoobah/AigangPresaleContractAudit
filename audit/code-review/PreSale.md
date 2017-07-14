@@ -148,12 +148,19 @@ contract PreSale is Controlled, TokenController {
     return true;
   }
 
-  // BK TODO
+  // BK NOTE - Setting `transferable` to true results in this function returning true
+  //         - If this contract is the owner (`controller`) of the MiniMeToken token contract, `onTransfer(...)`
+  //           will be called to check if `transfer(...)` and `transferFrom(...)` are enabled
+  // BK Ok
   function onTransfer(address, address, uint256) public returns (bool) {
+    // BK Ok
     return transferable;
   }
 
-  // BK TODO
+  // BK NOTE - Setting `transferable` to true results in this function returning true
+  //         - If this contract is the owner (`controller`) of the MiniMeToken token contract, `onApprove(...)`
+  //           will be called to check if `approve(...)` is enabled
+  // BK Ok
   function onApprove(address, address, uint256) public returns (bool) {
     return transferable;
   }
@@ -322,11 +329,16 @@ contract PreSale is Controlled, TokenController {
     paused = _paused;
   }
 
-  // BK NOTE 
+  // BK NOTE - Setting `transferable` to true results in `onTransfer(...)` and `onApprove(...)` returning true
+  //         - If this contract is the owner (`controller`) of the MiniMeToken token contract, `onTransfer(...)` and `onApprove(...)`
+  //           will be called to check if `transfer(...)`, `transferFrom(...)` and `approve(...)` are enabled
+  // BK Ok
   function allowTransfers(bool _transferable) onlyController {
+    // BK Ok
     transferable = _transferable;
   }
 
+  // BK Next 4 Ok
   event ClaimedTokens(address indexed _token, address indexed _controller, uint256 _amount);
   event NewSale(address indexed _th, uint256 _amount, uint256 _tokens);
   event Initialized(uint _now);

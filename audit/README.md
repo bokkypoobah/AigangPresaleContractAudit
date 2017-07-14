@@ -17,6 +17,7 @@ Commit [https://github.com/AigangNetwork/aigang-contracts/commit/6ec3a02f67903fb
 * [Risks](#risks)
 * [Trustlessness Of The Crowdsale Contract](#trustlessness-of-the-crowdsale-contract)
 * [Potential Vulnerabilities](#potential-vulnerabilities)
+* [TODO](#todo)
 * [Notes](#notes)
 * [Testing](#testing)
 * [Code Review](#code-review)
@@ -85,6 +86,18 @@ the deployment parameters are correctly set, including the constant parameters.
 
 <hr />
 
+## TODO
+
+* [ ] Currently with the PreSale contract being the owner of the MiniMe token contract, transfers can be suspended by the owner. To be
+  completely trustless, the owner (`controller`) of the MiniMe token contract will need to be changed to a regular account. But this is seems
+  to not be possible.
+
+* [ ] Check how the upgrade master can be set if the owner of the MiniMe token contract is the PreSale contract.
+
+<br />
+
+<hr />
+
 ## Notes
 
 * Funds can be contributed to the AIT token contract, or the Presale contract.
@@ -107,7 +120,10 @@ the deployment parameters are correctly set, including the constant parameters.
   function is used to collect stray ETH and ERC20 tokens accidentally sent to the PreSale contract, but in this case, it will be used
   to transfer out the ETH.
 
-* TODO - Check this again - Owner must call `PreSale.allowTransfers(true)` to allow the tokens to be transferred.  
+* If the `PreSale` contract is the owner (`controller`) of the MiniMe token contract, the MiniMe `transfer(...)`, `transferFrom(...)` and
+  `approve(...)` functions will call the `PreSale` contract's `onTransfer(...)` and `onApprove(...)` function to check if transfers
+  and approvals are enabled. To enable transfers and approvals, the owner (`controller`) of the `PreSale` contract will have to call
+  `allowTransfers(true)`.
 
 <br />
 
