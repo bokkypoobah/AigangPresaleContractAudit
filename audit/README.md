@@ -17,6 +17,7 @@ Commit [https://github.com/AigangNetwork/aigang-contracts/commit/6ec3a02f67903fb
 * [Risks](#risks)
 * [Trustlessness Of The Crowdsale Contract](#trustlessness-of-the-crowdsale-contract)
 * [Potential Vulnerabilities](#potential-vulnerabilities)
+* [Notes](#notes)
 * [Testing](#testing)
 * [Code Review](#code-review)
 
@@ -79,6 +80,34 @@ the deployment parameters are correctly set, including the constant parameters.
 ## Potential Vulnerabilities
 
 * [ ] TODO - Confirm that no potential vulnerabilities have been identified in the crowdsale and token contract.
+
+<br />
+
+<hr />
+
+## Notes
+
+* Funds can be contributed to the AIT token contract, or the Presale contract.
+
+* The `Presale.investor_bonus = 25` variable is unused. There is no bonus in any calculations in this set of contracts.
+
+* There is no minimum funding goal, and there is no refund mechanism if the non-existent funding goal is not reached.
+
+* TODO - Check this again - Presale balances cannot be transferred to another account.
+
+* There is a `Presale.minimum_investment` variable where contributions below this amount will be rejected.
+
+* There is a `Presale.pauseContribution(...)` function that will allow the contract owner to pause and restart contributions.
+
+* An account may send ETH to `Presale.proxyPayment(...)` with another account as the token holding account. If the send ETH results
+  in the tokens generated hitting the cap, an ETH refund will be provided back to the account that sent the ETH, and NOT the token
+  holding account. This is the correct behaviour.
+
+* Owner must call `PreSale.claimTokens(0)` to transfer the ETH accumulated in the PreSale contract to the owner's account. Normally this
+  function is used to collect stray ETH and ERC20 tokens accidentally sent to the PreSale contract, but in this case, it will be used
+  to transfer out the ETH.
+
+* TODO - Check this again - Owner must call `PreSale.allowTransfers(true)` to allow the tokens to be transferred.  
 
 <br />
 

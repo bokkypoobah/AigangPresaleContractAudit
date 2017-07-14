@@ -267,7 +267,7 @@ var maxAitSupply = "1000000000000000000000000";
 // Minimum investment in wei
 var minimumInvestment = 10;
 var startBlock = parseInt(eth.blockNumber) + 5;
-var endBlock = parseInt(eth.blockNumber) + 10; 
+var endBlock = parseInt(eth.blockNumber) + 10;
 console.log("RESULT: " + initialisePresaleMessage);
 var initialisePresaleTx = ps.initialize(maxAitSupply, minimumInvestment, startBlock, endBlock, {from: contractOwnerAccount, gas: 2000000});
 while (txpool.status.pending > 0) {
