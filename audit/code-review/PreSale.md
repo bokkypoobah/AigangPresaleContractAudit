@@ -16,6 +16,7 @@ contract PreSale is Controlled, TokenController {
   using SafeMath for uint256;
 
   uint256 constant public exchangeRate = 1; // ETH-AIT exchange rate
+  // BK NOTE - This variable is NOT used
   uint256 constant public investor_bonus = 25;
 
   MiniMeToken public ait;
