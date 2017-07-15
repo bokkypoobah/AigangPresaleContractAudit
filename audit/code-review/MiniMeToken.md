@@ -7,6 +7,7 @@ Source file [../../contracts/MiniMeToken.sol](../../contracts/MiniMeToken.sol)
 <hr />
 
 ```javascript
+// BK Ok
 pragma solidity ^0.4.11;
 
 /*
@@ -36,10 +37,12 @@ pragma solidity ^0.4.11;
 
 
 /// @dev The token controller contract must implement these functions
+// BK Ok
 contract TokenController {
     /// @notice Called when `_owner` sends ether to the MiniMe Token contract
     /// @param _owner The address that sent the ether to create tokens
     /// @return True if the ether is accepted, false if it throws
+    // BK Ok
     function proxyPayment(address _owner) payable returns(bool);
 
     /// @notice Notifies the controller about a token transfer allowing the
@@ -48,6 +51,7 @@ contract TokenController {
     /// @param _to The destination of the transfer
     /// @param _amount The amount of the transfer
     /// @return False if the controller does not authorize the transfer
+    // BK Ok
     function onTransfer(address _from, address _to, uint _amount) returns(bool);
 
     /// @notice Notifies the controller about an approval allowing the
@@ -56,22 +60,30 @@ contract TokenController {
     /// @param _spender The spender in the `approve()` call
     /// @param _amount The amount in the `approve()` call
     /// @return False if the controller does not authorize the approval
+    // BK Ok
     function onApprove(address _owner, address _spender, uint _amount)
         returns(bool);
 }
 
+// BK NOTE - Could be a bit safer to use acceptOwnership() pattern, but this may not work with the use case
+// BK Ok - Like Owned
 contract Controlled {
     /// @notice The address of the controller is the only address that can call
     ///  a function with this modifier
+    // BK Ok
     modifier onlyController { if (msg.sender != controller) throw; _; }
 
+    // BK Ok
     address public controller;
 
+    // BK Ok
     function Controlled() { controller = msg.sender;}
 
     /// @notice Changes the controller of the contract
     /// @param _newController The new controller of the contract
+    // BK Ok
     function changeController(address _newController) onlyController {
+        // BK Ok
         controller = _newController;
     }
 }

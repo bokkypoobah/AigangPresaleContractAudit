@@ -106,7 +106,7 @@ the deployment parameters are correctly set, including the constant parameters.
 
 * There is no minimum funding goal, and there is no refund mechanism if the non-existent funding goal is not reached.
 
-* TODO - Check this again - Presale balances cannot be transferred to another account.
+* TODO - Check this again - Presale token balances cannot be transferred to another account.
 
 * There is a `Presale.minimum_investment` variable where contributions below this amount will be rejected.
 
@@ -139,18 +139,18 @@ See [test/README.md](test/README.md), [test/01_test1.sh](test/01_test1.sh) and [
 
 ## Code Review
 
-* [AIT.md](code-review/AIT.md)
+* [x] [AIT.md](code-review/AIT.md)
   * contract AIT is MiniMeToken
 * [Migrations.md](code-review/Migrations.md)
   * contract Migrations
 * [MiniMeToken.md](code-review/MiniMeToken.md)
-  * contract TokenController
-  * contract Controlled
+  * [x] contract TokenController
+  * [x] contract Controlled
   * contract ApproveAndCallFallBack
   * contract MiniMeToken is Controlled
   * contract MiniMeTokenFactory
-* [PreSale.md](code-review/PreSale.md)
-  * contract PreSale is Controlled, TokenController
+* [x] [PreSale.md](code-review/PreSale.md)
+  * [x] contract PreSale is Controlled, TokenController
     * using SafeMath for uint256
 * [SafeMath.md](code-review/SafeMath.md)
   * library SafeMath
