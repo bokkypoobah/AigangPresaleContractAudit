@@ -140,7 +140,7 @@ See [test/README.md](test/README.md), [test/01_test1.sh](test/01_test1.sh) and [
 ## Code Review
 
 * [x] [AIT.md](code-review/AIT.md)
-  * contract AIT is MiniMeToken
+  * [x] contract AIT is MiniMeToken
 * [Migrations.md](code-review/Migrations.md)
   * contract Migrations
 * [MiniMeToken.md](code-review/MiniMeToken.md)
@@ -148,12 +148,12 @@ See [test/README.md](test/README.md), [test/01_test1.sh](test/01_test1.sh) and [
   * [x] contract Controlled
   * contract ApproveAndCallFallBack
   * contract MiniMeToken is Controlled
-  * contract MiniMeTokenFactory
+  * [x] contract MiniMeTokenFactory
 * [x] [PreSale.md](code-review/PreSale.md)
   * [x] contract PreSale is Controlled, TokenController
-    * using SafeMath for uint256
-* [SafeMath.md](code-review/SafeMath.md)
-  * library SafeMath
+    * [x] using SafeMath for uint256
+* [x] [SafeMath.md](code-review/SafeMath.md)
+  * [x] library SafeMath
 
 <br />
 

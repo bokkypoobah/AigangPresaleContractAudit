@@ -124,6 +124,7 @@ contract MiniMeToken is Controlled {
     uint public parentSnapShotBlock;
 
     // `creationBlock` is the block number that the Clone Token was created
+    // BK Ok
     uint public creationBlock;
 
     // `balances` is the map that tracks the balance of each address, in this
@@ -138,6 +139,7 @@ contract MiniMeToken is Controlled {
     Checkpoint[] totalSupplyHistory;
 
     // Flag that determines if the token is transferable or not.
+    // BK Ok
     bool public transfersEnabled;
 
     // The factory used to create new clone tokens
@@ -175,7 +177,9 @@ contract MiniMeToken is Controlled {
         symbol = _tokenSymbol;                             // Set the symbol
         parentToken = MiniMeToken(_parentToken);
         parentSnapShotBlock = _parentSnapShotBlock;
+        // BK Ok
         transfersEnabled = _transfersEnabled;
+        // BK Ok
         creationBlock = block.number;
     }
 
@@ -189,6 +193,7 @@ contract MiniMeToken is Controlled {
     /// @param _amount The amount of tokens to be transferred
     /// @return Whether the transfer was successful or not
     function transfer(address _to, uint256 _amount) returns (bool success) {
+        // BK Ok
         if (!transfersEnabled) throw;
         return doTransfer(msg.sender, _to, _amount);
     }
@@ -207,6 +212,7 @@ contract MiniMeToken is Controlled {
         //  controller of this contract, which in most situations should be
         //  another open source smart contract or 0x0
         if (msg.sender != controller) {
+            // BK Ok
             if (!transfersEnabled) throw;
 
             // The standard ERC 20 transferFrom functionality
@@ -276,6 +282,7 @@ contract MiniMeToken is Controlled {
     /// @param _amount The amount of tokens to be approved for transfer
     /// @return True if the approval was successful
     function approve(address _spender, uint256 _amount) returns (bool success) {
+        // BK Ok
         if (!transfersEnabled) throw;
 
         // To change the approve amount you first have to reduce the addresses`
@@ -573,6 +580,7 @@ contract MiniMeToken is Controlled {
 /// @dev This contract is used to generate clone contracts from a contract.
 ///  In solidity this is the way to create a contract from a contract of the
 ///  same class
+// BK Ok
 contract MiniMeTokenFactory {
 
     /// @notice Update the DApp by creating a new token with new functionalities
@@ -593,6 +601,7 @@ contract MiniMeTokenFactory {
         string _tokenSymbol,
         bool _transfersEnabled
     ) returns (MiniMeToken) {
+        // BK Ok
         MiniMeToken newToken = new MiniMeToken(
             this,
             _parentToken,
@@ -603,7 +612,9 @@ contract MiniMeTokenFactory {
             _transfersEnabled
             );
 
+        // BK Ok - Caller is the owner of the cloned token contract
         newToken.changeController(msg.sender);
+        // BK Ok
         return newToken;
     }
 }
