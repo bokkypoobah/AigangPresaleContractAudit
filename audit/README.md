@@ -2,7 +2,6 @@
 
 This is an audit of [Aigang Network's crowdsale](https://aigang.network/) contracts.
 
-
 Commit [https://github.com/AigangNetwork/aigang-contracts/commit/6ec3a02f67903fb88fa18af86e5325c967cb26f2](https://github.com/AigangNetwork/aigang-contracts/commit/6ec3a02f67903fb88fa18af86e5325c967cb26f2).
 
 <br />
@@ -11,16 +10,40 @@ Commit [https://github.com/AigangNetwork/aigang-contracts/commit/6ec3a02f67903fb
 
 ## Table Of Contents
 
+* [Recommendation](#recommendation)
+* [Potential Vulnerabilities](#potential-vulnerabilities)
 * [Scope](#scope)
 * [Limitations](#limitations)
 * [Due Diligence](#due-diligence)
 * [Risks](#risks)
 * [Trustlessness Of The Crowdsale Contract](#trustlessness-of-the-crowdsale-contract)
-* [Potential Vulnerabilities](#potential-vulnerabilities)
 * [TODO](#todo)
 * [Notes](#notes)
 * [Testing](#testing)
 * [Code Review](#code-review)
+
+<br />
+
+<hr />
+
+## Recommendation
+
+* **IMPORTANT** There is a potential problem with the controller for the **AIT** contract after the `PreSale.finalize()` function is called.
+  In the Status.im crowdsale contracts, the `StatusContribution.finalize()` calls `SNT.changeController(sntController);`, where `sntController`
+  is the originally set to **SNTPlaceHolder** which has a `changeController(...)` function. 
+
+  For the AIT crowdsale contracts, the **AIT** contract controller is initially set to the **PreSale** contract, and is not updated when
+  `PreSale.finalize()` is called. This will result in the **AIT** token contract having an owner that can never be altered.
+
+  * [ ] ACTION Review whether there is a need to reassign the AIT contract controller when `PreSale.finalize()` is called.
+
+<br />
+
+<hr />
+
+## Potential Vulnerabilities
+
+* [ ] TODO - Confirm that no potential vulnerabilities have been identified in the crowdsale and token contract.
 
 <br />
 
@@ -73,14 +96,6 @@ the deployment parameters are correctly set, including the constant parameters.
 ## Trustlessness Of The Crowdsale Contract
 
 * [ ] TODO - Evaluate
-
-<br />
-
-<hr />
-
-## Potential Vulnerabilities
-
-* [ ] TODO - Confirm that no potential vulnerabilities have been identified in the crowdsale and token contract.
 
 <br />
 
@@ -166,3 +181,9 @@ Outside Scope:
 
   This is also the same source code as Status.im's multisig wallet at [0xa646e29877d52b9e2de457eca09c724ff16d0a2b](https://etherscan.io/address/0xa646e29877d52b9e2de457eca09c724ff16d0a2b#code) 
   currently holding 299,902.24 ethers.
+
+<br />
+
+<br />
+
+(c) BokkyPooBah / Bok Consulting Pty Ltd for Aigang Network - July 15 2017
