@@ -29,10 +29,10 @@ Commit [https://github.com/AigangNetwork/aigang-contracts/commit/6ec3a02f67903fb
 ## Recommendations
 
 * **IMPORTANT** There is a potential problem with the controller for the *AIT* contract after the `PreSale.finalize()` function is called.
-  In the Status.im crowdsale contracts, the `StatusContribution.finalize()` calls `SNT.changeController(sntController);`, where `sntController`
-  is originally set to **SNTPlaceHolder** which has a `changeController(...)` function. 
+  In the Status.im crowdsale contracts, the `StatusContribution.finalize()` function calls `SNT.changeController(sntController);`, where
+  `sntController` is originally set to the address of the *SNTPlaceHolder* contract that has a `changeController(...)` function.
 
-  For the AIT crowdsale contracts, the *AIT* contract controller is initially set to the **PreSale** contract, and is not updated when
+  For the *AIT* contracts, the *AIT* contract controller is initially set to the *PreSale* contract address, and this is not updated when
   `PreSale.finalize()` is called. This will result in the *AIT* token contract having an owner (`controller`) that can never be altered.
 
   * [ ] ACTION Review whether there is a need to reassign the *AIT* contract controller when `PreSale.finalize()` is called.
@@ -46,7 +46,7 @@ Commit [https://github.com/AigangNetwork/aigang-contracts/commit/6ec3a02f67903fb
   or accumulated in the *PreSale* contract and automatically transferred out to an external wallet when the `PreSale.finalize()` function is
   called. The `PreSale.claimTokens(0)` is an emergency function to extract any tokens or ETH accidentally trapped in the crowdsale contract.
 
-  * [ ] ACTION Immediately transfer contributed ETH into a multisig, hardware or regular wallet.
+  * [ ] ACTION Alter contribution flow to immediately transfer contributed ETH into a multisig, hardware or regular wallet.
 
 <br />
 
@@ -142,7 +142,7 @@ audited source code, and that the deployment parameters are correctly set, inclu
 
 ## Trustlessness Of The Crowdsale Contract
 
-* From the MiniMeToken comment for the `transferFrom(...)` function:
+* From the *MiniMeToken* comment for the `transferFrom(...)` function:
 
   > The controller of this contract can move tokens around at will, this is important to recognize! Confirm that you trust the
   > controller of this contract, which in most situations should be another open source smart contract or 0x0
@@ -173,22 +173,22 @@ audited source code, and that the deployment parameters are correctly set, inclu
   in the tokens generated hitting the cap, an ETH refund will be provided back to the account that sent the ETH, and NOT the token
   holding account. This is the correct behaviour.
 
-* Owner must call `PreSale.claimTokens(0)` to transfer the ETH accumulated in the PreSale contract to the owner's account. Normally this
-  function is used to collect stray ETH and ERC20 tokens accidentally sent to the PreSale contract, but in this case, it will be used
+* Owner must call `PreSale.claimTokens(0)` to transfer the ETH accumulated in the *PreSale* contract to the owner's account. Normally this
+  function is used to collect stray ETH and ERC20 tokens accidentally sent to the *PreSale* contract, but in this case, it will be used
   to transfer out the ETH.
 
-* If the `PreSale` contract is the owner (`controller`) of the MiniMe token contract, the MiniMe `transfer(...)`, `transferFrom(...)` and
-  `approve(...)` functions will call the `PreSale` contract's `onTransfer(...)` and `onApprove(...)` function to check if transfers
-  and approvals are enabled. To enable transfers and approvals, the owner (`controller`) of the `PreSale` contract will have to call
-  `allowTransfers(true)`.
+* If the *PreSale* contract is the owner (`controller`) of the *AIT* (*MiniMeToken*) contract, the *AIT* `transfer(...)`, 
+  `transferFrom(...)` and `approve(...)` functions will call the *PreSale* contract's `onTransfer(...)` and `onApprove(...)` function
+  to check if transfers and approvals are enabled. To enable transfers and approvals, the owner (`controller`) of the *PreSale* contract
+  will have to call `allowTransfers(true)` after the *PreSale* contract is `finalize()`d.
 
-* The MiniMeToken contract records the totalSupply and balances in `uint128` data structures. The maximum size of these numbers, with 18 
-  decimal places is `new BigNumber("ffffffffffffffffffffffffffffffff", 16).shift(-18)` resulting in `340282366920938463463.374607431768211455`,
-  sufficient for most ERC20 tokens.
+* The *MiniMeToken* contract records the `totalSupply` and `balances` in `uint128` data structures. The maximum size of these numbers,
+  with 18 decimal places is `new BigNumber("ffffffffffffffffffffffffffffffff", 16).shift(-18)` resulting in
+  `340282366920938463463.374607431768211455`. This is sufficient for most ERC20 tokens.
 
-* The MiniMeToken contract controller CANNOT be set to a multisig contract wallet as all transfers will be disabled.
+* The *MiniMeToken* contract controller **CANNOT** be set to a multisig contract wallet as all transfers will be disabled.
 
-* The MiniMeToken contract `approve(...)` function has the following comment outlining the steps to change an approval limit
+* The *MiniMeToken* contract `approve(...)` function has the following comment outlining the steps to change an approval limit
 
   > To change the approve amount you first have to reduce the addresses` allowance to zero by calling `approve(_spender,0)` if it is not
   > already 0 to mitigate the race condition described here: https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
@@ -207,29 +207,42 @@ See [test/README.md](test/README.md), [test/01_test1.sh](test/01_test1.sh) and [
 
 ## Crowdsale And Token Contracts Overview
 
-* [x] This token contract is of moderate complexity
-* [x] The code has been tested for the normal [ERC20](https://github.com/ethereum/EIPs/issues/20) use cases
-  * [x] Deployment, with correct `symbol()`, `name()`, `decimals()` and `totalSupply()`
-  * [ ] `transfer(...)` from one account to another
-  * [ ] `approve(...)` and `transferFrom(...)` from one account to another
-  * [ ] While the `transfer(...)` and `transferFrom(...)` uses safe maths, there are checks so the function is able to return **true** and **false** instead of throwing an error
-* [ ] `transfer(...)` and `transferFrom(...)` is only enabled when the crowdsale is finalised, when either the funds raised matches the cap, or the current time is beyond the crowdsale end date
-* [ ] `transferOwnership(...)` has `acceptOwnership()` to prevent errorneous transfers of ownership of the token contract
-* [ ] ETH contributed to the crowdsale contract is accumulated in the crowdsale contract. The owner must call `PreSale.claimTokens(0)` to transfer the ETH to the owner (`controller`) of the contract. 
-* [ ] ETH cannot be trapped in the token contract as the default `function () payable` is not implemented
-* [ ] Check potential division by zero
-* [ ] All numbers used are **uint** (which is **uint256**), with the exception of `decimals`, reducing the risk of errors from type conversions
-* [ ] Areas with potential overflow errors in `transfer(...)` and `transferFrom(...)` have the logic to prevent overflows
-* [ ] Areas with potential underflow errors in `transfer(...)` and `transferFrom(...)` have the logic to prevent underflows
-* [ ] Function and event names are differentiated by case - function names begin with a lowercase character and event names begin with an uppercase character
-* [ ] The default function will NOT receive contributions during the crowdsale phase and mint tokens. Users have to execute a specific function to contribute to the crowdsale contract
-* [ ] The testing has been done using geth v1.6.5-stable-cf87713d/darwin-amd64/go1.8.3 and solc 0.4.11+commit.68ef5810.Darwin.appleclang instead of one of the testing frameworks and JavaScript VMs to simulate the live environment as closely as possible
-* [ ] The test scripts can be found in [test/01_test1.sh](test/01_test1.sh)
-* [ ] The test results can be found in [test/test1results.txt](test/test1results.txt) for the results and [test/test1output.txt](test/test1output.txt) for the full output
-* [ ] There is a switch to pause and then restart the contract being able to receive contributions
-* [ ] The [`transfer(...)`](https://github.com/ConsenSys/smart-contract-best-practices#be-aware-of-the-tradeoffs-between-send-transfer-and-callvalue) call is the last statements in the control flow of `investInternal(...)` to prevent the hijacking of the control flow
-* [ ] The token contract does not implement the check for the number of bytes sent to functions to reject errors from the [short address attack](http://vessenes.com/the-erc20-short-address-attack-explained/). This technique is now NOT recommended
-* [ ] This contract implement a modified `approve(...)` functions to mitigate the risk of [double spending](https://docs.google.com/document/d/1YLPtQxZu1UAvO9cZ1O2RPXBbT0mooh4DYKjA_jp-RLM/edit#) by requiring the account to set a non-zero approval limit to 0 before modifying this limit
+* [x] This token contract is of moderate complexity.
+* [x] The code has been tested for the normal [ERC20](https://github.com/ethereum/EIPs/issues/20) use cases:
+  * [x] Deployment, with correct `symbol()`, `name()`, `decimals()` and `totalSupply()`.
+  * [ ] `transfer(...)` from one account to another.
+  * [ ] `approve(...)` and `transferFrom(...)` from one account to another.
+  * [ ] While the `transfer(...)` and `transferFrom(...)` uses safe maths, there are checks so the function is able to return
+    **true** and **false** instead of throwing an error.
+* [x] `transfer(...)` and `transferFrom(...)` will only be enabled after the *PreSale* contract is `finalize()`d, AFTER the
+  `allowTransfers(...)` is called with a `true` parameter.
+* [x] `changeController(...)` does NOT have a `acceptController()` to prevent errorneous transfers of ownership of the token contract.
+  This may not be appropriate as this function may need to be called from another contract.
+* [x] ETH contributed to the crowdsale contract is accumulated in the crowdsale contract. The owner must call `PreSale.claimTokens(0)` to
+  transfer the ETH to the owner (`controller`) of the contract. See [Recommendations](#recommendations).
+* [x] Any ETH or tokens accidentally sent to the *PreSale* contract can be recovered using the `claimTokens(...)` function.
+* [ ] Check potential division by zero.
+* [ ] All numbers used are **uint** (which is **uint256**), with the exception of `decimals`, reducing the risk of errors from type
+  conversions.
+* [ ] Areas with potential overflow errors in `transfer(...)` and `transferFrom(...)` have the logic to prevent overflows.
+* [ ] Areas with potential underflow errors in `transfer(...)` and `transferFrom(...)` have the logic to prevent underflows.
+* [x] Function and event names are differentiated by case - function names begin with a lowercase character and event names begin 
+  with an uppercase character.
+* [x] During the crowdsale, ETH can be contributed to the *PreSale* default `function ()` and the `proxyPayment(...)` function. ETH can
+  also be contributed to the *AIT* (*MiniMeToken*) default `function ()`.
+* [x] The testing has been done using geth v1.6.5-stable-cf87713d/darwin-amd64/go1.8.3 and solc 0.4.11+commit.68ef5810.Darwin.appleclang
+  instead of one of the testing frameworks and JavaScript VMs to simulate the live environment as closely as possible.
+* [x] The test scripts can be found in [test/01_test1.sh](test/01_test1.sh).
+* [x] The test results can be found in [test/test1results.txt](test/test1results.txt) for the results and
+  [test/test1output.txt](test/test1output.txt) for the full output.
+* [x] There is a switch to pause and then restart the contract being able to receive contributions.
+* [x] The [`transfer(...)`](https://github.com/ConsenSys/smart-contract-best-practices#be-aware-of-the-tradeoffs-between-send-transfer-and-callvalue)
+  call is the last statements in the control flow of `PreSale.claimTokens(...)` to prevent the hijacking of the control flow.
+* [X] The token contract does not implement the check for the number of bytes sent to functions to reject errors from the
+  [short address attack](http://vessenes.com/the-erc20-short-address-attack-explained/). This technique is now NOT recommended.
+* [x] This contract implement a modified `approve(...)` functions to mitigate the risk of 
+  [double spending](https://docs.google.com/document/d/1YLPtQxZu1UAvO9cZ1O2RPXBbT0mooh4DYKjA_jp-RLM/edit#) by requiring the account to set
+  a non-zero approval limit to 0 before being to modifying this limit.
 
 <br />
 
@@ -239,8 +252,6 @@ See [test/README.md](test/README.md), [test/01_test1.sh](test/01_test1.sh) and [
 
 * [x] [AIT.md](code-review/AIT.md)
   * [x] contract AIT is MiniMeToken
-* [x] [Migrations.md](code-review/Migrations.md) (Used by [truffle](http://truffle.readthedocs.io/en/beta/getting_started/migrations/)).
-  * [x] contract Migrations
 * [x] [MiniMeToken.md](code-review/MiniMeToken.md)
   * [x] contract TokenController
   * [x] contract Controlled
@@ -257,6 +268,8 @@ See [test/README.md](test/README.md), [test/01_test1.sh](test/01_test1.sh) and [
 
 Outside Scope:
 
+* [x] [Migrations.md](code-review/Migrations.md) (Used by [truffle](http://truffle.readthedocs.io/en/beta/getting_started/migrations/)).
+  * [x] contract Migrations
 * [MultiSigWallet.md](code-review/MultiSigWallet.md)
 
   This is the same source code as the ConsenSys [MultiSigWallet.sol](https://github.com/ConsenSys/MultiSigWallet/blob/e3240481928e9d2b57517bd192394172e31da487/contracts/solidity/MultiSigWallet.sol), with the 
@@ -269,4 +282,4 @@ Outside Scope:
 
 <br />
 
-(c) BokkyPooBah / Bok Consulting Pty Ltd for Aigang Network - July 15 2017
+(c) BokkyPooBah / Bok Consulting Pty Ltd for Aigang Network - July 18 2017
