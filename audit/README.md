@@ -156,8 +156,8 @@ See [test/README.md](test/README.md), [test/01_test1.sh](test/01_test1.sh) and [
 
 * [x] [AIT.md](code-review/AIT.md)
   * [x] contract AIT is MiniMeToken
-* [Migrations.md](code-review/Migrations.md)
-  * contract Migrations
+* [x] [Migrations.md](code-review/Migrations.md) (Used by [truffle](http://truffle.readthedocs.io/en/beta/getting_started/migrations/)).
+  * [x] contract Migrations
 * [MiniMeToken.md](code-review/MiniMeToken.md)
   * [x] contract TokenController
   * [x] contract Controlled
