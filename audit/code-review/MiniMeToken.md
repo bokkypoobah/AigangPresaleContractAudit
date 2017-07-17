@@ -1,6 +1,16 @@
 # MiniMeToken
 
-Source file [../../contracts/MiniMeToken.sol](../../contracts/MiniMeToken.sol)
+Source file [../../contracts/MiniMeToken.sol](../../contracts/MiniMeToken.sol).
+
+The minimum Solidity version number is the only difference between this source file and the original [https://github.com/Giveth/minime/blob/68627576cac9ff349ff3540c71e0e61f7e2b03fa/contracts/MiniMeToken.sol](https://github.com/Giveth/minime/blob/68627576cac9ff349ff3540c71e0e61f7e2b03fa/contracts/MiniMeToken.sol) are:
+
+    diff MiniMeToken.sol MiniMeToken.sol_original 
+    1c1
+    < pragma solidity ^0.4.11;
+    ---
+    > pragma solidity ^0.4.6;
+    588a589
+    > 
 
 <br />
 
