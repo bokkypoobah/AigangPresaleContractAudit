@@ -90,7 +90,8 @@ printf "ENDTIME            = '$ENDTIME' '$ENDTIME_S'\n"
 # Make copy of SOL file and modify start and end times ---
 `cp $CONTRACTSDIR/$AITSOL $AITTEMPSOL`
 `cp $CONTRACTSDIR/$MIGRATIONSSOL $MIGRATIONSTEMPSOL`
-`cp $CONTRACTSDIR/$MINIMETOKENSOL $MINIMETOKENTEMPSOL`
+# `cp $CONTRACTSDIR/$MINIMETOKENSOL $MINIMETOKENTEMPSOL`
+`cp modifiedContracts/$MINIMETOKENSOL $MINIMETOKENTEMPSOL`
 `cp $CONTRACTSDIR/$PRESALESOL $PRESALETEMPSOL`
 `cp $CONTRACTSDIR/$SAFEMATHSOL $SAFEMATHTEMPSOL`
 
@@ -267,7 +268,7 @@ var maxAitSupply = "1000000000000000000000000";
 // Minimum investment in wei
 var minimumInvestment = 10;
 var startBlock = parseInt(eth.blockNumber) + 5;
-var endBlock = parseInt(eth.blockNumber) + 10;
+var endBlock = parseInt(eth.blockNumber) + 20;
 console.log("RESULT: " + initialisePresaleMessage);
 var initialisePresaleTx = ps.initialize(maxAitSupply, minimumInvestment, startBlock, endBlock, {from: contractOwnerAccount, gas: 2000000});
 while (txpool.status.pending > 0) {
@@ -293,7 +294,7 @@ console.log("RESULT: ");
 // -----------------------------------------------------------------------------
 var validContribution1Message = "Send Valid Contribution - 100 ETH From Account3";
 console.log("RESULT: " + validContribution1Message);
-var validContribution1Tx = eth.sendTransaction({from: account3, to: psAddress, gas: 400000, value: web3.toWei("100", "ether")});
+var validContribution1Tx = eth.sendTransaction({from: account3, to: psAddress, gas: 400000, value: web3.toWei("87", "ether")});
 var validContribution2Tx = eth.sendTransaction({from: account4, to: aitAddress, gas: 400000, value: web3.toWei("10", "ether")});
 while (txpool.status.pending > 0) {
 }
@@ -302,6 +303,34 @@ printTxData("validContribution2Tx", validContribution2Tx);
 printBalances();
 failIfGasEqualsGasUsed(validContribution1Tx, validContribution1Message + " ac3->ps 100 ETH");
 failIfGasEqualsGasUsed(validContribution2Tx, validContribution1Message + " ac4->ait 10 ETH");
+printCrowdsaleContractDetails();
+printTokenContractDetails();
+console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+var validContribution2Message = "Send Valid Contribution - 1 ETH From Account3";
+console.log("RESULT: " + validContribution2Message);
+var validContribution3Tx = eth.sendTransaction({from: account3, to: psAddress, gas: 400000, value: web3.toWei("1", "ether")});
+while (txpool.status.pending > 0) {
+}
+printTxData("validContribution3Tx", validContribution3Tx);
+printBalances();
+failIfGasEqualsGasUsed(validContribution3Tx, validContribution2Message + " ac3->ps 1 ETH");
+printCrowdsaleContractDetails();
+printTokenContractDetails();
+console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+var validContribution3Message = "Send Valid Contribution - 3 ETH From Account3";
+console.log("RESULT: " + validContribution3Message);
+var validContribution4Tx = eth.sendTransaction({from: account3, to: psAddress, gas: 400000, value: web3.toWei("3", "ether")});
+while (txpool.status.pending > 0) {
+}
+printTxData("validContribution4Tx", validContribution4Tx);
+printBalances();
+failIfGasEqualsGasUsed(validContribution4Tx, validContribution3Message + " ac3->ps 3 ETH");
 printCrowdsaleContractDetails();
 printTokenContractDetails();
 console.log("RESULT: ");

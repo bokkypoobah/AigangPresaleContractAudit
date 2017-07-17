@@ -88,7 +88,9 @@ contract Controlled {
     }
 }
 
+// BK Ok
 contract ApproveAndCallFallBack {
+    // BK Ok
     function receiveApproval(address from, uint256 _amount, address _token, bytes _data);
 }
 
@@ -97,9 +99,13 @@ contract ApproveAndCallFallBack {
 ///  token controller contract, which Giveth will call a "Campaign"
 contract MiniMeToken is Controlled {
 
+    // BK Ok
     string public name;                //The Token's name: e.g. DigixDAO Tokens
+    // BK Ok - Using uint8 instead on the non-standard uint256
     uint8 public decimals;             //Number of decimals of the smallest unit
+    // BK Ok
     string public symbol;              //An identifier: e.g. REP
+    // BK Ok
     string public version = 'MMT_0.1'; //An arbitrary versioning scheme
 
 
@@ -130,12 +136,15 @@ contract MiniMeToken is Controlled {
     // `balances` is the map that tracks the balance of each address, in this
     //  contract when the balance changes the block number that the change
     //  occurred is also included in the map
+    // BK Ok
     mapping (address => Checkpoint[]) balances;
 
     // `allowed` tracks any extra transfer rights as in all ERC20 tokens
+    // BK Ok
     mapping (address => mapping (address => uint256)) allowed;
 
     // Tracks the history of the `totalSupply` of the token
+    // BK Ok
     Checkpoint[] totalSupplyHistory;
 
     // Flag that determines if the token is transferable or not.

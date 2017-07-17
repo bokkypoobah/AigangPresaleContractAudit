@@ -226,10 +226,29 @@ function printTokenContractDetails() {
     console.log("RESULT: token.name=" + contract.name());
     console.log("RESULT: token.decimals=" + decimals);
     console.log("RESULT: token.totalSupply=" + contract.totalSupply().shift(-decimals));
+    // console.log("RESULT: token.totalSupplyHistory=" + contract.totalSupplyHistory());
     // console.log("RESULT: token.mintingFinished=" + contract.mintingFinished());
 
     var latestBlock = eth.blockNumber;
     var i;
+
+    var totalSupplyHistoryLength = contract.totalSupplyHistoryLength();
+    for (i = 0; i < totalSupplyHistoryLength; i++) {
+      var e = contract.totalSupplyHistory(i);
+      console.log("RESULT: totalSupplyHistory(" + i + ") = " + e[0] + " => " + e[1].shift(-decimals));
+    }
+
+    var balanceHistoryLength = contract.balanceHistoryLength(account3);
+    for (i = 0; i < balanceHistoryLength; i++) {
+      var e = contract.balanceHistory(account3, i);
+      console.log("RESULT: balanceHistory(" + account3 + ", " + i + ") = " + e[0] + " => " + e[1].shift(-decimals));
+    }
+
+    var balanceHistoryLength = contract.balanceHistoryLength(account4);
+    for (i = 0; i < balanceHistoryLength; i++) {
+      var e = contract.balanceHistory(account4, i);
+      console.log("RESULT: balanceHistory(" + account4 + ", " + i + ") = " + e[0] + " => " + e[1].shift(-decimals));
+    }
 
     var approvalEvents = contract.Approval({}, { fromBlock: tokenFromBlock, toBlock: latestBlock });
     i = 0;

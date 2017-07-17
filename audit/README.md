@@ -161,7 +161,7 @@ See [test/README.md](test/README.md), [test/01_test1.sh](test/01_test1.sh) and [
 * [MiniMeToken.md](code-review/MiniMeToken.md)
   * [x] contract TokenController
   * [x] contract Controlled
-  * contract ApproveAndCallFallBack
+  * [x] contract ApproveAndCallFallBack
   * contract MiniMeToken is Controlled
   * [x] contract MiniMeTokenFactory
 * [x] [PreSale.md](code-review/PreSale.md)

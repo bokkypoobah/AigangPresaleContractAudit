@@ -1,6 +1,6 @@
  # Account                                             EtherBalanceChange                          Token Name
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
- 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.000000000000000000           0.000000000000000000 Account #0 - Miner
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       40.000000000000000000           0.000000000000000000 Account #0 - Miner
  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433        0.000000000000000000           0.000000000000000000 Account #1 - Contract Owner
  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3
@@ -16,11 +16,11 @@
 
 
 Deploy MiniMeTokenFactory
-mmtfAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688 gas=4000000 gasUsed=2124002 costETH=0.038232036 costUSD=7.854848260272 @ ETH/USD=205.452 gasPrice=18000000000 block=2 txId=0x6238d163eba5289b017c95dfadd8be622332bd89615dd73c75084692f4e43d4f
+mmtfAddress=0x1aa3ebfd892954f32a37b698673505d1dafef4f5 gas=4000000 gasUsed=2226830 costETH=0.04008294 costUSD=8.23512018888 @ ETH/USD=205.452 gasPrice=18000000000 block=349 txId=0x93980fd9ad5344ee091e4d7c6d4d9aac4d4def5577dffe9b521eea0195f2a5ba
  # Account                                             EtherBalanceChange                          Token Name
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
- 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       10.038232036000000000           0.000000000000000000 Account #0 - Miner
- 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.038232036000000000           0.000000000000000000 Account #1 - Contract Owner
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       50.040082940000000000           0.000000000000000000 Account #0 - Miner
+ 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.040082940000000000           0.000000000000000000 Account #1 - Contract Owner
  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3
  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4
@@ -29,7 +29,7 @@ mmtfAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688 gas=4000000 gasUsed=21240
  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+10 0x1aa3ebfd892954f32a37b698673505d1dafef4f5        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
                                                                                     0.000000000000000000 Total Token Balances
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -37,11 +37,11 @@ mmtfAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688 gas=4000000 gasUsed=21240
 PASS Deploy MiniMeTokenFactory
 
 Deploy AIT
-aitAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d gas=4000000 gasUsed=1973065 costETH=0.03551517 costUSD=7.29666270684 @ ETH/USD=205.452 gasPrice=18000000000 block=4 txId=0xb4c0597fc0a6d5024f6b340d8166b1ec112066a55f76d8788b710c0363bf99ec
+aitAddress=0xe00ccdd988b1395489290c4c22e85a9c989f40f6 gas=4000000 gasUsed=2075827 costETH=0.037364886 costUSD=7.676690558472 @ ETH/USD=205.452 gasPrice=18000000000 block=351 txId=0x06d714142436f3e34d520fede2af9125f91d84ec5ee3b9494c8bb7fbd2543709
  # Account                                             EtherBalanceChange                          Token Name
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
- 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       20.073747206000000000           0.000000000000000000 Account #0 - Miner
- 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.073747206000000000           0.000000000000000000 Account #1 - Contract Owner
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       60.077447826000000000           0.000000000000000000 Account #0 - Miner
+ 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.077447826000000000           0.000000000000000000 Account #1 - Contract Owner
  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3
  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4
@@ -50,14 +50,14 @@ aitAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d gas=4000000 gasUsed=197306
  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 AIT
+10 0x1aa3ebfd892954f32a37b698673505d1dafef4f5        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+11 0xe00ccdd988b1395489290c4c22e85a9c989f40f6        0.000000000000000000           0.000000000000000000 AIT
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
                                                                                     0.000000000000000000 Total Token Balances
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 
 PASS Deploy AIT
-tokenContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+tokenContractAddress=0xe00ccdd988b1395489290c4c22e85a9c989f40f6
 token.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 token.symbol=AIT
 token.name=Aigang Investor Token
@@ -65,11 +65,11 @@ token.decimals=18
 token.totalSupply=0
 
 Deploy PreSale
-psAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff gas=4000000 gasUsed=1035889 costETH=0.018646002 costUSD=3.830858402904 @ ETH/USD=205.452 gasPrice=18000000000 block=7 txId=0x4e0b7de6a6cca7af5b9de8303cb19bd812be93dae9d08a8c4c3f9c49a80d1a51
+psAddress=0xf3d9d349146b55cf4e0b622edc71bc4af76b014c gas=4000000 gasUsed=1035889 costETH=0.018646002 costUSD=3.830858402904 @ ETH/USD=205.452 gasPrice=18000000000 block=353 txId=0x31bc8a88d362723d4ec2f4de2ae39af2c0eb0a7f1e0cf266c8e9cb7b0ec59bb7
  # Account                                             EtherBalanceChange                          Token Name
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
- 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       35.092393208000000000           0.000000000000000000 Account #0 - Miner
- 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.092393208000000000           0.000000000000000000 Account #1 - Contract Owner
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       70.096093828000000000           0.000000000000000000 Account #0 - Miner
+ 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.096093828000000000           0.000000000000000000 Account #1 - Contract Owner
  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3
  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4
@@ -78,19 +78,19 @@ psAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff gas=4000000 gasUsed=1035889
  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 AIT
-12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 PreSale
+10 0x1aa3ebfd892954f32a37b698673505d1dafef4f5        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+11 0xe00ccdd988b1395489290c4c22e85a9c989f40f6        0.000000000000000000           0.000000000000000000 AIT
+12 0xf3d9d349146b55cf4e0b622edc71bc4af76b014c        0.000000000000000000           0.000000000000000000 PreSale
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
                                                                                     0.000000000000000000 Total Token Balances
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 
 PASS Deploy PreSale
-crowdsaleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+crowdsaleContractAddress=0xf3d9d349146b55cf4e0b622edc71bc4af76b014c
 crowdsale.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 crowdsale.exchangeRate=1
 crowdsale.investor_bonus=25
-crowdsale.ait=0x0e946b999033257976aa5cbe0e3530618ca1582d
+crowdsale.ait=0xe00ccdd988b1395489290c4c22e85a9c989f40f6
 crowdsale.totalSupplyCap=0
 crowdsale.totalSold=0
 crowdsale.minimum_investment=0
@@ -100,7 +100,7 @@ crowdsale.initializedBlock=0
 crowdsale.finalizedBlock=0
 crowdsale.paused=false
 crowdsale.transferable=false
-tokenContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+tokenContractAddress=0xe00ccdd988b1395489290c4c22e85a9c989f40f6
 token.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 token.symbol=AIT
 token.name=Aigang Investor Token
@@ -108,11 +108,11 @@ token.decimals=18
 token.totalSupply=0
 
 AIT ChangeController To PreSale
-aitChangeControllerTx gas=2000000 gasUsed=28230 costETH=0.00050814 costUSD=0.10439837928 @ ETH/USD=205.452 gasPrice=18000000000 block=9 txId=0x6f0b8f6d4a43af8d277713c95179e0c012b448b1c38ce56621c13656ed711e99
+aitChangeControllerTx gas=2000000 gasUsed=28230 costETH=0.00050814 costUSD=0.10439837928 @ ETH/USD=205.452 gasPrice=18000000000 block=355 txId=0x9670ea48d69858e29509ec0277ccabf84ea345395c825f9e9a609391102ca6a2
  # Account                                             EtherBalanceChange                          Token Name
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
- 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       45.092901348000000000           0.000000000000000000 Account #0 - Miner
- 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.092901348000000000           0.000000000000000000 Account #1 - Contract Owner
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       80.096601968000000000           0.000000000000000000 Account #0 - Miner
+ 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.096601968000000000           0.000000000000000000 Account #1 - Contract Owner
  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3
  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4
@@ -121,19 +121,19 @@ aitChangeControllerTx gas=2000000 gasUsed=28230 costETH=0.00050814 costUSD=0.104
  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 AIT
-12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 PreSale
+10 0x1aa3ebfd892954f32a37b698673505d1dafef4f5        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+11 0xe00ccdd988b1395489290c4c22e85a9c989f40f6        0.000000000000000000           0.000000000000000000 AIT
+12 0xf3d9d349146b55cf4e0b622edc71bc4af76b014c        0.000000000000000000           0.000000000000000000 PreSale
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
                                                                                     0.000000000000000000 Total Token Balances
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 
 PASS AIT ChangeController To PreSale
-crowdsaleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+crowdsaleContractAddress=0xf3d9d349146b55cf4e0b622edc71bc4af76b014c
 crowdsale.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 crowdsale.exchangeRate=1
 crowdsale.investor_bonus=25
-crowdsale.ait=0x0e946b999033257976aa5cbe0e3530618ca1582d
+crowdsale.ait=0xe00ccdd988b1395489290c4c22e85a9c989f40f6
 crowdsale.totalSupplyCap=0
 crowdsale.totalSold=0
 crowdsale.minimum_investment=0
@@ -143,19 +143,19 @@ crowdsale.initializedBlock=0
 crowdsale.finalizedBlock=0
 crowdsale.paused=false
 crowdsale.transferable=false
-tokenContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
-token.controller=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+tokenContractAddress=0xe00ccdd988b1395489290c4c22e85a9c989f40f6
+token.controller=0xf3d9d349146b55cf4e0b622edc71bc4af76b014c
 token.symbol=AIT
 token.name=Aigang Investor Token
 token.decimals=18
 token.totalSupply=0
 
 Initialise PreSale
-initialisePresaleTx gas=2000000 gasUsed=127040 costETH=0.00228672 costUSD=0.46981119744 @ ETH/USD=205.452 gasPrice=18000000000 block=11 txId=0x442b26456e760b694de470d8b0969a264c155509e4943afeec333fcfb16b36f4
+initialisePresaleTx gas=2000000 gasUsed=127256 costETH=0.002290608 costUSD=0.470609994816 @ ETH/USD=205.452 gasPrice=18000000000 block=357 txId=0x0187bf69ca5de1b94f2684afa2bc80ce7327f03586fc086ee60093c713897f6c
  # Account                                             EtherBalanceChange                          Token Name
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
- 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       55.095188068000000000           0.000000000000000000 Account #0 - Miner
- 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.095188068000000000           0.000000000000000000 Account #1 - Contract Owner
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       90.098892576000000000           0.000000000000000000 Account #0 - Miner
+ 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.098892576000000000           0.000000000000000000 Account #1 - Contract Owner
  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3
  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4
@@ -164,171 +164,288 @@ initialisePresaleTx gas=2000000 gasUsed=127040 costETH=0.00228672 costUSD=0.4698
  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 AIT
-12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 PreSale
+10 0x1aa3ebfd892954f32a37b698673505d1dafef4f5        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+11 0xe00ccdd988b1395489290c4c22e85a9c989f40f6        0.000000000000000000           0.000000000000000000 AIT
+12 0xf3d9d349146b55cf4e0b622edc71bc4af76b014c        0.000000000000000000           0.000000000000000000 PreSale
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
                                                                                     0.000000000000000000 Total Token Balances
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 
 PASS Initialise PreSale
-crowdsaleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+crowdsaleContractAddress=0xf3d9d349146b55cf4e0b622edc71bc4af76b014c
 crowdsale.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 crowdsale.exchangeRate=1
 crowdsale.investor_bonus=25
-crowdsale.ait=0x0e946b999033257976aa5cbe0e3530618ca1582d
+crowdsale.ait=0xe00ccdd988b1395489290c4c22e85a9c989f40f6
 crowdsale.totalSupplyCap=1000000
 crowdsale.totalSold=0
 crowdsale.minimum_investment=1e-17
-crowdsale.startBlock=14
-crowdsale.endBlock=19
-crowdsale.initializedBlock=11
+crowdsale.startBlock=360
+crowdsale.endBlock=375
+crowdsale.initializedBlock=357
 crowdsale.finalizedBlock=0
 crowdsale.paused=false
 crowdsale.transferable=false
-tokenContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
-token.controller=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+tokenContractAddress=0xe00ccdd988b1395489290c4c22e85a9c989f40f6
+token.controller=0xf3d9d349146b55cf4e0b622edc71bc4af76b014c
 token.symbol=AIT
 token.name=Aigang Investor Token
 token.decimals=18
 token.totalSupply=0
 
-Waiting until startBlock #14 currentBlock=11
-Waited until startBlock #14 currentBlock=15
+Waiting until startBlock #360 currentBlock=357
+Waited until startBlock #360 currentBlock=361
 
 Send Valid Contribution - 100 ETH From Account3
-validContribution1Tx gas=400000 gasUsed=129872 costETH=0.002337696 costUSD=0.480284318592 @ ETH/USD=205.452 gasPrice=18000000000 block=17 txId=0xeb94be12764aedf815827e67bdb5ca00195b6fdb7fdbf20b8e7a270a02b44386
-validContribution2Tx gas=400000 gasUsed=88187 costETH=0.001587366 costUSD=0.326127519432 @ ETH/USD=205.452 gasPrice=18000000000 block=17 txId=0x96d6a13ed07c61330b5a1c7205ca6dd6de491e50a231cb7b76834446b5198bc0
+validContribution1Tx gas=400000 gasUsed=129940 costETH=0.00233892 costUSD=0.48053579184 @ ETH/USD=205.452 gasPrice=18000000000 block=363 txId=0xfb16bf048cbf0096172c495dfddc6e5f29e2e7510da761d24cce074fb09b45e0
+validContribution2Tx gas=400000 gasUsed=88278 costETH=0.001589004 costUSD=0.326464049808 @ ETH/USD=205.452 gasPrice=18000000000 block=363 txId=0xbe15a1c0444d5bbbdbd83e1ca7012215f90a30bcb5ecd70fc21a3e28ab190e53
  # Account                                             EtherBalanceChange                          Token Name
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
- 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       85.099113130000000000           0.000000000000000000 Account #0 - Miner
- 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.095188068000000000           0.000000000000000000 Account #1 - Contract Owner
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      120.102820500000000000           0.000000000000000000 Account #0 - Miner
+ 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.098892576000000000           0.000000000000000000 Account #1 - Contract Owner
  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
- 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0     -100.002337696000000000         100.000000000000000000 Account #3
- 4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.001587366000000000          10.000000000000000000 Account #4
+ 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0      -87.002338920000000000          87.000000000000000000 Account #3
+ 4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.001589004000000000          10.000000000000000000 Account #4
  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 AIT
-12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff      110.000000000000000000           0.000000000000000000 PreSale
+10 0x1aa3ebfd892954f32a37b698673505d1dafef4f5        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+11 0xe00ccdd988b1395489290c4c22e85a9c989f40f6        0.000000000000000000           0.000000000000000000 AIT
+12 0xf3d9d349146b55cf4e0b622edc71bc4af76b014c       97.000000000000000000           0.000000000000000000 PreSale
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-                                                                                  110.000000000000000000 Total Token Balances
+                                                                                   97.000000000000000000 Total Token Balances
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 
 PASS Send Valid Contribution - 100 ETH From Account3 ac3->ps 100 ETH
 PASS Send Valid Contribution - 100 ETH From Account3 ac4->ait 10 ETH
-crowdsaleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+crowdsaleContractAddress=0xf3d9d349146b55cf4e0b622edc71bc4af76b014c
 crowdsale.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 crowdsale.exchangeRate=1
 crowdsale.investor_bonus=25
-crowdsale.ait=0x0e946b999033257976aa5cbe0e3530618ca1582d
+crowdsale.ait=0xe00ccdd988b1395489290c4c22e85a9c989f40f6
 crowdsale.totalSupplyCap=1000000
-crowdsale.totalSold=110
+crowdsale.totalSold=97
 crowdsale.minimum_investment=1e-17
-crowdsale.startBlock=14
-crowdsale.endBlock=19
-crowdsale.initializedBlock=11
+crowdsale.startBlock=360
+crowdsale.endBlock=375
+crowdsale.initializedBlock=357
 crowdsale.finalizedBlock=0
 crowdsale.paused=false
 crowdsale.transferable=false
-tokenContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
-token.controller=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+tokenContractAddress=0xe00ccdd988b1395489290c4c22e85a9c989f40f6
+token.controller=0xf3d9d349146b55cf4e0b622edc71bc4af76b014c
 token.symbol=AIT
 token.name=Aigang Investor Token
 token.decimals=18
-token.totalSupply=110
-Transfer 0 #17: _from=0x0000000000000000000000000000000000000000 _to=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 _amount=100
-Transfer 1 #17: _from=0x0000000000000000000000000000000000000000 _to=0xa44a08d3f6933c69212114bb66e2df1813651844 _amount=10
+token.totalSupply=97
+totalSupplyHistory(0) = 363 => 97
+balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 363 => 87
+balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 363 => 10
+Transfer 0 #363: _from=0x0000000000000000000000000000000000000000 _to=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 _amount=87
+Transfer 1 #363: _from=0x0000000000000000000000000000000000000000 _to=0xa44a08d3f6933c69212114bb66e2df1813651844 _amount=10
 
-Waiting until endBlock #19 currentBlock=18
-Waited until endBlock #19 currentBlock=20
-
-Claim Ethers
-claimEthersTx gas=2000000 gasUsed=29159 costETH=0.000524862 costUSD=0.107833947624 @ ETH/USD=205.452 gasPrice=18000000000 block=22 txId=0xd895ae0c210f493f3a6e58abf85309d7d02cb1dd21654cc1f0746df95091739d
+Send Valid Contribution - 1 ETH From Account3
+validContribution3Tx gas=400000 gasUsed=87020 costETH=0.00156636 costUSD=0.32181179472 @ ETH/USD=205.452 gasPrice=18000000000 block=365 txId=0x65ec1d0e42bf3da6b9a76422d0208380d3a2e2bd966339a89f19c694e6efcc82
  # Account                                             EtherBalanceChange                          Token Name
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
- 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      110.099637992000000000           0.000000000000000000 Account #0 - Miner
- 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433      109.904287070000000000           0.000000000000000000 Account #1 - Contract Owner
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      130.104386860000000000           0.000000000000000000 Account #0 - Miner
+ 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.098892576000000000           0.000000000000000000 Account #1 - Contract Owner
  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
- 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0     -100.002337696000000000         100.000000000000000000 Account #3
- 4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.001587366000000000          10.000000000000000000 Account #4
+ 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0      -88.003905280000000000          88.000000000000000000 Account #3
+ 4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.001589004000000000          10.000000000000000000 Account #4
  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 AIT
-12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 PreSale
+10 0x1aa3ebfd892954f32a37b698673505d1dafef4f5        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+11 0xe00ccdd988b1395489290c4c22e85a9c989f40f6        0.000000000000000000           0.000000000000000000 AIT
+12 0xf3d9d349146b55cf4e0b622edc71bc4af76b014c       98.000000000000000000           0.000000000000000000 PreSale
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-                                                                                  110.000000000000000000 Total Token Balances
+                                                                                   98.000000000000000000 Total Token Balances
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+
+PASS Send Valid Contribution - 1 ETH From Account3 ac3->ps 1 ETH
+crowdsaleContractAddress=0xf3d9d349146b55cf4e0b622edc71bc4af76b014c
+crowdsale.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+crowdsale.exchangeRate=1
+crowdsale.investor_bonus=25
+crowdsale.ait=0xe00ccdd988b1395489290c4c22e85a9c989f40f6
+crowdsale.totalSupplyCap=1000000
+crowdsale.totalSold=98
+crowdsale.minimum_investment=1e-17
+crowdsale.startBlock=360
+crowdsale.endBlock=375
+crowdsale.initializedBlock=357
+crowdsale.finalizedBlock=0
+crowdsale.paused=false
+crowdsale.transferable=false
+tokenContractAddress=0xe00ccdd988b1395489290c4c22e85a9c989f40f6
+token.controller=0xf3d9d349146b55cf4e0b622edc71bc4af76b014c
+token.symbol=AIT
+token.name=Aigang Investor Token
+token.decimals=18
+token.totalSupply=98
+totalSupplyHistory(0) = 363 => 97
+totalSupplyHistory(1) = 365 => 98
+balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 363 => 87
+balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 1) = 365 => 88
+balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 363 => 10
+Transfer 0 #365: _from=0x0000000000000000000000000000000000000000 _to=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 _amount=1
+
+Send Valid Contribution - 3 ETH From Account3
+validContribution4Tx gas=400000 gasUsed=87020 costETH=0.00156636 costUSD=0.32181179472 @ ETH/USD=205.452 gasPrice=18000000000 block=369 txId=0x9fcc4b3f3a6410df58fa07941377169b07d70e41c1fb18e2076219b42f290a11
+ # Account                                             EtherBalanceChange                          Token Name
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      150.105953220000000000           0.000000000000000000 Account #0 - Miner
+ 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.098892576000000000           0.000000000000000000 Account #1 - Contract Owner
+ 2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
+ 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0      -91.005471640000000000          91.000000000000000000 Account #3
+ 4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.001589004000000000          10.000000000000000000 Account #4
+ 5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
+ 6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
+ 7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
+ 8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
+ 9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
+10 0x1aa3ebfd892954f32a37b698673505d1dafef4f5        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+11 0xe00ccdd988b1395489290c4c22e85a9c989f40f6        0.000000000000000000           0.000000000000000000 AIT
+12 0xf3d9d349146b55cf4e0b622edc71bc4af76b014c      101.000000000000000000           0.000000000000000000 PreSale
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+                                                                                  101.000000000000000000 Total Token Balances
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+
+PASS Send Valid Contribution - 3 ETH From Account3 ac3->ps 3 ETH
+crowdsaleContractAddress=0xf3d9d349146b55cf4e0b622edc71bc4af76b014c
+crowdsale.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+crowdsale.exchangeRate=1
+crowdsale.investor_bonus=25
+crowdsale.ait=0xe00ccdd988b1395489290c4c22e85a9c989f40f6
+crowdsale.totalSupplyCap=1000000
+crowdsale.totalSold=101
+crowdsale.minimum_investment=1e-17
+crowdsale.startBlock=360
+crowdsale.endBlock=375
+crowdsale.initializedBlock=357
+crowdsale.finalizedBlock=0
+crowdsale.paused=false
+crowdsale.transferable=false
+tokenContractAddress=0xe00ccdd988b1395489290c4c22e85a9c989f40f6
+token.controller=0xf3d9d349146b55cf4e0b622edc71bc4af76b014c
+token.symbol=AIT
+token.name=Aigang Investor Token
+token.decimals=18
+token.totalSupply=101
+totalSupplyHistory(0) = 363 => 97
+totalSupplyHistory(1) = 365 => 98
+totalSupplyHistory(2) = 369 => 101
+balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 363 => 87
+balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 1) = 365 => 88
+balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 2) = 369 => 91
+balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 363 => 10
+Transfer 0 #369: _from=0x0000000000000000000000000000000000000000 _to=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 _amount=3
+
+Waiting until endBlock #375 currentBlock=369
+Waited until endBlock #375 currentBlock=376
+
+Claim Ethers
+claimEthersTx gas=2000000 gasUsed=29159 costETH=0.000524862 costUSD=0.107833947624 @ ETH/USD=205.452 gasPrice=18000000000 block=378 txId=0x05b5800ba5e989d8ee8385f21616e4948ce66007a1ecca585f25a132e9db9abc
+ # Account                                             EtherBalanceChange                          Token Name
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      195.106478082000000000           0.000000000000000000 Account #0 - Miner
+ 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433      100.900582562000000000           0.000000000000000000 Account #1 - Contract Owner
+ 2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
+ 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0      -91.005471640000000000          91.000000000000000000 Account #3
+ 4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.001589004000000000          10.000000000000000000 Account #4
+ 5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
+ 6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
+ 7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
+ 8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
+ 9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
+10 0x1aa3ebfd892954f32a37b698673505d1dafef4f5        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+11 0xe00ccdd988b1395489290c4c22e85a9c989f40f6        0.000000000000000000           0.000000000000000000 AIT
+12 0xf3d9d349146b55cf4e0b622edc71bc4af76b014c        0.000000000000000000           0.000000000000000000 PreSale
+-- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+                                                                                  101.000000000000000000 Total Token Balances
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 
 PASS Claim Ethers
-crowdsaleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+crowdsaleContractAddress=0xf3d9d349146b55cf4e0b622edc71bc4af76b014c
 crowdsale.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 crowdsale.exchangeRate=1
 crowdsale.investor_bonus=25
-crowdsale.ait=0x0e946b999033257976aa5cbe0e3530618ca1582d
+crowdsale.ait=0xe00ccdd988b1395489290c4c22e85a9c989f40f6
 crowdsale.totalSupplyCap=1000000
-crowdsale.totalSold=110
+crowdsale.totalSold=101
 crowdsale.minimum_investment=1e-17
-crowdsale.startBlock=14
-crowdsale.endBlock=19
-crowdsale.initializedBlock=11
+crowdsale.startBlock=360
+crowdsale.endBlock=375
+crowdsale.initializedBlock=357
 crowdsale.finalizedBlock=0
 crowdsale.paused=false
 crowdsale.transferable=false
-tokenContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
-token.controller=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+tokenContractAddress=0xe00ccdd988b1395489290c4c22e85a9c989f40f6
+token.controller=0xf3d9d349146b55cf4e0b622edc71bc4af76b014c
 token.symbol=AIT
 token.name=Aigang Investor Token
 token.decimals=18
-token.totalSupply=110
+token.totalSupply=101
+totalSupplyHistory(0) = 363 => 97
+totalSupplyHistory(1) = 365 => 98
+totalSupplyHistory(2) = 369 => 101
+balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 363 => 87
+balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 1) = 365 => 88
+balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 2) = 369 => 91
+balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 363 => 10
 
 Initialise PreSale
-finalisePresaleTx gas=2000000 gasUsed=43070 costETH=0.00077526 costUSD=0.15927871752 @ ETH/USD=205.452 gasPrice=18000000000 block=24 txId=0xd6e67f6678ad664eb146ea56ba91da45b43e1db3e18ac46b2000bc9f7efacd9f
+finalisePresaleTx gas=2000000 gasUsed=43070 costETH=0.00077526 costUSD=0.15927871752 @ ETH/USD=205.452 gasPrice=18000000000 block=380 txId=0x9b233fd511e843a8f940cbab6bc3ce17483987896678a39cc07b5abff91a20dd
  # Account                                             EtherBalanceChange                          Token Name
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
- 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      120.100413252000000000           0.000000000000000000 Account #0 - Miner
- 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433      109.903511810000000000           0.000000000000000000 Account #1 - Contract Owner
+ 0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      205.107253342000000000           0.000000000000000000 Account #0 - Miner
+ 1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433      100.899807302000000000           0.000000000000000000 Account #1 - Contract Owner
  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
- 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0     -100.002337696000000000         100.000000000000000000 Account #3
- 4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.001587366000000000          10.000000000000000000 Account #4
+ 3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0      -91.005471640000000000          91.000000000000000000 Account #3
+ 4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.001589004000000000          10.000000000000000000 Account #4
  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 AIT
-12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 PreSale
+10 0x1aa3ebfd892954f32a37b698673505d1dafef4f5        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+11 0xe00ccdd988b1395489290c4c22e85a9c989f40f6        0.000000000000000000           0.000000000000000000 AIT
+12 0xf3d9d349146b55cf4e0b622edc71bc4af76b014c        0.000000000000000000           0.000000000000000000 PreSale
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-                                                                                  110.000000000000000000 Total Token Balances
+                                                                                  101.000000000000000000 Total Token Balances
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 
 PASS Initialise PreSale
-crowdsaleContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+crowdsaleContractAddress=0xf3d9d349146b55cf4e0b622edc71bc4af76b014c
 crowdsale.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 crowdsale.exchangeRate=1
 crowdsale.investor_bonus=25
-crowdsale.ait=0x0e946b999033257976aa5cbe0e3530618ca1582d
+crowdsale.ait=0xe00ccdd988b1395489290c4c22e85a9c989f40f6
 crowdsale.totalSupplyCap=1000000
-crowdsale.totalSold=110
+crowdsale.totalSold=101
 crowdsale.minimum_investment=1e-17
-crowdsale.startBlock=14
-crowdsale.endBlock=19
-crowdsale.initializedBlock=11
-crowdsale.finalizedBlock=24
+crowdsale.startBlock=360
+crowdsale.endBlock=375
+crowdsale.initializedBlock=357
+crowdsale.finalizedBlock=380
 crowdsale.paused=false
 crowdsale.transferable=false
-tokenContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
-token.controller=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+tokenContractAddress=0xe00ccdd988b1395489290c4c22e85a9c989f40f6
+token.controller=0xf3d9d349146b55cf4e0b622edc71bc4af76b014c
 token.symbol=AIT
 token.name=Aigang Investor Token
 token.decimals=18
-token.totalSupply=110
+token.totalSupply=101
+totalSupplyHistory(0) = 363 => 97
+totalSupplyHistory(1) = 365 => 98
+totalSupplyHistory(2) = 369 => 101
+balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 363 => 87
+balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 1) = 365 => 88
+balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 2) = 369 => 91
+balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 363 => 10
 
