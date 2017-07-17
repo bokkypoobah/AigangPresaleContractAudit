@@ -10,7 +10,7 @@ Commit [https://github.com/AigangNetwork/aigang-contracts/commit/6ec3a02f67903fb
 
 ## Table Of Contents
 
-* [Recommendation](#recommendation)
+* [Recommendations](#recommendations)
 * [Potential Vulnerabilities](#potential-vulnerabilities)
 * [Scope](#scope)
 * [Limitations](#limitations)
@@ -26,7 +26,7 @@ Commit [https://github.com/AigangNetwork/aigang-contracts/commit/6ec3a02f67903fb
 
 <hr />
 
-## Recommendation
+## Recommendations
 
 * **IMPORTANT** There is a potential problem with the controller for the **AIT** contract after the `PreSale.finalize()` function is called.
   In the Status.im crowdsale contracts, the `StatusContribution.finalize()` calls `SNT.changeController(sntController);`, where `sntController`
@@ -95,7 +95,14 @@ the deployment parameters are correctly set, including the constant parameters.
 
 ## Trustlessness Of The Crowdsale Contract
 
-* [ ] TODO - Evaluate
+* From the MiniMeToken comment for the `transferFrom(...)` function:
+
+  > The controller of this contract can move tokens around at will, this is important to recognize! Confirm that you trust the
+  > controller of this contract, which in most situations should be another open source smart contract or 0x0
+
+* The MiniMeToken contract `controller` has the ability to burn any accounts token balances using `destroyTokens(...)`.
+
+* The MiniMeToken contract `controller` has the ability to disable and enable any transfers using `enableTransfers(...)`.
 
 <br />
 
@@ -105,7 +112,7 @@ the deployment parameters are correctly set, including the constant parameters.
 
 * [ ] Currently with the PreSale contract being the owner of the MiniMe token contract, transfers can be suspended by the owner. To be
   completely trustless, the owner (`controller`) of the MiniMe token contract will need to be changed to a regular account. But this is seems
-  to not be possible.
+  to not be possible with the current set of contracts. See [Recommendations](#recommendations) for further information.
 
 * [ ] Check how the upgrade master can be set if the owner of the MiniMe token contract is the PreSale contract.
 
@@ -140,6 +147,17 @@ the deployment parameters are correctly set, including the constant parameters.
   and approvals are enabled. To enable transfers and approvals, the owner (`controller`) of the `PreSale` contract will have to call
   `allowTransfers(true)`.
 
+* The MiniMeToken contract records the totalSupply and balances in `uint128` data structures. The maximum size of these numbers, with 18 
+  decimal places is `new BigNumber("ffffffffffffffffffffffffffffffff", 16).shift(-18)` resulting in `340282366920938463463.374607431768211455`,
+  sufficient for most ERC20 tokens.
+
+* The MiniMeToken contract controller cannot be set to a multisig contract wallet as all transfers will be disabled.
+
+* The MiniMeToken contract `approve(...)` function has the following comment outlining the steps to change an approval limit
+
+  > To change the approve amount you first have to reduce the addresses` allowance to zero by calling `approve(_spender,0)` if it is not
+  > already 0 to mitigate the race condition described here: https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+
 <br />
 
 <hr />
@@ -158,11 +176,11 @@ See [test/README.md](test/README.md), [test/01_test1.sh](test/01_test1.sh) and [
   * [x] contract AIT is MiniMeToken
 * [x] [Migrations.md](code-review/Migrations.md) (Used by [truffle](http://truffle.readthedocs.io/en/beta/getting_started/migrations/)).
   * [x] contract Migrations
-* [MiniMeToken.md](code-review/MiniMeToken.md)
+* [x] [MiniMeToken.md](code-review/MiniMeToken.md)
   * [x] contract TokenController
   * [x] contract Controlled
   * [x] contract ApproveAndCallFallBack
-  * contract MiniMeToken is Controlled
+  * [x] contract MiniMeToken is Controlled
   * [x] contract MiniMeTokenFactory
 * [x] [PreSale.md](code-review/PreSale.md)
   * [x] contract PreSale is Controlled, TokenController
