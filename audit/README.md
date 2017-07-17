@@ -38,6 +38,17 @@ Commit [https://github.com/AigangNetwork/aigang-contracts/commit/6ec3a02f67903fb
 
   * [ ] ACTION Review whether there is a need to reassign the AIT contract controller when `PreSale.finalize()` is called.
 
+* **SAFETY IMPROVEMENT** There is no minimum funding goal and no refunds due if a minimum funding goal is not reached. It is far safer to
+  immediately transfer the contributed funds into a multisig, hardware or regular wallet.
+
+  Currently contributed ETH are accumulated in the crowdsale contract. The contract owner (`controller`) has to execute the
+  `PreSale.claimTokens(0)` function to transfer any ETH balances from the crowdsale contract to the owner's account. This
+  seems like a half-baked solution, as the contributed ETH should either automatically be transferred into an external wallet (safer),
+  or accumulated in the crowdsale and automatically transferred out to an external wallet when the `PreSale.finalize()` function is
+  called. The `PreSale.claimTokens(0)` is an emergency function to extract any tokens or ETH accidentally trapped in the crowdsale contract.
+
+  * [ ] ACTION Immediately transfer contributed ETH into a multisig, hardware or regular wallet.
+
 <br />
 
 <hr />
@@ -181,7 +192,7 @@ See [test/README.md](test/README.md), [test/01_test1.sh](test/01_test1.sh) and [
   * [ ] While the `transfer(...)` and `transferFrom(...)` uses safe maths, there are checks so the function is able to return **true** and **false** instead of throwing an error
 * [ ] `transfer(...)` and `transferFrom(...)` is only enabled when the crowdsale is finalised, when either the funds raised matches the cap, or the current time is beyond the crowdsale end date
 * [ ] `transferOwnership(...)` has `acceptOwnership()` to prevent errorneous transfers of ownership of the token contract
-* [ ] ETH contributed to the crowdsale contract is immediately moved to a separate wallet
+* [ ] ETH contributed to the crowdsale contract is accumulated in the crowdsale contract. The owner must call `PreSale.claimTokens(0)` to transfer the ETH to the owner (`controller`) of the contract. 
 * [ ] ETH cannot be trapped in the token contract as the default `function () payable` is not implemented
 * [ ] Check potential division by zero
 * [ ] All numbers used are **uint** (which is **uint256**), with the exception of `decimals`, reducing the risk of errors from type conversions
