@@ -17,7 +17,6 @@ Commit [https://github.com/AigangNetwork/aigang-contracts/commit/6ec3a02f67903fb
 * [Due Diligence](#due-diligence)
 * [Risks](#risks)
 * [Trustlessness Of The Crowdsale Contract](#trustlessness-of-the-crowdsale-contract)
-* [TODO](#todo)
 * [Notes](#notes)
 * [Testing](#testing)
 * [Crowdsale And Token Contracts Overview](#crowdsale-and-token-contracts-overview)
@@ -101,7 +100,41 @@ audited source code, and that the deployment parameters are correctly set, inclu
 
 ## Risks
 
-* [ ] TODO - Evaluate
+* The risk of funds getting stolen or hacked from the *PreSale* contract can be greatly reduced by transferring the contributed funds to
+  an external multisig, hardware or regular wallet.
+
+* This set of contracts have some complexity in the linkages between the separate *AIT* (*MiniMeToken*) and *PreSale* contract. The set up
+  of the contracts will need to be carefully verified after deployment to confirm that the contracts have been linked correctly.
+
+* **LOW IMPORTANCE** The *AIT* (*MiniMeToken*) contract does not have the function to transfer any other ERC20 tokens accidentally sent
+  to this contract. The Status.im version of the *MiniMeToken* has the following additional function and event:
+
+      //////////
+      // Safety Methods
+      //////////
+      
+          /// @notice This method can be used by the controller to extract mistakenly
+          ///  sent tokens to this contract.
+          /// @param _token The address of the token contract that you want to recover
+          ///  set to 0 in case you want to extract ether.
+          function claimTokens(address _token) onlyController {
+              if (_token == 0x0) {
+                  controller.transfer(this.balance);
+                  return;
+              }
+      
+              ERC20Token token = ERC20Token(_token);
+              uint balance = token.balanceOf(this);
+              token.transfer(controller, balance);
+              ClaimedTokens(_token, controller, balance);
+          }
+      
+      ////////////////
+      // Events
+      ////////////////
+      
+          event ClaimedTokens(address indexed _token, address indexed _controller, uint _amount);
+
 
 <br />
 
@@ -114,21 +147,11 @@ audited source code, and that the deployment parameters are correctly set, inclu
   > The controller of this contract can move tokens around at will, this is important to recognize! Confirm that you trust the
   > controller of this contract, which in most situations should be another open source smart contract or 0x0
 
-* The MiniMeToken contract `controller` has the ability to burn any accounts token balances using `destroyTokens(...)`.
-
-* The MiniMeToken contract `controller` has the ability to disable and enable any transfers using `enableTransfers(...)`.
-
-<br />
-
-<hr />
-
-## TODO
-
-* [ ] Currently with the PreSale contract being the owner of the MiniMe token contract, transfers can be suspended by the owner. To be
-  completely trustless, the owner (`controller`) of the MiniMe token contract will need to be changed to a regular account. But this is seems
-  to not be possible with the current set of contracts. See [Recommendations](#recommendations) for further information.
-
-* [ ] Check how the upgrade master can be set if the owner of the MiniMe token contract is the PreSale contract.
+* The *AIT* (*MiniMeToken*) contract `controller` has the ability to burn any accounts token balances using `destroyTokens(...)`, or to
+  disable and enable any transfers using `enableTransfers(...)`. For this contract to be trustless, the *AIT* contract `controller` will
+  need to be set an account that no one controls like `0x0000000000000000000000000000000000000000`. Setting this `controller` to this
+  "burn" address may prevent any future upgrades to this token contract, or the transfer of these presale tokens to the main crowdsale
+  contract.
 
 <br />
 
