@@ -29,22 +29,22 @@ Commit [https://github.com/AigangNetwork/aigang-contracts/commit/6ec3a02f67903fb
 
 ## Recommendations
 
-* **IMPORTANT** There is a potential problem with the controller for the **AIT** contract after the `PreSale.finalize()` function is called.
+* **IMPORTANT** There is a potential problem with the controller for the *AIT* contract after the `PreSale.finalize()` function is called.
   In the Status.im crowdsale contracts, the `StatusContribution.finalize()` calls `SNT.changeController(sntController);`, where `sntController`
-  is the originally set to **SNTPlaceHolder** which has a `changeController(...)` function. 
+  is originally set to **SNTPlaceHolder** which has a `changeController(...)` function. 
 
-  For the AIT crowdsale contracts, the **AIT** contract controller is initially set to the **PreSale** contract, and is not updated when
-  `PreSale.finalize()` is called. This will result in the **AIT** token contract having an owner that can never be altered.
+  For the AIT crowdsale contracts, the *AIT* contract controller is initially set to the **PreSale** contract, and is not updated when
+  `PreSale.finalize()` is called. This will result in the *AIT* token contract having an owner (`controller`) that can never be altered.
 
-  * [ ] ACTION Review whether there is a need to reassign the AIT contract controller when `PreSale.finalize()` is called.
+  * [ ] ACTION Review whether there is a need to reassign the *AIT* contract controller when `PreSale.finalize()` is called.
 
-* **SAFETY IMPROVEMENT** There is no minimum funding goal and no refunds due if a minimum funding goal is not reached. It is far safer to
-  immediately transfer the contributed funds into a multisig, hardware or regular wallet.
+* **SAFETY IMPROVEMENT** There is no minimum funding goal and no refunds due if a minimum funding goal is not reached. It is far safer 
+  therefore to immediately transfer the contributed funds into a multisig, hardware or regular wallet as these are more security tested.
 
-  Currently contributed ETH are accumulated in the crowdsale contract. The contract owner (`controller`) has to execute the
-  `PreSale.claimTokens(0)` function to transfer any ETH balances from the crowdsale contract to the owner's account. This
+  Currently, contributed ETH is accumulated in the *PreSale* contract. The contract owner (`controller`) has to execute the
+  `PreSale.claimTokens(0)` function to transfer any ETH balances from the *PreSale* contract to the owner's account. This
   seems like a half-baked solution, as the contributed ETH should either automatically be transferred into an external wallet (safer),
-  or accumulated in the crowdsale and automatically transferred out to an external wallet when the `PreSale.finalize()` function is
+  or accumulated in the *PreSale* contract and automatically transferred out to an external wallet when the `PreSale.finalize()` function is
   called. The `PreSale.claimTokens(0)` is an emergency function to extract any tokens or ETH accidentally trapped in the crowdsale contract.
 
   * [ ] ACTION Immediately transfer contributed ETH into a multisig, hardware or regular wallet.
@@ -55,7 +55,7 @@ Commit [https://github.com/AigangNetwork/aigang-contracts/commit/6ec3a02f67903fb
 
 ## Potential Vulnerabilities
 
-* [ ] TODO - Confirm that no potential vulnerabilities have been identified in the crowdsale and token contract.
+* No potential vulnerabilities have been identified in the crowdsale and token contract.
 
 <br />
 
@@ -63,9 +63,9 @@ Commit [https://github.com/AigangNetwork/aigang-contracts/commit/6ec3a02f67903fb
 
 ## Scope
 
-This audit is into the technical aspects of the crowdsale contracts. The primary aim of this audit is to ensure that funds contributed to these contracts are not easily attacked or stolen by third parties. 
-The secondary aim of this audit is that ensure the coded algorithms work as expected. This audit does not guarantee that that the code is bugfree, but intends to highlight any areas of
-weaknesses.
+This audit is into the technical aspects of the crowdsale contracts. The primary aim of this audit is to ensure that funds contributed to
+these contracts is not easily attacked or stolen by third parties. The secondary aim of this audit is that ensure the coded algorithms work
+as expected. This audit does not guarantee that that the code is bugfree, but intends to highlight any areas of weaknesses.
 
 <br />
 
@@ -73,7 +73,8 @@ weaknesses.
 
 ## Limitations
 
-This audit makes no statements or warranties about the viability of the Aigang Network's business proposition, the individuals involved in this business or the regulatory regime for the business model.
+This audit makes no statements or warranties about the viability of the Aigang Network's business proposition, the individuals involved in
+this business or the regulatory regime for the business model.
 
 <br />
 
@@ -81,17 +82,18 @@ This audit makes no statements or warranties about the viability of the Aigang N
 
 ## Due Diligence
 
-As always, potential participants in any crowdsale are encouraged to perform their due diligence on the business proposition before funding the crowdsale.
+As always, potential participants in any crowdsale are encouraged to perform their due diligence on the business proposition before funding
+any crowdsales.
 
-Potential participants are also encouraged to only send their funds to the official crowdsale Ethereum address, published on Aigang Network's official communication channel.
+Potential participants are also encouraged to only send their funds to the official crowdsale Ethereum address, published on the
+crowdsale beneficiary's official communication channel.
 
-Scammers have been publishing phishing address in the forums, twitter and other communication channels, and some go as far as duplicating crowdsale websites.
-Potential participants should NOT just click on any links received through these messages.
+Scammers have been publishing phishing address in the forums, twitter and other communication channels, and some go as far as duplicating
+crowdsale websites. Potential participants should NOT just click on any links received through these messages. Scammers have also hacked
+the crowdsale website to replace the crowdsale contract address with their scam address.
  
-Potential participants should also confirm that the verified source code on EtherScan.io for the published crowdsale address matches the audited source code, and that 
-the deployment parameters are correctly set, including the constant parameters.
-
-* [ ] TODO - Any further issues
+Potential participants should also confirm that the verified source code on EtherScan.io for the published crowdsale address matches the
+audited source code, and that the deployment parameters are correctly set, including the constant parameters.
 
 <br />
 
@@ -140,8 +142,6 @@ the deployment parameters are correctly set, including the constant parameters.
 
 * There is no minimum funding goal, and there is no refund mechanism if the non-existent funding goal is not reached.
 
-* TODO - Check this again - Presale token balances cannot be transferred to another account.
-
 * There is a `Presale.minimum_investment` variable where contributions below this amount will be rejected.
 
 * There is a `Presale.pauseContribution(...)` function that will allow the contract owner to pause and restart contributions.
@@ -163,7 +163,7 @@ the deployment parameters are correctly set, including the constant parameters.
   decimal places is `new BigNumber("ffffffffffffffffffffffffffffffff", 16).shift(-18)` resulting in `340282366920938463463.374607431768211455`,
   sufficient for most ERC20 tokens.
 
-* The MiniMeToken contract controller cannot be set to a multisig contract wallet as all transfers will be disabled.
+* The MiniMeToken contract controller CANNOT be set to a multisig contract wallet as all transfers will be disabled.
 
 * The MiniMeToken contract `approve(...)` function has the following comment outlining the steps to change an approval limit
 
