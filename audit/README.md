@@ -269,6 +269,8 @@ See [test/README.md](test/README.md), [test/01_test1.sh](test/01_test1.sh) and [
   * [x] contract ApproveAndCallFallBack
   * [x] contract MiniMeToken is Controlled
   * [x] contract MiniMeTokenFactory
+* [ ] [PlaceHolder.md](code-review/PlaceHolder.md)
+  * [ ] contract PlaceHolder is Controlled, TokenController
 * [x] [PreSale.md](code-review/PreSale.md)
   * [x] contract PreSale is Controlled, TokenController
     * [x] using SafeMath for uint256
