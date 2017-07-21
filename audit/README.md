@@ -28,6 +28,7 @@ Commit [https://github.com/AigangNetwork/aigang-contracts/commit/6ec3a02f67903fb
 
 ## Recommendations
 
+### First Review
 * **IMPORTANT** There is a potential problem with the controller for the *AIT* contract after the `PreSale.finalize()` function is called.
   In the Status.im crowdsale contracts, the `StatusContribution.finalize()` function calls `SNT.changeController(sntController);`, where
   `sntController` is originally set to the address of the *SNTPlaceHolder* contract that has a `changeController(...)` function.
@@ -99,6 +100,8 @@ audited source code, and that the deployment parameters are correctly set, inclu
 <hr />
 
 ## Risks
+
+### First Review
 
 * The risk of funds getting stolen or hacked from the *PreSale* contract can be greatly reduced by transferring the contributed funds to
   an external multisig, hardware or regular wallet.

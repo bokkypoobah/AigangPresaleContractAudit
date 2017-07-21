@@ -3,9 +3,9 @@ PASSWORD=testtest
 
 CONTRACTSDIR=../../contracts
 
-AITSOL=AIT.sol
-AITTEMPSOL=AIT.sol
-AITJS=AIT.js
+APTSOL=APT.sol
+APTTEMPSOL=APT.sol
+APTJS=APT.js
 
 MIGRATIONSSOL=Migrations.sol
 MIGRATIONSTEMPSOL=Migrations.sol
