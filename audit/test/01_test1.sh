@@ -12,9 +12,13 @@ PASSWORD=`grep ^PASSWORD= settings.txt | sed "s/^.*=//"`
 
 CONTRACTSDIR=`grep ^CONTRACTSDIR= settings.txt | sed "s/^.*=//"`
 
-AITSOL=`grep ^AITSOL= settings.txt | sed "s/^.*=//"`
-AITTEMPSOL=`grep ^AITTEMPSOL= settings.txt | sed "s/^.*=//"`
-AITJS=`grep ^AITJS= settings.txt | sed "s/^.*=//"`
+APTSOL=`grep ^APTSOL= settings.txt | sed "s/^.*=//"`
+APTTEMPSOL=`grep ^APTTEMPSOL= settings.txt | sed "s/^.*=//"`
+APTJS=`grep ^APTJS= settings.txt | sed "s/^.*=//"`
+
+ERC20SOL=`grep ^ERC20SOL= settings.txt | sed "s/^.*=//"`
+ERC20TEMPSOL=`grep ^ERC20TEMPSOL= settings.txt | sed "s/^.*=//"`
+ERC20JS=`grep ^ERC20JS= settings.txt | sed "s/^.*=//"`
 
 MIGRATIONSSOL=`grep ^MIGRATIONSSOL= settings.txt | sed "s/^.*=//"`
 MIGRATIONSTEMPSOL=`grep ^MIGRATIONSTEMPSOL= settings.txt | sed "s/^.*=//"`
@@ -24,9 +28,17 @@ MINIMETOKENSOL=`grep ^MINIMETOKENSOL= settings.txt | sed "s/^.*=//"`
 MINIMETOKENTEMPSOL=`grep ^MINIMETOKENTEMPSOL= settings.txt | sed "s/^.*=//"`
 MINIMETOKENJS=`grep ^MINIMETOKENJS= settings.txt | sed "s/^.*=//"`
 
+PLACEHOLDERSOL=`grep ^PLACEHOLDERSOL= settings.txt | sed "s/^.*=//"`
+PLACEHOLDERTEMPSOL=`grep ^PLACEHOLDERTEMPSOL= settings.txt | sed "s/^.*=//"`
+PLACEHOLDERJS=`grep ^PLACEHOLDERJS= settings.txt | sed "s/^.*=//"`
+
 PRESALESOL=`grep ^PRESALESOL= settings.txt | sed "s/^.*=//"`
 PRESALETEMPSOL=`grep ^PRESALETEMPSOL= settings.txt | sed "s/^.*=//"`
 PRESALEJS=`grep ^PRESALEJS= settings.txt | sed "s/^.*=//"`
+
+PRESALEWALLETSOL=`grep ^PRESALEWALLETSOL= settings.txt | sed "s/^.*=//"`
+PRESALEWALLETTEMPSOL=`grep ^PRESALEWALLETTEMPSOL= settings.txt | sed "s/^.*=//"`
+PRESALEWALLETJS=`grep ^PRESALEWALLETJS= settings.txt | sed "s/^.*=//"`
 
 SAFEMATHSOL=`grep ^SAFEMATHSOL= settings.txt | sed "s/^.*=//"`
 SAFEMATHTEMPSOL=`grep ^SAFEMATHTEMPSOL= settings.txt | sed "s/^.*=//"`
@@ -54,45 +66,60 @@ STARTTIME_S=`date -r $STARTTIME -u`
 ENDTIME=`echo "$CURRENTTIME+60*4" | bc`
 ENDTIME_S=`date -r $ENDTIME -u`
 
-printf "MODE               = '$MODE'\n"
-printf "GETHATTACHPOINT    = '$GETHATTACHPOINT'\n"
-printf "PASSWORD           = '$PASSWORD'\n"
+printf "MODE                 = '$MODE'\n"
+printf "GETHATTACHPOINT      = '$GETHATTACHPOINT'\n"
+printf "PASSWORD             = '$PASSWORD'\n"
 
-printf "CONTRACTSDIR       = '$CONTRACTSDIR'\n"
+printf "CONTRACTSDIR         = '$CONTRACTSDIR'\n"
 
-printf "AITSOL             = '$AITSOL'\n"
-printf "AITTEMPSOL         = '$AITTEMPSOL'\n"
-printf "AITJS              = '$AITJS'\n"
+printf "APTSOL               = '$APTSOL'\n"
+printf "APTTEMPSOL           = '$APTTEMPSOL'\n"
+printf "APTJS                = '$APTJS'\n"
 
-printf "MIGRATIONSSOL      = '$MIGRATIONSSOL'\n"
-printf "MIGRATIONSTEMPSOL  = '$MIGRATIONSTEMPSOL'\n"
-printf "MIGRATIONSJS       = '$MIGRATIONSJS'\n"
+printf "ERC20SOL             = '$ERC20SOL'\n"
+printf "ERC20TEMPSOL         = '$ERC20TEMPSOL'\n"
+printf "ERC20JS              = '$ERC20JS'\n"
 
-printf "MINIMETOKENSOL     = '$MINIMETOKENSOL'\n"
-printf "MINIMETOKENTEMPSOL = '$MINIMETOKENTEMPSOL'\n"
-printf "MINIMETOKENJS      = '$MINIMETOKENJS'\n"
+printf "MIGRATIONSSOL        = '$MIGRATIONSSOL'\n"
+printf "MIGRATIONSTEMPSOL    = '$MIGRATIONSTEMPSOL'\n"
+printf "MIGRATIONSJS         = '$MIGRATIONSJS'\n"
 
-printf "PRESALESOL         = '$PRESALESOL'\n"
-printf "PRESALETEMPSOL     = '$PRESALETEMPSOL'\n"
-printf "PRESALEJS          = '$PRESALEJS'\n"
+printf "MINIMETOKENSOL       = '$MINIMETOKENSOL'\n"
+printf "MINIMETOKENTEMPSOL   = '$MINIMETOKENTEMPSOL'\n"
+printf "MINIMETOKENJS        = '$MINIMETOKENJS'\n"
 
-printf "SAFEMATHSOL        = '$SAFEMATHSOL'\n"
-printf "SAFEMATHTEMPSOL    = '$SAFEMATHTEMPSOL'\n"
+printf "PLACEHOLDERSOL       = '$PLACEHOLDERSOL'\n"
+printf "PLACEHOLDERTEMPSOL   = '$PLACEHOLDERTEMPSOL'\n"
+printf "PLACEHOLDERJS        = '$PLACEHOLDERJS'\n"
 
-printf "DEPLOYMENTDATA     = '$DEPLOYMENTDATA'\n"
-printf "INCLUDEJS          = '$INCLUDEJS'\n"
-printf "TEST1OUTPUT        = '$TEST1OUTPUT'\n"
-printf "TEST1RESULTS       = '$TEST1RESULTS'\n"
-printf "CURRENTTIME        = '$CURRENTTIME' '$CURRENTTIMES'\n"
-printf "STARTTIME          = '$STARTTIME' '$STARTTIME_S'\n"
-printf "ENDTIME            = '$ENDTIME' '$ENDTIME_S'\n"
+printf "PRESALESOL           = '$PRESALESOL'\n"
+printf "PRESALETEMPSOL       = '$PRESALETEMPSOL'\n"
+printf "PRESALEJS            = '$PRESALEJS'\n"
+
+printf "PRESALEWALLETSOL     = '$PRESALEWALLETSOL'\n"
+printf "PRESALEWALLETTEMPSOL = '$PRESALEWALLETTEMPSOL'\n"
+printf "PRESALEWALLETJS      = '$PRESALEWALLETJS'\n"
+
+printf "SAFEMATHSOL          = '$SAFEMATHSOL'\n"
+printf "SAFEMATHTEMPSOL      = '$SAFEMATHTEMPSOL'\n"
+
+printf "DEPLOYMENTDATA       = '$DEPLOYMENTDATA'\n"
+printf "INCLUDEJS            = '$INCLUDEJS'\n"
+printf "TEST1OUTPUT          = '$TEST1OUTPUT'\n"
+printf "TEST1RESULTS         = '$TEST1RESULTS'\n"
+printf "CURRENTTIME          = '$CURRENTTIME' '$CURRENTTIMES'\n"
+printf "STARTTIME            = '$STARTTIME' '$STARTTIME_S'\n"
+printf "ENDTIME              = '$ENDTIME' '$ENDTIME_S'\n"
 
 # Make copy of SOL file and modify start and end times ---
-`cp $CONTRACTSDIR/$AITSOL $AITTEMPSOL`
+`cp $CONTRACTSDIR/$APTSOL $APTTEMPSOL`
+`cp $CONTRACTSDIR/$ERC20SOL $ERC20TEMPSOL`
 `cp $CONTRACTSDIR/$MIGRATIONSSOL $MIGRATIONSTEMPSOL`
 # `cp $CONTRACTSDIR/$MINIMETOKENSOL $MINIMETOKENTEMPSOL`
 `cp modifiedContracts/$MINIMETOKENSOL $MINIMETOKENTEMPSOL`
+`cp $CONTRACTSDIR/$PLACEHOLDERSOL $PLACEHOLDERTEMPSOL`
 `cp $CONTRACTSDIR/$PRESALESOL $PRESALETEMPSOL`
+`cp $CONTRACTSDIR/$PRESALEWALLETSOL $PRESALEWALLETTEMPSOL`
 `cp $CONTRACTSDIR/$SAFEMATHSOL $SAFEMATHTEMPSOL`
 
 # --- Modify dates ---
@@ -101,8 +128,12 @@ printf "ENDTIME            = '$ENDTIME' '$ENDTIME_S'\n"
 #`perl -pi -e "s/\/\/\/ \@return total amount of tokens.*$/function overloadedTotalSupply() constant returns (uint256) \{ return totalSupply; \}/" $DAOCASINOICOTEMPSOL`
 #`perl -pi -e "s/BLOCKS_IN_DAY \= 5256;*$/BLOCKS_IN_DAY \= $BLOCKSINDAY;/" $DAOCASINOICOTEMPSOL`
 
-DIFFS1=`diff $CONTRACTSDIR/$AITSOL $AITTEMPSOL`
-echo "--- Differences $CONTRACTSDIR/$AITSOL $AITTEMPSOL ---"
+DIFFS1=`diff $CONTRACTSDIR/$APTSOL $APTTEMPSOL`
+echo "--- Differences $CONTRACTSDIR/$APTSOL $APTTEMPSOL ---"
+echo "$DIFFS1"
+
+DIFFS1=`diff $CONTRACTSDIR/$ERC20SOL $ERC20TEMPSOL`
+echo "--- Differences $CONTRACTSDIR/$ERC20SOL $ERC20TEMPSOL ---"
 echo "$DIFFS1"
 
 DIFFS1=`diff $CONTRACTSDIR/$MIGRATIONSSOL $MIGRATIONSTEMPSOL`
@@ -113,28 +144,39 @@ DIFFS1=`diff $CONTRACTSDIR/$MINIMETOKENSOL $MINIMETOKENTEMPSOL`
 echo "--- Differences $CONTRACTSDIR/$MINIMETOKENSOL $MINIMETOKENTEMPSOL ---"
 echo "$DIFFS1"
 
+DIFFS1=`diff $CONTRACTSDIR/$PLACEHOLDERSOL $PLACEHOLDERTEMPSOL`
+echo "--- Differences $CONTRACTSDIR/$PLACEHOLDERSOL $PLACEHOLDERTEMPSOL ---"
+echo "$DIFFS1"
+
 DIFFS1=`diff $CONTRACTSDIR/$PRESALESOL $PRESALETEMPSOL`
 echo "--- Differences $CONTRACTSDIR/$PRESALESOL $PRESALETEMPSOL ---"
 echo "$DIFFS1"
 
-echo "var aitOutput=`solc --optimize --combined-json abi,bin,interface $AITTEMPSOL`;" > $AITJS
+DIFFS1=`diff $CONTRACTSDIR/$PRESALEWALLETSOL $PRESALEWALLETTEMPSOL`
+echo "--- Differences $CONTRACTSDIR/$PRESALEWALLETSOL $PRESALEWALLETTEMPSOL ---"
+echo "$DIFFS1"
+
+echo "var aptOutput=`solc --optimize --combined-json abi,bin,interface $APTTEMPSOL`;" > $APTJS
 
 echo "var migOutput=`solc --optimize --combined-json abi,bin,interface $MIGRATIONSTEMPSOL`;" > $MIGRATIONSJS
 
 echo "var mmOutput=`solc --optimize --combined-json abi,bin,interface $MINIMETOKENSOL`;" > $MINIMETOKENJS
 
+echo "var phOutput=`solc --optimize --combined-json abi,bin,interface $PLACEHOLDERTEMPSOL`;" > $PLACEHOLDERJS
+
 echo "var psOutput=`solc --optimize --combined-json abi,bin,interface $PRESALETEMPSOL`;" > $PRESALEJS
 
 
 geth --verbosity 3 attach $GETHATTACHPOINT << EOF | tee $TEST1OUTPUT
-loadScript("$AITJS");
+loadScript("$APTJS");
 loadScript("$MIGRATIONSJS");
 loadScript("$MINIMETOKENJS");
+loadScript("$PLACEHOLDERJS");
 loadScript("$PRESALEJS");
 loadScript("functions.js");
 
-var aitAbi = JSON.parse(aitOutput.contracts["$AITTEMPSOL:AIT"].abi);
-var aitBin = "0x" + aitOutput.contracts["$AITTEMPSOL:AIT"].bin;
+var aptAbi = JSON.parse(aptOutput.contracts["$APTTEMPSOL:APT"].abi);
+var aptBin = "0x" + aptOutput.contracts["$APTTEMPSOL:APT"].bin;
 
 var migAbi = JSON.parse(migOutput.contracts["$MIGRATIONSTEMPSOL:Migrations"].abi);
 var migBin = "0x" + migOutput.contracts["$MIGRATIONSTEMPSOL:Migrations"].bin;
@@ -142,12 +184,16 @@ var migBin = "0x" + migOutput.contracts["$MIGRATIONSTEMPSOL:Migrations"].bin;
 var mmtfAbi = JSON.parse(mmOutput.contracts["$MINIMETOKENSOL:MiniMeTokenFactory"].abi);
 var mmtfBin = "0x" + mmOutput.contracts["$MINIMETOKENSOL:MiniMeTokenFactory"].bin;
 
+var phAbi = JSON.parse(phOutput.contracts["$PLACEHOLDERTEMPSOL:PlaceHolder"].abi);
+var phBin = "0x" + phOutput.contracts["$PLACEHOLDERTEMPSOL:PlaceHolder"].bin;
+
 var psAbi = JSON.parse(psOutput.contracts["$PRESALETEMPSOL:PreSale"].abi);
 var psBin = "0x" + psOutput.contracts["$PRESALETEMPSOL:PreSale"].bin;
 
-// console.log("DATA: aitAbi=" + JSON.stringify(aitAbi));
+// console.log("DATA: aptAbi=" + JSON.stringify(aptAbi));
 // console.log("DATA: migAbi=" + JSON.stringify(migAbi));
 // console.log("DATA: mmtfAbi=" + JSON.stringify(mmtfAbi));
+// console.log("DATA: phAbi=" + JSON.stringify(phAbi));
 // console.log("DATA: psAbi=" + JSON.stringify(psAbi));
 // console.log("DATA: psBin=" + psBin);
 
@@ -184,23 +230,23 @@ console.log("RESULT: ");
 
 
 // -----------------------------------------------------------------------------
-// Deploy AIT
+// Deploy APT
 // -----------------------------------------------------------------------------
-var aitMessage = "Deploy AIT";
-console.log("RESULT: " + aitMessage);
-var aitContract = web3.eth.contract(aitAbi);
-var aitTx = null;
-var aitAddress = null;
-var ait = aitContract.new(mmtfAddress, {from: contractOwnerAccount, data: aitBin, gas: 4000000},
+var aptMessage = "Deploy APT";
+console.log("RESULT: " + aptMessage);
+var aptContract = web3.eth.contract(aptAbi);
+var aptTx = null;
+var aptAddress = null;
+var apt = aptContract.new(mmtfAddress, {from: contractOwnerAccount, data: aptBin, gas: 4000000},
   function(e, contract) {
     if (!e) {
       if (!contract.address) {
-        aitTx = contract.transactionHash;
+        aptTx = contract.transactionHash;
       } else {
-        aitAddress = contract.address;
-        addAccount(aitAddress, "AIT");
-        addTokenContractAddressAndAbi(aitAddress, aitAbi);
-        printTxData("aitAddress=" + aitAddress, aitTx);
+        aptAddress = contract.address;
+        addAccount(aptAddress, "APT");
+        addTokenContractAddressAndAbi(aptAddress, aptAbi);
+        printTxData("aptAddress=" + aptAddress, aptTx);
       }
     }
   }
@@ -208,7 +254,38 @@ var ait = aitContract.new(mmtfAddress, {from: contractOwnerAccount, data: aitBin
 while (txpool.status.pending > 0) {
 }
 printBalances();
-failIfGasEqualsGasUsed(aitTx, aitMessage);
+failIfGasEqualsGasUsed(aptTx, aptMessage);
+printTokenContractDetails();
+console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+// Deploy PlaceHolder
+// -----------------------------------------------------------------------------
+var phMessage = "Deploy PlaceHolder";
+console.log("RESULT: " + phMessage);
+var phContract = web3.eth.contract(phAbi);
+var phTx = null;
+var phAddress = null;
+var ph = phContract.new(aptAddress, {from: contractOwnerAccount, data: phBin, gas: 4000000},
+  function(e, contract) {
+    if (!e) {
+      if (!contract.address) {
+        phTx = contract.transactionHash;
+      } else {
+        phAddress = contract.address;
+        addAccount(phAddress, "PlaceHolder");
+        // addCrowdsaleContractAddressAndAbi(phAddress, phAbi);
+        printTxData("phAddress=" + phAddress, phTx);
+      }
+    }
+  }
+);
+while (txpool.status.pending > 0) {
+}
+printBalances();
+failIfGasEqualsGasUsed(phTx, phMessage);
+printCrowdsaleContractDetails();
 printTokenContractDetails();
 console.log("RESULT: ");
 
@@ -221,7 +298,7 @@ console.log("RESULT: " + psMessage);
 var psContract = web3.eth.contract(psAbi);
 var psTx = null;
 var psAddress = null;
-var ps = psContract.new(aitAddress, {from: contractOwnerAccount, data: psBin, gas: 4000000},
+var ps = psContract.new(aptAddress, phAddress, {from: contractOwnerAccount, data: psBin, gas: 4000000},
   function(e, contract) {
     if (!e) {
       if (!contract.address) {
@@ -245,16 +322,16 @@ console.log("RESULT: ");
 
 
 // -----------------------------------------------------------------------------
-// AIT ChangeController To PreSale 
+// APT ChangeController To PreSale 
 // -----------------------------------------------------------------------------
-var aitChangeControllerMessage = "AIT ChangeController To PreSale";
-console.log("RESULT: " + aitChangeControllerMessage);
-var aitChangeControllerTx = ait.changeController(psAddress, {from: contractOwnerAccount, gas: 2000000});
+var aptChangeControllerMessage = "APT ChangeController To PreSale";
+console.log("RESULT: " + aptChangeControllerMessage);
+var aptChangeControllerTx = apt.changeController(psAddress, {from: contractOwnerAccount, gas: 2000000});
 while (txpool.status.pending > 0) {
 }
-printTxData("aitChangeControllerTx", aitChangeControllerTx);
+printTxData("aptChangeControllerTx", aptChangeControllerTx);
 printBalances();
-failIfGasEqualsGasUsed(aitChangeControllerTx, aitChangeControllerMessage);
+failIfGasEqualsGasUsed(aptChangeControllerTx, aptChangeControllerMessage);
 printCrowdsaleContractDetails();
 printTokenContractDetails();
 console.log("RESULT: ");
@@ -270,7 +347,8 @@ var minimumInvestment = 10;
 var startBlock = parseInt(eth.blockNumber) + 5;
 var endBlock = parseInt(eth.blockNumber) + 20;
 console.log("RESULT: " + initialisePresaleMessage);
-var initialisePresaleTx = ps.initialize(maxAitSupply, minimumInvestment, startBlock, endBlock, {from: contractOwnerAccount, gas: 2000000});
+var initialisePresaleTx = ps.initialize(multisig, maxAitSupply, minimumInvestment, startBlock, endBlock,
+  {from: contractOwnerAccount, gas: 2000000});
 while (txpool.status.pending > 0) {
 }
 printTxData("initialisePresaleTx", initialisePresaleTx);
@@ -295,14 +373,14 @@ console.log("RESULT: ");
 var validContribution1Message = "Send Valid Contribution - 100 ETH From Account3";
 console.log("RESULT: " + validContribution1Message);
 var validContribution1Tx = eth.sendTransaction({from: account3, to: psAddress, gas: 400000, value: web3.toWei("87", "ether")});
-var validContribution2Tx = eth.sendTransaction({from: account4, to: aitAddress, gas: 400000, value: web3.toWei("10", "ether")});
+var validContribution2Tx = eth.sendTransaction({from: account4, to: aptAddress, gas: 400000, value: web3.toWei("10", "ether")});
 while (txpool.status.pending > 0) {
 }
 printTxData("validContribution1Tx", validContribution1Tx);
 printTxData("validContribution2Tx", validContribution2Tx);
 printBalances();
 failIfGasEqualsGasUsed(validContribution1Tx, validContribution1Message + " ac3->ps 100 ETH");
-failIfGasEqualsGasUsed(validContribution2Tx, validContribution1Message + " ac4->ait 10 ETH");
+failIfGasEqualsGasUsed(validContribution2Tx, validContribution1Message + " ac4->apt 10 ETH");
 printCrowdsaleContractDetails();
 printTokenContractDetails();
 console.log("RESULT: ");
