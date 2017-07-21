@@ -29,14 +29,14 @@ Commit [https://github.com/AigangNetwork/aigang-contracts/commit/6ec3a02f67903fb
 ## Recommendations
 
 ### First Review
-* **IMPORTANT** There is a potential problem with the controller for the *AIT* contract after the `PreSale.finalize()` function is called.
+* **IMPORTANT** There is a potential problem with the controller for the *APT* contract after the `PreSale.finalize()` function is called.
   In the Status.im crowdsale contracts, the `StatusContribution.finalize()` function calls `SNT.changeController(sntController);`, where
   `sntController` is originally set to the address of the *SNTPlaceHolder* contract that has a `changeController(...)` function.
 
-  For the *AIT* contracts, the *AIT* contract controller is initially set to the *PreSale* contract address, and this is not updated when
-  `PreSale.finalize()` is called. This will result in the *AIT* token contract having an owner (`controller`) that can never be altered.
+  For the *APT* contracts, the *APT* contract controller is initially set to the *PreSale* contract address, and this is not updated when
+  `PreSale.finalize()` is called. This will result in the *APT* token contract having an owner (`controller`) that can never be altered.
 
-  * [ ] ACTION Review whether there is a need to reassign the *AIT* contract controller when `PreSale.finalize()` is called.
+  * [ ] ACTION Review whether there is a need to reassign the *APT* contract controller when `PreSale.finalize()` is called.
 
 * **SAFETY IMPROVEMENT** There is no minimum funding goal and no refunds due if a minimum funding goal is not reached. It is far safer 
   therefore to immediately transfer the contributed funds into a multisig, hardware or regular wallet as these are more security tested.
@@ -106,10 +106,10 @@ audited source code, and that the deployment parameters are correctly set, inclu
 * The risk of funds getting stolen or hacked from the *PreSale* contract can be greatly reduced by transferring the contributed funds to
   an external multisig, hardware or regular wallet.
 
-* This set of contracts have some complexity in the linkages between the separate *AIT* (*MiniMeToken*) and *PreSale* contract. The set up
+* This set of contracts have some complexity in the linkages between the separate *APT* (*MiniMeToken*) and *PreSale* contract. The set up
   of the contracts will need to be carefully verified after deployment to confirm that the contracts have been linked correctly.
 
-* **LOW IMPORTANCE** The *AIT* (*MiniMeToken*) contract does not have the function to transfer any other ERC20 tokens accidentally sent
+* **LOW IMPORTANCE** The *APT* (*MiniMeToken*) contract does not have the function to transfer any other ERC20 tokens accidentally sent
   to this contract. The Status.im version of the *MiniMeToken* has the following additional function and event:
 
       //////////
@@ -150,8 +150,8 @@ audited source code, and that the deployment parameters are correctly set, inclu
   > The controller of this contract can move tokens around at will, this is important to recognize! Confirm that you trust the
   > controller of this contract, which in most situations should be another open source smart contract or 0x0
 
-* The *AIT* (*MiniMeToken*) contract `controller` has the ability to burn any accounts token balances using `destroyTokens(...)`, or to
-  disable and enable any transfers using `enableTransfers(...)`. For this contract to be trustless, the *AIT* contract `controller` will
+* The *APT* (*MiniMeToken*) contract `controller` has the ability to burn any accounts token balances using `destroyTokens(...)`, or to
+  disable and enable any transfers using `enableTransfers(...)`. For this contract to be trustless, the *APT* contract `controller` will
   need to be set an account that no one controls like `0x0000000000000000000000000000000000000000`. Setting this `controller` to this
   "burn" address may prevent any future upgrades to this token contract, or the transfer of these presale tokens to the main crowdsale
   contract.
@@ -162,7 +162,8 @@ audited source code, and that the deployment parameters are correctly set, inclu
 
 ## Notes
 
-* Funds can be contributed to the AIT token contract, or the Presale contract.
+### First Review
+* Funds can be contributed to the APT token contract, or the Presale contract.
 
 * The `Presale.investor_bonus = 25` variable is unused. There is no bonus in any calculations in this set of contracts.
 
@@ -180,7 +181,7 @@ audited source code, and that the deployment parameters are correctly set, inclu
   function is used to collect stray ETH and ERC20 tokens accidentally sent to the *PreSale* contract, but in this case, it will be used
   to transfer out the ETH.
 
-* If the *PreSale* contract is the owner (`controller`) of the *AIT* (*MiniMeToken*) contract, the *AIT* `transfer(...)`, 
+* If the *PreSale* contract is the owner (`controller`) of the *APT* (*MiniMeToken*) contract, the *APT* `transfer(...)`, 
   `transferFrom(...)` and `approve(...)` functions will call the *PreSale* contract's `onTransfer(...)` and `onApprove(...)` function
   to check if transfers and approvals are enabled. To enable transfers and approvals, the owner (`controller`) of the *PreSale* contract
   will have to call `allowTransfers(true)` after the *PreSale* contract is `finalize()`d.
@@ -195,6 +196,11 @@ audited source code, and that the deployment parameters are correctly set, inclu
 
   > To change the approve amount you first have to reduce the addresses` allowance to zero by calling `approve(_spender,0)` if it is not
   > already 0 to mitigate the race condition described here: https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+
+### Second Review
+
+* The new *MiniMeToken* contract `claimTokens(...)` function does not check the return status of the token `transfer(...)` method.
+  In this case it does not matter as the tokens will just not be transferred.
 
 <br />
 
@@ -232,7 +238,7 @@ See [test/README.md](test/README.md), [test/01_test1.sh](test/01_test1.sh) and [
 * [x] Function and event names are differentiated by case - function names begin with a lowercase character and event names begin 
   with an uppercase character.
 * [x] During the crowdsale, ETH can be contributed to the *PreSale* default `function ()` and the `proxyPayment(...)` function. ETH can
-  also be contributed to the *AIT* (*MiniMeToken*) default `function ()`.
+  also be contributed to the *APT* (*MiniMeToken*) default `function ()`.
 * [x] The testing has been done using geth v1.6.5-stable-cf87713d/darwin-amd64/go1.8.3 and solc 0.4.11+commit.68ef5810.Darwin.appleclang
   instead of one of the testing frameworks and JavaScript VMs to simulate the live environment as closely as possible.
 * [x] The test scripts can be found in [test/01_test1.sh](test/01_test1.sh).
@@ -253,8 +259,10 @@ See [test/README.md](test/README.md), [test/01_test1.sh](test/01_test1.sh) and [
 
 ## Code Review
 
-* [x] [AIT.md](code-review/AIT.md)
-  * [x] contract AIT is MiniMeToken
+* [x] [APT.md](code-review/APT.md)
+  * [x] contract APT is MiniMeToken
+* [x] [ERC20.md](code-review/ERC20.md)
+  * [x] contract ERC20
 * [x] [MiniMeToken.md](code-review/MiniMeToken.md)
   * [x] contract TokenController
   * [x] contract Controlled

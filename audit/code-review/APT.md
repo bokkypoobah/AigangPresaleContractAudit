@@ -1,6 +1,6 @@
-# AIT
+# APT
 
-Source file [../../contracts/AIT.sol](../../contracts/AIT.sol)
+Source file [../../contracts/APT.sol](../../contracts/APT.sol)
 
 <br />
 
@@ -16,28 +16,27 @@ import "./MiniMeToken.sol";
 
 
 /**
- * @title AigangToken
+ * @title Aigang Pre-Launch Token
  *
  * @dev Simple ERC20 Token, with pre-sale logic
  * @dev IMPORTANT NOTE: do not use or deploy this contract as-is. It needs some changes to be
  * production ready.
  */
- // BK Ok
-contract AIT is MiniMeToken {
+contract APT is MiniMeToken {
   /**
     * @dev Constructor
   */
   // BK Ok - Constructor
-  function AIT(address _tokenFactory)
+  function APT(address _tokenFactory)
     // BK Ok
     MiniMeToken(
       _tokenFactory,
-      0x0,                     // no parent token
-      0,                       // no snapshot block number from parent
-      "Aigang Investor Token", // Token name
-      18,                      // Decimals
-      "AIT",                   // Symbol
-      true                     // Enable transfers
+      0x0,                      // no parent token
+      0,                        // no snapshot block number from parent
+      "Aigang Pre-Launch Token", // Token name
+      18,                       // Decimals
+      "APT",                    // Symbol
+      true                      // Enable transfers
     ) {}
 }
 ```

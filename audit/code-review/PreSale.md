@@ -308,7 +308,6 @@ contract PreSale is Controlled, TokenController {
       // BK Ok - Transfer ETH balance to the owner's account
       controller.transfer(this.balance);
       // BK NOTE - No events logged for this
-      // BK Ok
       return;
     }
 
@@ -316,7 +315,7 @@ contract PreSale is Controlled, TokenController {
     MiniMeToken token = MiniMeToken(_token);
     // BK Ok - Get the balance of the ERC20 token
     uint256 balance = token.balanceOf(this);
-    // BK Ok - Transfer the ERC20 token balance to the owner's account
+    // BK NOTE - Should check for status, but no side effects other than the tokens not being transferred
     token.transfer(controller, balance);
     // BK Ok - Log event
     ClaimedTokens(_token, controller, balance);

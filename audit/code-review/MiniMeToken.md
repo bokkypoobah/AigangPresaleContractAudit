@@ -20,6 +20,9 @@ The minimum Solidity version number is the only difference between this source f
 // BK Ok
 pragma solidity ^0.4.11;
 
+// BK Ok
+import "./ERC20.sol";
+
 /*
     Copyright 2016, Jordi Baylina
 
@@ -707,10 +710,39 @@ contract MiniMeToken is Controlled {
         }
     }
 
+//////////
+// Safety Methods
+//////////
+
+    /// @notice This method can be used by the controller to extract mistakenly
+    ///  sent tokens to this contract.
+    /// @param _token The address of the token contract that you want to recover
+    ///  set to 0 in case you want to extract ether.
+    // BK Ok - Only controller
+    function claimTokens(address _token) public onlyController {
+      // BK Ok - Claiming Ethers
+      if (_token == 0x0) {
+        // BK Ok
+        controller.transfer(this.balance);
+        // BK NOTE - No events logged for this
+        return;
+      }
+
+	  // BK Ok
+      ERC20 token = ERC20(_token);
+      // BK Ok
+      uint256 balance = token.balanceOf(this);
+      // BK NOTE - Should check for status, but no side effects other than the tokens not being transferred
+      token.transfer(controller, balance);
+      // BK Ok
+      ClaimedTokens(_token, controller, balance);
+    }
 
 ////////////////
 // Events
 ////////////////
+    // BK Ok
+    event ClaimedTokens(address indexed _token, address indexed _controller, uint256 _amount);
     // BK Ok
     event Transfer(address indexed _from, address indexed _to, uint256 _amount);
     // BK Ok
