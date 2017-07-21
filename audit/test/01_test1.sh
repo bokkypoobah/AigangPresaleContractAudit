@@ -36,10 +36,6 @@ PRESALESOL=`grep ^PRESALESOL= settings.txt | sed "s/^.*=//"`
 PRESALETEMPSOL=`grep ^PRESALETEMPSOL= settings.txt | sed "s/^.*=//"`
 PRESALEJS=`grep ^PRESALEJS= settings.txt | sed "s/^.*=//"`
 
-PRESALEWALLETSOL=`grep ^PRESALEWALLETSOL= settings.txt | sed "s/^.*=//"`
-PRESALEWALLETTEMPSOL=`grep ^PRESALEWALLETTEMPSOL= settings.txt | sed "s/^.*=//"`
-PRESALEWALLETJS=`grep ^PRESALEWALLETJS= settings.txt | sed "s/^.*=//"`
-
 SAFEMATHSOL=`grep ^SAFEMATHSOL= settings.txt | sed "s/^.*=//"`
 SAFEMATHTEMPSOL=`grep ^SAFEMATHTEMPSOL= settings.txt | sed "s/^.*=//"`
 
@@ -66,50 +62,46 @@ STARTTIME_S=`date -r $STARTTIME -u`
 ENDTIME=`echo "$CURRENTTIME+60*4" | bc`
 ENDTIME_S=`date -r $ENDTIME -u`
 
-printf "MODE                 = '$MODE'\n"
-printf "GETHATTACHPOINT      = '$GETHATTACHPOINT'\n"
-printf "PASSWORD             = '$PASSWORD'\n"
+printf "MODE                 = '$MODE'\n" | tee $TEST1OUTPUT
+printf "GETHATTACHPOINT      = '$GETHATTACHPOINT'\n" | tee -a $TEST1OUTPUT
+printf "PASSWORD             = '$PASSWORD'\n" | tee -a $TEST1OUTPUT
 
-printf "CONTRACTSDIR         = '$CONTRACTSDIR'\n"
+printf "CONTRACTSDIR         = '$CONTRACTSDIR'\n" | tee -a $TEST1OUTPUT
 
-printf "APTSOL               = '$APTSOL'\n"
-printf "APTTEMPSOL           = '$APTTEMPSOL'\n"
-printf "APTJS                = '$APTJS'\n"
+printf "APTSOL               = '$APTSOL'\n" | tee -a $TEST1OUTPUT
+printf "APTTEMPSOL           = '$APTTEMPSOL'\n" | tee -a $TEST1OUTPUT
+printf "APTJS                = '$APTJS'\n" | tee -a $TEST1OUTPUT
 
-printf "ERC20SOL             = '$ERC20SOL'\n"
-printf "ERC20TEMPSOL         = '$ERC20TEMPSOL'\n"
-printf "ERC20JS              = '$ERC20JS'\n"
+printf "ERC20SOL             = '$ERC20SOL'\n" | tee -a $TEST1OUTPUT
+printf "ERC20TEMPSOL         = '$ERC20TEMPSOL'\n" | tee -a $TEST1OUTPUT
+printf "ERC20JS              = '$ERC20JS'\n" | tee -a $TEST1OUTPUT
 
-printf "MIGRATIONSSOL        = '$MIGRATIONSSOL'\n"
-printf "MIGRATIONSTEMPSOL    = '$MIGRATIONSTEMPSOL'\n"
-printf "MIGRATIONSJS         = '$MIGRATIONSJS'\n"
+printf "MIGRATIONSSOL        = '$MIGRATIONSSOL'\n" | tee -a $TEST1OUTPUT
+printf "MIGRATIONSTEMPSOL    = '$MIGRATIONSTEMPSOL'\n" | tee -a $TEST1OUTPUT
+printf "MIGRATIONSJS         = '$MIGRATIONSJS'\n" | tee -a $TEST1OUTPUT
 
-printf "MINIMETOKENSOL       = '$MINIMETOKENSOL'\n"
-printf "MINIMETOKENTEMPSOL   = '$MINIMETOKENTEMPSOL'\n"
-printf "MINIMETOKENJS        = '$MINIMETOKENJS'\n"
+printf "MINIMETOKENSOL       = '$MINIMETOKENSOL'\n" | tee -a $TEST1OUTPUT
+printf "MINIMETOKENTEMPSOL   = '$MINIMETOKENTEMPSOL'\n" | tee -a $TEST1OUTPUT
+printf "MINIMETOKENJS        = '$MINIMETOKENJS'\n" | tee -a $TEST1OUTPUT
 
-printf "PLACEHOLDERSOL       = '$PLACEHOLDERSOL'\n"
-printf "PLACEHOLDERTEMPSOL   = '$PLACEHOLDERTEMPSOL'\n"
-printf "PLACEHOLDERJS        = '$PLACEHOLDERJS'\n"
+printf "PLACEHOLDERSOL       = '$PLACEHOLDERSOL'\n" | tee -a $TEST1OUTPUT
+printf "PLACEHOLDERTEMPSOL   = '$PLACEHOLDERTEMPSOL'\n" | tee -a $TEST1OUTPUT
+printf "PLACEHOLDERJS        = '$PLACEHOLDERJS'\n" | tee -a $TEST1OUTPUT
 
-printf "PRESALESOL           = '$PRESALESOL'\n"
-printf "PRESALETEMPSOL       = '$PRESALETEMPSOL'\n"
-printf "PRESALEJS            = '$PRESALEJS'\n"
+printf "PRESALESOL           = '$PRESALESOL'\n" | tee -a $TEST1OUTPUT
+printf "PRESALETEMPSOL       = '$PRESALETEMPSOL'\n" | tee -a $TEST1OUTPUT
+printf "PRESALEJS            = '$PRESALEJS'\n" | tee -a $TEST1OUTPUT
 
-printf "PRESALEWALLETSOL     = '$PRESALEWALLETSOL'\n"
-printf "PRESALEWALLETTEMPSOL = '$PRESALEWALLETTEMPSOL'\n"
-printf "PRESALEWALLETJS      = '$PRESALEWALLETJS'\n"
+printf "SAFEMATHSOL          = '$SAFEMATHSOL'\n" | tee -a $TEST1OUTPUT
+printf "SAFEMATHTEMPSOL      = '$SAFEMATHTEMPSOL'\n" | tee -a $TEST1OUTPUT
 
-printf "SAFEMATHSOL          = '$SAFEMATHSOL'\n"
-printf "SAFEMATHTEMPSOL      = '$SAFEMATHTEMPSOL'\n"
-
-printf "DEPLOYMENTDATA       = '$DEPLOYMENTDATA'\n"
-printf "INCLUDEJS            = '$INCLUDEJS'\n"
-printf "TEST1OUTPUT          = '$TEST1OUTPUT'\n"
-printf "TEST1RESULTS         = '$TEST1RESULTS'\n"
-printf "CURRENTTIME          = '$CURRENTTIME' '$CURRENTTIMES'\n"
-printf "STARTTIME            = '$STARTTIME' '$STARTTIME_S'\n"
-printf "ENDTIME              = '$ENDTIME' '$ENDTIME_S'\n"
+printf "DEPLOYMENTDATA       = '$DEPLOYMENTDATA'\n" | tee -a $TEST1OUTPUT
+printf "INCLUDEJS            = '$INCLUDEJS'\n" | tee -a $TEST1OUTPUT
+printf "TEST1OUTPUT          = '$TEST1OUTPUT'\n" | tee -a $TEST1OUTPUT
+printf "TEST1RESULTS         = '$TEST1RESULTS'\n" | tee -a $TEST1OUTPUT
+printf "CURRENTTIME          = '$CURRENTTIME' '$CURRENTTIMES'\n" | tee -a $TEST1OUTPUT
+printf "STARTTIME            = '$STARTTIME' '$STARTTIME_S'\n" | tee -a $TEST1OUTPUT
+printf "ENDTIME              = '$ENDTIME' '$ENDTIME_S'\n" | tee -a $TEST1OUTPUT
 
 # Make copy of SOL file and modify start and end times ---
 `cp $CONTRACTSDIR/$APTSOL $APTTEMPSOL`
@@ -119,7 +111,6 @@ printf "ENDTIME              = '$ENDTIME' '$ENDTIME_S'\n"
 `cp modifiedContracts/$MINIMETOKENSOL $MINIMETOKENTEMPSOL`
 `cp $CONTRACTSDIR/$PLACEHOLDERSOL $PLACEHOLDERTEMPSOL`
 `cp $CONTRACTSDIR/$PRESALESOL $PRESALETEMPSOL`
-`cp $CONTRACTSDIR/$PRESALEWALLETSOL $PRESALEWALLETTEMPSOL`
 `cp $CONTRACTSDIR/$SAFEMATHSOL $SAFEMATHTEMPSOL`
 
 # --- Modify dates ---
@@ -129,32 +120,28 @@ printf "ENDTIME              = '$ENDTIME' '$ENDTIME_S'\n"
 #`perl -pi -e "s/BLOCKS_IN_DAY \= 5256;*$/BLOCKS_IN_DAY \= $BLOCKSINDAY;/" $DAOCASINOICOTEMPSOL`
 
 DIFFS1=`diff $CONTRACTSDIR/$APTSOL $APTTEMPSOL`
-echo "--- Differences $CONTRACTSDIR/$APTSOL $APTTEMPSOL ---"
-echo "$DIFFS1"
+echo "--- Differences $CONTRACTSDIR/$APTSOL $APTTEMPSOL ---" | tee -a $TEST1OUTPUT
+echo "$DIFFS1" | tee -a $TEST1OUTPUT
 
 DIFFS1=`diff $CONTRACTSDIR/$ERC20SOL $ERC20TEMPSOL`
-echo "--- Differences $CONTRACTSDIR/$ERC20SOL $ERC20TEMPSOL ---"
-echo "$DIFFS1"
+echo "--- Differences $CONTRACTSDIR/$ERC20SOL $ERC20TEMPSOL ---" | tee -a $TEST1OUTPUT
+echo "$DIFFS1" | tee -a $TEST1OUTPUT
 
 DIFFS1=`diff $CONTRACTSDIR/$MIGRATIONSSOL $MIGRATIONSTEMPSOL`
-echo "--- Differences $CONTRACTSDIR/$MIGRATIONSSOL $MIGRATIONSTEMPSOL ---"
-echo "$DIFFS1"
+echo "--- Differences $CONTRACTSDIR/$MIGRATIONSSOL $MIGRATIONSTEMPSOL ---" | tee -a $TEST1OUTPUT
+echo "$DIFFS1" | tee -a $TEST1OUTPUT
 
 DIFFS1=`diff $CONTRACTSDIR/$MINIMETOKENSOL $MINIMETOKENTEMPSOL`
-echo "--- Differences $CONTRACTSDIR/$MINIMETOKENSOL $MINIMETOKENTEMPSOL ---"
-echo "$DIFFS1"
+echo "--- Differences $CONTRACTSDIR/$MINIMETOKENSOL $MINIMETOKENTEMPSOL ---" | tee -a $TEST1OUTPUT
+echo "$DIFFS1" | tee -a $TEST1OUTPUT
 
 DIFFS1=`diff $CONTRACTSDIR/$PLACEHOLDERSOL $PLACEHOLDERTEMPSOL`
-echo "--- Differences $CONTRACTSDIR/$PLACEHOLDERSOL $PLACEHOLDERTEMPSOL ---"
-echo "$DIFFS1"
+echo "--- Differences $CONTRACTSDIR/$PLACEHOLDERSOL $PLACEHOLDERTEMPSOL ---" | tee -a $TEST1OUTPUT
+echo "$DIFFS1" | tee -a $TEST1OUTPUT
 
 DIFFS1=`diff $CONTRACTSDIR/$PRESALESOL $PRESALETEMPSOL`
-echo "--- Differences $CONTRACTSDIR/$PRESALESOL $PRESALETEMPSOL ---"
-echo "$DIFFS1"
-
-DIFFS1=`diff $CONTRACTSDIR/$PRESALEWALLETSOL $PRESALEWALLETTEMPSOL`
-echo "--- Differences $CONTRACTSDIR/$PRESALEWALLETSOL $PRESALEWALLETTEMPSOL ---"
-echo "$DIFFS1"
+echo "--- Differences $CONTRACTSDIR/$PRESALESOL $PRESALETEMPSOL ---" | tee -a $TEST1OUTPUT
+echo "$DIFFS1" | tee -a $TEST1OUTPUT
 
 echo "var aptOutput=`solc --optimize --combined-json abi,bin,interface $APTTEMPSOL`;" > $APTJS
 
@@ -167,7 +154,7 @@ echo "var phOutput=`solc --optimize --combined-json abi,bin,interface $PLACEHOLD
 echo "var psOutput=`solc --optimize --combined-json abi,bin,interface $PRESALETEMPSOL`;" > $PRESALEJS
 
 
-geth --verbosity 3 attach $GETHATTACHPOINT << EOF | tee $TEST1OUTPUT
+geth --verbosity 3 attach $GETHATTACHPOINT << EOF | tee -a $TEST1OUTPUT
 loadScript("$APTJS");
 loadScript("$MIGRATIONSJS");
 loadScript("$MINIMETOKENJS");
@@ -275,7 +262,7 @@ var ph = phContract.new(aptAddress, {from: contractOwnerAccount, data: phBin, ga
       } else {
         phAddress = contract.address;
         addAccount(phAddress, "PlaceHolder");
-        // addCrowdsaleContractAddressAndAbi(phAddress, phAbi);
+        addPlaceHolderContractAddressAndAbi(phAddress, phAbi);
         printTxData("phAddress=" + phAddress, phTx);
       }
     }
@@ -286,6 +273,7 @@ while (txpool.status.pending > 0) {
 printBalances();
 failIfGasEqualsGasUsed(phTx, phMessage);
 printCrowdsaleContractDetails();
+printPlaceHolderContractDetails();
 printTokenContractDetails();
 console.log("RESULT: ");
 
@@ -341,13 +329,13 @@ console.log("RESULT: ");
 // Initialise PreSale 
 // -----------------------------------------------------------------------------
 var initialisePresaleMessage = "Initialise PreSale";
-var maxAitSupply = "1000000000000000000000000";
+var maxSupply = "1000000000000000000000000";
 // Minimum investment in wei
 var minimumInvestment = 10;
 var startBlock = parseInt(eth.blockNumber) + 5;
 var endBlock = parseInt(eth.blockNumber) + 20;
 console.log("RESULT: " + initialisePresaleMessage);
-var initialisePresaleTx = ps.initialize(multisig, maxAitSupply, minimumInvestment, startBlock, endBlock,
+var initialisePresaleTx = ps.initialize(multisig, maxSupply, minimumInvestment, startBlock, endBlock,
   {from: contractOwnerAccount, gas: 2000000});
 while (txpool.status.pending > 0) {
 }
@@ -443,7 +431,7 @@ console.log("RESULT: ");
 // -----------------------------------------------------------------------------
 // Finalise PreSale 
 // -----------------------------------------------------------------------------
-var finalisePresaleMessage = "Initialise PreSale";
+var finalisePresaleMessage = "Finalise PreSale";
 console.log("RESULT: " + finalisePresaleMessage);
 var finalisePresaleTx = ps.finalize({from: contractOwnerAccount, gas: 2000000});
 while (txpool.status.pending > 0) {

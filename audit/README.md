@@ -274,10 +274,6 @@ See [test/README.md](test/README.md), [test/01_test1.sh](test/01_test1.sh) and [
 * [ ] [PreSale.md](code-review/PreSale.md)
   * [ ] contract PreSale is Controlled, TokenController
     * [x] using SafeMath for uint256
-* [ ] [PreSaleWallet.md](code-review/PreSaleWallet.md)
-  * [ ] contract PreSaleWallet
-    * **NOTE** Aigang have advised that they will not be using PreSaleWallet as this complicates the contract setup even further.
-      This contract will not be code reviewed or tested.
 * [x] [SafeMath.md](code-review/SafeMath.md)
   * [x] library SafeMath
 

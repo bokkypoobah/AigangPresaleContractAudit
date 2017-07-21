@@ -197,7 +197,9 @@ function printCrowdsaleContractDetails() {
     console.log("RESULT: crowdsale.controller=" + contract.controller());
     console.log("RESULT: crowdsale.exchangeRate=" + contract.exchangeRate());
     console.log("RESULT: crowdsale.investor_bonus=" + contract.investor_bonus());
-    console.log("RESULT: crowdsale.ait=" + contract.ait());
+    console.log("RESULT: crowdsale.apt=" + contract.apt());
+    console.log("RESULT: crowdsale.place_holder=" + contract.place_holder());
+    console.log("RESULT: crowdsale.preSaleWallet=" + contract.preSaleWallet());
     console.log("RESULT: crowdsale.totalSupplyCap=" + contract.totalSupplyCap().shift(-18));
     console.log("RESULT: crowdsale.totalSold=" + contract.totalSold().shift(-18));
     console.log("RESULT: crowdsale.minimum_investment=" + contract.minimum_investment().shift(-18));
@@ -206,7 +208,65 @@ function printCrowdsaleContractDetails() {
     console.log("RESULT: crowdsale.initializedBlock=" + contract.initializedBlock());
     console.log("RESULT: crowdsale.finalizedBlock=" + contract.finalizedBlock());
     console.log("RESULT: crowdsale.paused=" + contract.paused());
-    console.log("RESULT: crowdsale.transferable=" + contract.transferable());
+    var latestBlock = eth.blockNumber;
+    var i;
+
+    var newSaleEvents = contract.NewSale({}, { fromBlock: crowdsaleFromBlock, toBlock: latestBlock });
+    i = 0;
+    newSaleEvents.watch(function (error, result) {
+      console.log("RESULT: NewSale " + i++ + " #" + result.blockNumber + ": " + JSON.stringify(result.args));
+    });
+    newSaleEvents.stopWatching();
+
+    var initializedEvents = contract.Initialized({}, { fromBlock: crowdsaleFromBlock, toBlock: latestBlock });
+    i = 0;
+    initializedEvents.watch(function (error, result) {
+      console.log("RESULT: Initialized " + i++ + " #" + result.blockNumber + ": " + JSON.stringify(result.args));
+    });
+    initializedEvents.stopWatching();
+
+    var finalizedEvents = contract.Finalized({}, { fromBlock: crowdsaleFromBlock, toBlock: latestBlock });
+    i = 0;
+    finalizedEvents.watch(function (error, result) {
+      console.log("RESULT: Finalized " + i++ + " #" + result.blockNumber + ": " + JSON.stringify(result.args));
+    });
+    finalizedEvents.stopWatching();
+
+    crowdsaleFromBlock = parseInt(latestBlock) + 1;
+  }
+}
+
+
+//-----------------------------------------------------------------------------
+// PlaceHolder Contract
+//-----------------------------------------------------------------------------
+var placeHolderContractAddress = null;
+var placeHolderContractAbi = null;
+
+function addPlaceHolderContractAddressAndAbi(address, abi) {
+  placeHolderContractAddress = address;
+  placeHolderContractAbi = abi;
+}
+
+var placeHolderFromBlock = 0;
+function printPlaceHolderContractDetails() {
+  console.log("RESULT: placeHolderContractAddress=" + placeHolderContractAddress);
+  // console.log("RESULT: placeHolderContractAbi=" + JSON.stringify(placeHolderContractAbi));
+  if (placeHolderContractAddress != null && placeHolderContractAbi != null) {
+    var contract = eth.contract(placeHolderContractAbi).at(placeHolderContractAddress);
+    console.log("RESULT: placeHolder.controller=" + contract.controller());
+    console.log("RESULT: placeHolder.transferable=" + contract.transferable());
+    var latestBlock = eth.blockNumber;
+    var i;
+
+    var claimedTokensEvents = contract.ClaimedTokens({}, { fromBlock: placeHolderFromBlock, toBlock: latestBlock });
+    i = 0;
+    claimedTokensEvents.watch(function (error, result) {
+      console.log("RESULT: ClaimedTokens " + i++ + " #" + result.blockNumber + ": " + JSON.stringify(result.args));
+    });
+    claimedTokensEvents.stopWatching();
+
+    placeHolderFromBlock = parseInt(latestBlock) + 1;
   }
 }
 
