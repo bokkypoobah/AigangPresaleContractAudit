@@ -10,24 +10,28 @@ Source file [../../contracts/PreSale.sol](../../contracts/PreSale.sol)
 // BK Ok
 pragma solidity ^0.4.11;
 
-// BK Next 2 Ok
+// BK Next 4 Ok
 import "./SafeMath.sol";
+import "./ERC20.sol";
 import "./MiniMeToken.sol";
+import "./PreSaleWallet.sol";
 
 contract PreSale is Controlled, TokenController {
   // BK Ok
   using SafeMath for uint256;
 
-  // BK OK - 1 ETH => 1 AIT
-  uint256 constant public exchangeRate = 1; // ETH-AIT exchange rate
+  // BK OK - 1 ETH => 1 APT
+  uint256 constant public exchangeRate = 1; // ETH-APT exchange rate
   // BK NOTE - This variable is NOT used
   uint256 constant public investor_bonus = 25;
 
   // BK Ok
-  MiniMeToken public ait;
+  MiniMeToken public apt;
+  address public place_holder;
+  address public preSaleWallet;
 
-  // BK Ok - AIT token cap, in the natural number, i.e. 1 AIT = 1,000,000,000,000,000,000 natural number
-  uint256 public totalSupplyCap;            // Total AIT supply to be generated
+  // BK Ok - APT token cap, in the natural number, i.e. 1 APT = 1,000,000,000,000,000,000 natural number
+  uint256 public totalSupplyCap;            // Total APT supply to be generated
   // BK Ok - In wei
   uint256 public totalSold;                 // How much tokens have been sold
 
@@ -44,7 +48,6 @@ contract PreSale is Controlled, TokenController {
 
   // BK Next 2 Ok
   bool public paused;
-  bool public transferable;
 
   // BK Ok
   modifier initialized() {
@@ -73,13 +76,17 @@ contract PreSale is Controlled, TokenController {
   }
 
   // BK Ok - Constructor
-  function PreSale(address _ait) {
+  function PreSale(address _apt, address _place_holder) {
+    require(_apt != 0x0);
+    require(_place_holder != 0x0);
     // BK Ok - The token contract
-    ait = MiniMeToken(_ait);
+    apt = MiniMeToken(_apt);
+    place_holder = _place_holder;
   }
 
   // BK Ok - The contracts need to be initialised to link the contracts together
   function initialize(
+      address _preSaleWallet,
       uint256 _totalSupplyCap,
       uint256 _minimum_investment,
       uint256 _startBlock,
@@ -90,11 +97,14 @@ contract PreSale is Controlled, TokenController {
     require(initializedBlock == 0);
 
     // BK Ok - Start off with 0 total supply
-    assert(ait.totalSupply() == 0);
+    assert(apt.totalSupply() == 0);
     // BK Ok - The owner of the token contract is this contract
-    assert(ait.controller() == address(this));
+    assert(apt.controller() == address(this));
     // BK Ok - 18 decimal places
-    assert(ait.decimals() == 18);  // Same amount of decimals as ETH
+    assert(apt.decimals() == 18);  // Same amount of decimals as ETH
+
+    require(_preSaleWallet != 0x0);
+    preSaleWallet = _preSaleWallet;
 
     // BK Ok - Start block must be in the future
     assert(_startBlock >= getBlockNumber());
@@ -119,7 +129,7 @@ contract PreSale is Controlled, TokenController {
   }
 
   /// @notice If anybody sends Ether directly to this contract, consider he is
-  /// getting AITs.
+  /// getting APTs.
   // BK NOTE - Participants can contribute when the contracts are not in `pause` mode
   // BK Ok
   function () public payable notPaused {
@@ -131,10 +141,10 @@ contract PreSale is Controlled, TokenController {
   // TokenController functions
   //////////
 
-  /// @notice This method will generally be called by the MSP token contract to
-  ///  acquire AITs. Or directly from third parties that want to acquire AITs in
+  /// @notice This method will generally be called by the APT token contract to
+  ///  acquire APTs. Or directly from third parties that want to acquire APTs in
   ///  behalf of a token holder.
-  /// @param _th AIT holder where the AITs will be minted.
+  /// @param _th APT holder where the APTs will be minted.
   // BK NOTE - Participants can contribute when the contracts are not in `pause` mode
   //         - This function is only active when these contracts have been initialised
   //         - This function is only active during the contribution period
@@ -154,7 +164,7 @@ contract PreSale is Controlled, TokenController {
   // BK Ok
   function onTransfer(address, address, uint256) public returns (bool) {
     // BK Ok
-    return transferable;
+    return false;
   }
 
   // BK NOTE - Setting `transferable` to true results in this function returning true
@@ -162,7 +172,8 @@ contract PreSale is Controlled, TokenController {
   //           will be called to check if `approve(...)` is enabled
   // BK Ok
   function onApprove(address, address, uint256) public returns (bool) {
-    return transferable;
+    // BK Ok
+    return false;
   }
 
   // BK Ok
@@ -173,7 +184,7 @@ contract PreSale is Controlled, TokenController {
     // Antispam mechanism
     address caller;
     // BK Ok - Contributions may be sent to the token contract and it will be diverted here for the calculations
-    if (msg.sender == address(ait)) {
+    if (msg.sender == address(apt)) {
       // BK Ok
       caller = _th;
     } else {
@@ -204,10 +215,11 @@ contract PreSale is Controlled, TokenController {
         }
 
         // BK Ok - Call the token contract to generate the tokens and assign it to the token account
-        assert(ait.generateTokens(_th, tokensGenerated));
+        assert(apt.generateTokens(_th, tokensGenerated));
         // BK Ok - Keep a tally of the tokens generated
         totalSold = totalSold.add(tokensGenerated);
 
+        preSaleWallet.transfer(toFund);
         // BK Ok - Log the number of tokens generated
         NewSale(_th, toFund, tokensGenerated);
       } else {
@@ -259,6 +271,8 @@ contract PreSale is Controlled, TokenController {
     // BK Ok
     assert(msg.sender == controller || getBlockNumber() > endBlock || tokensForSale() == 0);
 
+    apt.changeController(place_holder);
+
     // BK Ok - Store the block number when these contracts where finalised 
     finalizedBlock = getBlockNumber();
 
@@ -303,6 +317,10 @@ contract PreSale is Controlled, TokenController {
   //         - Normally this function would be only used to collect stray ETH or ERC20 tokens
   // BK Ok - Only the contract owner can execute this function
   function claimTokens(address _token) public onlyController {
+    if (apt.controller() == address(this)) {
+      apt.claimTokens(_token);
+    }
+
     // BK Ok - No token address specified, withdraw ETH from the contract 
     if (_token == 0x0) {
       // BK Ok - Transfer ETH balance to the owner's account
@@ -312,7 +330,7 @@ contract PreSale is Controlled, TokenController {
     }
 
     // BK Ok - Using ERC20 functions only
-    MiniMeToken token = MiniMeToken(_token);
+    ERC20 token = ERC20(_token);
     // BK Ok - Get the balance of the ERC20 token
     uint256 balance = token.balanceOf(this);
     // BK NOTE - Should check for status, but no side effects other than the tokens not being transferred
@@ -326,15 +344,6 @@ contract PreSale is Controlled, TokenController {
   function pauseContribution(bool _paused) onlyController {
     // BK Ok
     paused = _paused;
-  }
-
-  // BK NOTE - Setting `transferable` to true results in `onTransfer(...)` and `onApprove(...)` returning true
-  //         - If this contract is the owner (`controller`) of the MiniMeToken token contract, `onTransfer(...)` and `onApprove(...)`
-  //           will be called to check if `transfer(...)`, `transferFrom(...)` and `approve(...)` are enabled
-  // BK Ok
-  function allowTransfers(bool _transferable) onlyController {
-    // BK Ok
-    transferable = _transferable;
   }
 
   // BK Next 4 Ok
