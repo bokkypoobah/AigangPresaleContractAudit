@@ -310,6 +310,12 @@ function printTokenContractDetails() {
       console.log("RESULT: balanceHistory(" + account4 + ", " + i + ") = " + e[0] + " => " + e[1].shift(-decimals));
     }
 
+    var balanceHistoryLength = contract.balanceHistoryLength(account5);
+    for (i = 0; i < balanceHistoryLength; i++) {
+      var e = contract.balanceHistory(account5, i);
+      console.log("RESULT: balanceHistory(" + account5 + ", " + i + ") = " + e[0] + " => " + e[1].shift(-decimals));
+    }
+
     var approvalEvents = contract.Approval({}, { fromBlock: tokenFromBlock, toBlock: latestBlock });
     i = 0;
     approvalEvents.watch(function (error, result) {

@@ -189,9 +189,8 @@ printBalances();
 console.log("RESULT: ");
 
 // -----------------------------------------------------------------------------
-// Deploy MiniMeTokenFactory
-// -----------------------------------------------------------------------------
 var mmtfMessage = "Deploy MiniMeTokenFactory";
+// -----------------------------------------------------------------------------
 console.log("RESULT: " + mmtfMessage);
 var mmtfContract = web3.eth.contract(mmtfAbi);
 var mmtfTx = null;
@@ -217,9 +216,8 @@ console.log("RESULT: ");
 
 
 // -----------------------------------------------------------------------------
-// Deploy APT
-// -----------------------------------------------------------------------------
 var aptMessage = "Deploy APT";
+// -----------------------------------------------------------------------------
 console.log("RESULT: " + aptMessage);
 var aptContract = web3.eth.contract(aptAbi);
 var aptTx = null;
@@ -247,9 +245,8 @@ console.log("RESULT: ");
 
 
 // -----------------------------------------------------------------------------
-// Deploy PlaceHolder
-// -----------------------------------------------------------------------------
 var phMessage = "Deploy PlaceHolder";
+// -----------------------------------------------------------------------------
 console.log("RESULT: " + phMessage);
 var phContract = web3.eth.contract(phAbi);
 var phTx = null;
@@ -279,9 +276,8 @@ console.log("RESULT: ");
 
 
 // -----------------------------------------------------------------------------
-// Deploy PreSale
-// -----------------------------------------------------------------------------
 var psMessage = "Deploy PreSale";
+// -----------------------------------------------------------------------------
 console.log("RESULT: " + psMessage);
 var psContract = web3.eth.contract(psAbi);
 var psTx = null;
@@ -311,9 +307,8 @@ console.log("RESULT: ");
 
 
 // -----------------------------------------------------------------------------
-// APT ChangeController To PreSale 
-// -----------------------------------------------------------------------------
 var aptChangeControllerMessage = "APT ChangeController To PreSale";
+// -----------------------------------------------------------------------------
 console.log("RESULT: " + aptChangeControllerMessage);
 var aptChangeControllerTx = apt.changeController(psAddress, {from: contractOwnerAccount, gas: 2000000});
 while (txpool.status.pending > 0) {
@@ -328,9 +323,8 @@ console.log("RESULT: ");
 
 
 // -----------------------------------------------------------------------------
-// Initialise PreSale 
-// -----------------------------------------------------------------------------
 var initialisePresaleMessage = "Initialise PreSale";
+// -----------------------------------------------------------------------------
 var maxSupply = "1000000000000000000000000";
 // Minimum investment in wei
 var minimumInvestment = 10;
@@ -362,6 +356,7 @@ console.log("RESULT: ");
 
 // -----------------------------------------------------------------------------
 var validContribution1Message = "Send Valid Contribution - 100 ETH From Account3";
+// -----------------------------------------------------------------------------
 console.log("RESULT: " + validContribution1Message);
 var validContribution1Tx = eth.sendTransaction({from: account3, to: psAddress, gas: 400000, value: web3.toWei("87", "ether")});
 var validContribution2Tx = eth.sendTransaction({from: account4, to: aptAddress, gas: 400000, value: web3.toWei("10", "ether")});
@@ -380,6 +375,7 @@ console.log("RESULT: ");
 
 // -----------------------------------------------------------------------------
 var validContribution2Message = "Send Valid Contribution - 1 ETH From Account3";
+// -----------------------------------------------------------------------------
 console.log("RESULT: " + validContribution2Message);
 var validContribution3Tx = eth.sendTransaction({from: account3, to: psAddress, gas: 400000, value: web3.toWei("1", "ether")});
 while (txpool.status.pending > 0) {
@@ -395,6 +391,7 @@ console.log("RESULT: ");
 
 // -----------------------------------------------------------------------------
 var validContribution3Message = "Send Valid Contribution - 3 ETH From Account3";
+// -----------------------------------------------------------------------------
 console.log("RESULT: " + validContribution3Message);
 var validContribution4Tx = eth.sendTransaction({from: account3, to: psAddress, gas: 400000, value: web3.toWei("3", "ether")});
 while (txpool.status.pending > 0) {
@@ -419,16 +416,15 @@ console.log("RESULT: ");
 
 
 // -----------------------------------------------------------------------------
-// Claim ETH 
+var claimEthersMessage = "Claim Ethers But No Ethers";
 // -----------------------------------------------------------------------------
-var claimEthersMessage = "Claim Ethers";
 console.log("RESULT: " + claimEthersMessage);
 var claimEthersTx = ps.claimTokens(0, {from: contractOwnerAccount, gas: 2000000});
 while (txpool.status.pending > 0) {
 }
 printTxData("claimEthersTx", claimEthersTx);
 printBalances();
-failIfGasEqualsGasUsed(claimEthersTx, claimEthersMessage);
+passIfGasEqualsGasUsed(claimEthersTx, claimEthersMessage);
 printCrowdsaleContractDetails();
 printPlaceHolderContractDetails();
 printTokenContractDetails();
@@ -436,9 +432,8 @@ console.log("RESULT: ");
 
 
 // -----------------------------------------------------------------------------
-// Finalise PreSale 
-// -----------------------------------------------------------------------------
 var finalisePresaleMessage = "Finalise PreSale";
+// -----------------------------------------------------------------------------
 console.log("RESULT: " + finalisePresaleMessage);
 var finalisePresaleTx = ps.finalize({from: contractOwnerAccount, gas: 2000000});
 while (txpool.status.pending > 0) {
@@ -453,9 +448,8 @@ console.log("RESULT: ");
 
 
 // -----------------------------------------------------------------------------
-// Generate Tokens After Finalisation 
-// -----------------------------------------------------------------------------
 var generateTokensMessage = "Generate Tokens After Finalisation";
+// -----------------------------------------------------------------------------
 console.log("RESULT: " + generateTokensMessage);
 var generateTokensTx = ph.generateTokens(account5, "1000000000000000000000000", {from: contractOwnerAccount, gas: 2000000});
 while (txpool.status.pending > 0) {
@@ -494,9 +488,8 @@ console.log("RESULT: ");
 
 
 // -----------------------------------------------------------------------------
-// Allow transfers
+var allowTransfersMessage = "Allow Transfers";
 // -----------------------------------------------------------------------------
-var allowTransfersMessage = "Allow transfers";
 console.log("RESULT: " + generateTokensMessage);
 var allowTransfersTx = ph.allowTransfers(true, {from: contractOwnerAccount, gas: 2000000});
 while (txpool.status.pending > 0) {
@@ -532,6 +525,47 @@ printCrowdsaleContractDetails();
 printPlaceHolderContractDetails();
 printTokenContractDetails();
 console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+var changeControllerMessage = "Change Controller";
+// -----------------------------------------------------------------------------
+console.log("RESULT: " + changeControllerMessage);
+var changeControllerTx = ph.changeAPTController(contractOwnerAccount, {from: contractOwnerAccount, gas: 2000000});
+while (txpool.status.pending > 0) {
+}
+printTxData("changeControllerTx", changeControllerTx);
+printBalances();
+failIfGasEqualsGasUsed(changeControllerTx, changeControllerMessage);
+printCrowdsaleContractDetails();
+printPlaceHolderContractDetails();
+printTokenContractDetails();
+console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+var canTransfer2Message = "Can Move Tokens After Change Controller";
+// -----------------------------------------------------------------------------
+console.log("RESULT: " + canTransferMessage);
+var canTransfer4Tx = apt.transfer(account6, "1000000000000", {from: account4, gas: 100000});
+var canTransfer5Tx = apt.approve(account7,  "30000000000000000", {from: account5, gas: 100000});
+while (txpool.status.pending > 0) {
+}
+var canTransfer6Tx = apt.transferFrom(account5, account7, "30000000000000000", {from: account7, gas: 200000});
+while (txpool.status.pending > 0) {
+}
+printTxData("canTransfer4Tx", canTransfer4Tx);
+printTxData("canTransfer5Tx", canTransfer5Tx);
+printTxData("canTransfer6Tx", canTransfer6Tx);
+printBalances();
+failIfGasEqualsGasUsed(canTransfer4Tx, canTransfer2Message + " - transfer 0.000001 tokens ac4 -> ac6. CHECK for movement");
+failIfGasEqualsGasUsed(canTransfer5Tx, canTransfer2Message + " - approve 0.03 tokens ac5 -> ac7");
+failIfGasEqualsGasUsed(canTransfer6Tx, canTransfer2Message + " - transferFrom 0.03 tokens ac5 -> ac7. CHECK for movement");
+printCrowdsaleContractDetails();
+printPlaceHolderContractDetails();
+printTokenContractDetails();
+console.log("RESULT: ");
+
 
 EOF
 grep "DATA: " $TEST1OUTPUT | sed "s/DATA: //" > $DEPLOYMENTDATA

@@ -26,9 +26,9 @@ DEPLOYMENTDATA       = 'deploymentData.txt'
 INCLUDEJS            = './include.js'
 TEST1OUTPUT          = 'test1output.txt'
 TEST1RESULTS         = 'test1results.txt'
-CURRENTTIME          = '1500732490' 'Sat 22 Jul 2017 14:08:10 UTC'
-STARTTIME            = '1500732565' 'Sat 22 Jul 2017 14:09:25 UTC'
-ENDTIME              = '1500732730' 'Sat 22 Jul 2017 14:12:10 UTC'
+CURRENTTIME          = '1500733738' 'Sat 22 Jul 2017 14:28:58 UTC'
+STARTTIME            = '1500733813' 'Sat 22 Jul 2017 14:30:13 UTC'
+ENDTIME              = '1500733978' 'Sat 22 Jul 2017 14:32:58 UTC'
 --- Differences ../../contracts/APT.sol APT.sol ---
 
 --- Differences ../../contracts/ERC20.sol ERC20.sol ---
@@ -64,7 +64,7 @@ Welcome to the Geth JavaScript console!
 
 instance: Geth/v1.6.7-stable-ab5646c5/darwin-amd64/go1.8.3
 coinbase: 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e
-at block: 116 (Sun, 23 Jul 2017 00:08:06 AEST)
+at block: 1 (Sun, 23 Jul 2017 00:28:57 AEST)
  datadir: /Users/bok/Projects/AigangPresaleContractAudit/audit/test/testchain
  modules: admin:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
@@ -124,7 +124,7 @@ undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       30.000000000000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       35.000000000000000000           0.000000000000000000 Account #0 - Miner
 RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433        0.000000000000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
 RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3
@@ -143,8 +143,6 @@ undefined
 RESULT: 
 undefined
 > 
-> 
-undefined
 > 
 undefined
 > 
@@ -178,7 +176,7 @@ undefined
 ... 
 undefined
 > 
-RESULT: mmtfAddress=0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b gas=4000000 gasUsed=2352199 costETH=0.042339582 costUSD=8.698751801064 @ ETH/USD=205.452 gasPrice=18000000000 block=125 txId=0xfc283ec8a91f968f7ecf659096559a3c3b562e134e1d4f1c82cce9942e3a7c59
+RESULT: mmtfAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688 gas=4000000 gasUsed=2352199 costETH=0.042339582 costUSD=8.698751801064 @ ETH/USD=205.452 gasPrice=18000000000 block=10 txId=0x20e83f7f901e6c45c5b83468ef906fd1e00aaa441b39ebc764811f50f8772bc9
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       45.042339582000000000           0.000000000000000000 Account #0 - Miner
@@ -191,7 +189,7 @@ RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.00000000000000000
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
 RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-RESULT: 10 0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+RESULT: 10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                     0.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -205,8 +203,6 @@ RESULT:
 undefined
 > 
 > 
-> 
-undefined
 > 
 undefined
 > 
@@ -241,7 +237,7 @@ undefined
 ... 
 undefined
 > 
-RESULT: aptAddress=0x1029670471248c1046263e47c431a061a7fa34ab gas=4000000 gasUsed=2201386 costETH=0.039624948 costUSD=8.141024816496 @ ETH/USD=205.452 gasPrice=18000000000 block=127 txId=0x4974711ab8d11f9fea0f159d7211b015a2a4372f069795cb9e848640cabef7bd
+RESULT: aptAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d gas=4000000 gasUsed=2201386 costETH=0.039624948 costUSD=8.141024816496 @ ETH/USD=205.452 gasPrice=18000000000 block=12 txId=0xaf5e2d0aa3b263401e45406a931c51ae6f45c95b3e60daaa3cc645dfea93f572
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       55.081964530000000000           0.000000000000000000 Account #0 - Miner
@@ -254,8 +250,8 @@ RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.00000000000000000
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
 RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-RESULT: 10 0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-RESULT: 11 0x1029670471248c1046263e47c431a061a7fa34ab        0.000000000000000000           0.000000000000000000 APT
+RESULT: 10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+RESULT: 11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 APT
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                     0.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -265,7 +261,7 @@ undefined
 RESULT: PASS Deploy APT
 1
 > 
-RESULT: tokenContractAddress=0x1029670471248c1046263e47c431a061a7fa34ab
+RESULT: tokenContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
 RESULT: token.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: token.symbol=APT
 RESULT: token.name=Aigang Pre-Launch Token
@@ -277,8 +273,6 @@ RESULT:
 undefined
 > 
 > 
-> 
-undefined
 > 
 undefined
 > 
@@ -313,10 +307,10 @@ undefined
 ... 
 undefined
 > 
-RESULT: phAddress=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8 gas=4000000 gasUsed=587515 costETH=0.01057527 costUSD=2.17271037204 @ ETH/USD=205.452 gasPrice=18000000000 block=129 txId=0x07c74202044246e82f51288572015e741d7d648e7b7a587b8016c69e292d5e58
+RESULT: phAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff gas=4000000 gasUsed=587515 costETH=0.01057527 costUSD=2.17271037204 @ ETH/USD=205.452 gasPrice=18000000000 block=16 txId=0xbf90c35a8590db1f548a596a506bed2ea720f955e56e62960aed104846651ffb
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       65.092539800000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       75.092539800000000000           0.000000000000000000 Account #0 - Miner
 RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.092539800000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
 RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3
@@ -326,9 +320,9 @@ RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.00000000000000000
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
 RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-RESULT: 10 0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-RESULT: 11 0x1029670471248c1046263e47c431a061a7fa34ab        0.000000000000000000           0.000000000000000000 APT
-RESULT: 12 0xa83b361b5b868fc289d586c3a1d3712d8075d8f8        0.000000000000000000           0.000000000000000000 PlaceHolder
+RESULT: 10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+RESULT: 11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 APT
+RESULT: 12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 PlaceHolder
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                     0.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -341,12 +335,12 @@ RESULT: PASS Deploy PlaceHolder
 RESULT: crowdsaleContractAddress=null
 undefined
 > 
-RESULT: placeHolderContractAddress=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: placeHolderContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: placeHolder.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: placeHolder.transferable=false
 undefined
 > 
-RESULT: tokenContractAddress=0x1029670471248c1046263e47c431a061a7fa34ab
+RESULT: tokenContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
 RESULT: token.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: token.symbol=APT
 RESULT: token.name=Aigang Pre-Launch Token
@@ -358,8 +352,6 @@ RESULT:
 undefined
 > 
 > 
-> 
-undefined
 > 
 undefined
 > 
@@ -394,10 +386,10 @@ undefined
 ... 
 undefined
 > 
-RESULT: psAddress=0x43ac93ca1533f31e82ae941b6f477096cf9a28e6 gas=4000000 gasUsed=1184613 costETH=0.021323034 costUSD=4.380859981368 @ ETH/USD=205.452 gasPrice=18000000000 block=132 txId=0x233187813e91f97a4d25e5cb2d6ae8b4e5571f270027aa3a4247fa423cc849f9
+RESULT: psAddress=0xe6ada9beed6e24be4c0259383db61b52bfca85f3 gas=4000000 gasUsed=1184613 costETH=0.021323034 costUSD=4.380859981368 @ ETH/USD=205.452 gasPrice=18000000000 block=19 txId=0x8a98b9c5445212704b01b89a789fa4996a22aa96dc9a7cde820052717a8a8d93
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       85.113862834000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       90.113862834000000000           0.000000000000000000 Account #0 - Miner
 RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.113862834000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
 RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3
@@ -407,10 +399,10 @@ RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.00000000000000000
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
 RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-RESULT: 10 0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-RESULT: 11 0x1029670471248c1046263e47c431a061a7fa34ab        0.000000000000000000           0.000000000000000000 APT
-RESULT: 12 0xa83b361b5b868fc289d586c3a1d3712d8075d8f8        0.000000000000000000           0.000000000000000000 PlaceHolder
-RESULT: 13 0x43ac93ca1533f31e82ae941b6f477096cf9a28e6        0.000000000000000000           0.000000000000000000 PreSale
+RESULT: 10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+RESULT: 11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 APT
+RESULT: 12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 PlaceHolder
+RESULT: 13 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 PreSale
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                     0.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -420,12 +412,12 @@ undefined
 RESULT: PASS Deploy PreSale
 1
 > 
-RESULT: crowdsaleContractAddress=0x43ac93ca1533f31e82ae941b6f477096cf9a28e6
+RESULT: crowdsaleContractAddress=0xe6ada9beed6e24be4c0259383db61b52bfca85f3
 RESULT: crowdsale.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: crowdsale.exchangeRate=1
 RESULT: crowdsale.investor_bonus=25
-RESULT: crowdsale.apt=0x1029670471248c1046263e47c431a061a7fa34ab
-RESULT: crowdsale.place_holder=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: crowdsale.apt=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: crowdsale.place_holder=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: crowdsale.preSaleWallet=0x0000000000000000000000000000000000000000
 RESULT: crowdsale.totalSupplyCap=0
 RESULT: crowdsale.totalSold=0
@@ -437,12 +429,12 @@ RESULT: crowdsale.finalizedBlock=0
 RESULT: crowdsale.paused=false
 undefined
 > 
-RESULT: placeHolderContractAddress=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: placeHolderContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: placeHolder.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: placeHolder.transferable=false
 undefined
 > 
-RESULT: tokenContractAddress=0x1029670471248c1046263e47c431a061a7fa34ab
+RESULT: tokenContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
 RESULT: token.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: token.symbol=APT
 RESULT: token.name=Aigang Pre-Launch Token
@@ -461,8 +453,6 @@ undefined
 > 
 undefined
 > 
-undefined
-> 
 RESULT: APT ChangeController To PreSale
 undefined
 > 
@@ -471,12 +461,12 @@ undefined
 ... 
 undefined
 > 
-RESULT: aptChangeControllerTx gas=2000000 gasUsed=28230 costETH=0.00050814 costUSD=0.10439837928 @ ETH/USD=205.452 gasPrice=18000000000 block=135 txId=0x758dc471cba285a15b60f0ec4d91391c2aaadcb91498c43fcd2a6f00affddfc4
+RESULT: aptChangeControllerTx gas=2000000 gasUsed=28230 costETH=0.00050814 costUSD=0.10439837928 @ ETH/USD=205.452 gasPrice=18000000000 block=21 txId=0x764e0822e36af94b016bd4ac120058e7550a11bb33ffd3442eaaf5b1ddec6354
 undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e       95.114370974000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      100.114370974000000000           0.000000000000000000 Account #0 - Miner
 RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.114370974000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2 - Multisig
 RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3
@@ -486,10 +476,10 @@ RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.00000000000000000
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
 RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-RESULT: 10 0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-RESULT: 11 0x1029670471248c1046263e47c431a061a7fa34ab        0.000000000000000000           0.000000000000000000 APT
-RESULT: 12 0xa83b361b5b868fc289d586c3a1d3712d8075d8f8        0.000000000000000000           0.000000000000000000 PlaceHolder
-RESULT: 13 0x43ac93ca1533f31e82ae941b6f477096cf9a28e6        0.000000000000000000           0.000000000000000000 PreSale
+RESULT: 10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+RESULT: 11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 APT
+RESULT: 12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 PlaceHolder
+RESULT: 13 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 PreSale
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                     0.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -499,12 +489,12 @@ undefined
 RESULT: PASS APT ChangeController To PreSale
 1
 > 
-RESULT: crowdsaleContractAddress=0x43ac93ca1533f31e82ae941b6f477096cf9a28e6
+RESULT: crowdsaleContractAddress=0xe6ada9beed6e24be4c0259383db61b52bfca85f3
 RESULT: crowdsale.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: crowdsale.exchangeRate=1
 RESULT: crowdsale.investor_bonus=25
-RESULT: crowdsale.apt=0x1029670471248c1046263e47c431a061a7fa34ab
-RESULT: crowdsale.place_holder=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: crowdsale.apt=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: crowdsale.place_holder=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: crowdsale.preSaleWallet=0x0000000000000000000000000000000000000000
 RESULT: crowdsale.totalSupplyCap=0
 RESULT: crowdsale.totalSold=0
@@ -516,13 +506,13 @@ RESULT: crowdsale.finalizedBlock=0
 RESULT: crowdsale.paused=false
 undefined
 > 
-RESULT: placeHolderContractAddress=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: placeHolderContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: placeHolder.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: placeHolder.transferable=false
 undefined
 > 
-RESULT: tokenContractAddress=0x1029670471248c1046263e47c431a061a7fa34ab
-RESULT: token.controller=0x43ac93ca1533f31e82ae941b6f477096cf9a28e6
+RESULT: tokenContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: token.controller=0xe6ada9beed6e24be4c0259383db61b52bfca85f3
 RESULT: token.symbol=APT
 RESULT: token.name=Aigang Pre-Launch Token
 RESULT: token.decimals=18
@@ -533,8 +523,6 @@ RESULT:
 undefined
 > 
 > 
-> 
-undefined
 > 
 undefined
 > 
@@ -561,7 +549,7 @@ undefined
 ... 
 undefined
 > 
-RESULT: initialisePresaleTx gas=2000000 gasUsed=149032 costETH=0.002682576 costUSD=0.551140604352 @ ETH/USD=205.452 gasPrice=18000000000 block=138 txId=0xde9035fb9f68e754810a8fcbdb26c7f0036db0fb6404ec853f61577e77cd7f9e
+RESULT: initialisePresaleTx gas=2000000 gasUsed=149032 costETH=0.002682576 costUSD=0.551140604352 @ ETH/USD=205.452 gasPrice=18000000000 block=23 txId=0x556b54bf1cccbb10072ac4251e4f7e58aa648cfb70092a25b12b513723f5119b
 undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
@@ -576,10 +564,10 @@ RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.00000000000000000
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
 RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-RESULT: 10 0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-RESULT: 11 0x1029670471248c1046263e47c431a061a7fa34ab        0.000000000000000000           0.000000000000000000 APT
-RESULT: 12 0xa83b361b5b868fc289d586c3a1d3712d8075d8f8        0.000000000000000000           0.000000000000000000 PlaceHolder
-RESULT: 13 0x43ac93ca1533f31e82ae941b6f477096cf9a28e6        0.000000000000000000           0.000000000000000000 PreSale
+RESULT: 10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+RESULT: 11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 APT
+RESULT: 12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 PlaceHolder
+RESULT: 13 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 PreSale
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                     0.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -589,31 +577,31 @@ undefined
 RESULT: PASS Initialise PreSale
 1
 > 
-RESULT: crowdsaleContractAddress=0x43ac93ca1533f31e82ae941b6f477096cf9a28e6
+RESULT: crowdsaleContractAddress=0xe6ada9beed6e24be4c0259383db61b52bfca85f3
 RESULT: crowdsale.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: crowdsale.exchangeRate=1
 RESULT: crowdsale.investor_bonus=25
-RESULT: crowdsale.apt=0x1029670471248c1046263e47c431a061a7fa34ab
-RESULT: crowdsale.place_holder=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: crowdsale.apt=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: crowdsale.place_holder=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: crowdsale.preSaleWallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
 RESULT: crowdsale.totalSupplyCap=1000000
 RESULT: crowdsale.totalSold=0
 RESULT: crowdsale.minimum_investment=1e-17
-RESULT: crowdsale.startBlock=141
-RESULT: crowdsale.endBlock=156
-RESULT: crowdsale.initializedBlock=138
+RESULT: crowdsale.startBlock=26
+RESULT: crowdsale.endBlock=41
+RESULT: crowdsale.initializedBlock=23
 RESULT: crowdsale.finalizedBlock=0
 RESULT: crowdsale.paused=false
-RESULT: Initialized 0 #138: {"_now":"138"}
+RESULT: Initialized 0 #23: {"_now":"23"}
 undefined
 > 
-RESULT: placeHolderContractAddress=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: placeHolderContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: placeHolder.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: placeHolder.transferable=false
 undefined
 > 
-RESULT: tokenContractAddress=0x1029670471248c1046263e47c431a061a7fa34ab
-RESULT: token.controller=0x43ac93ca1533f31e82ae941b6f477096cf9a28e6
+RESULT: tokenContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: token.controller=0xe6ada9beed6e24be4c0259383db61b52bfca85f3
 RESULT: token.symbol=APT
 RESULT: token.name=Aigang Pre-Launch Token
 RESULT: token.decimals=18
@@ -631,19 +619,21 @@ undefined
 > 
 undefined
 > 
-RESULT: Waiting until startBlock #141 currentBlock=140
+RESULT: Waiting until startBlock #26 currentBlock=23
 undefined
 > 
 ... 
 undefined
 > 
-RESULT: Waited until startBlock #141 currentBlock=142
+RESULT: Waited until startBlock #26 currentBlock=27
 undefined
 > 
 RESULT: 
 undefined
 > 
 > 
+> 
+undefined
 > 
 undefined
 > 
@@ -659,28 +649,28 @@ undefined
 ... 
 undefined
 > 
-RESULT: validContribution1Tx gas=400000 gasUsed=136858 costETH=0.002463444 costUSD=0.506119496688 @ ETH/USD=205.452 gasPrice=18000000000 block=144 txId=0xceeef3970ff2a55440129b055e0e9c48d6a4192adeedaf33f1e90b8e36b395af
+RESULT: validContribution1Tx gas=400000 gasUsed=136858 costETH=0.002463444 costUSD=0.506119496688 @ ETH/USD=205.452 gasPrice=18000000000 block=29 txId=0x8aa07fd1e24e2bb32b9ea27fe23121c6da662a93fe469bb57565c821655213f4
 undefined
 > 
-RESULT: validContribution2Tx gas=400000 gasUsed=115530 costETH=0.00207954 costUSD=0.42724565208 @ ETH/USD=205.452 gasPrice=18000000000 block=145 txId=0x2a5a3279683be489ca4d46c7d708a907c5bafc7d993d026ea53fc8fb4d87b043
+RESULT: validContribution2Tx gas=400000 gasUsed=95174 costETH=0.001713132 costUSD=0.351966395664 @ ETH/USD=205.452 gasPrice=18000000000 block=29 txId=0x96d6a13ed07c61330b5a1c7205ca6dd6de491e50a231cb7b76834446b5198bc0
 undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      145.121596534000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      140.121230126000000000           0.000000000000000000 Account #0 - Miner
 RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.117053550000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976       97.000000000000000000           0.000000000000000000 Account #2 - Multisig
 RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0      -87.002463444000000000          87.000000000000000000 Account #3
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.002079540000000000          10.000000000000000000 Account #4
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.001713132000000000          10.000000000000000000 Account #4
 RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
 RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
 RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-RESULT: 10 0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-RESULT: 11 0x1029670471248c1046263e47c431a061a7fa34ab        0.000000000000000000           0.000000000000000000 APT
-RESULT: 12 0xa83b361b5b868fc289d586c3a1d3712d8075d8f8        0.000000000000000000           0.000000000000000000 PlaceHolder
-RESULT: 13 0x43ac93ca1533f31e82ae941b6f477096cf9a28e6        0.000000000000000000           0.000000000000000000 PreSale
+RESULT: 10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+RESULT: 11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 APT
+RESULT: 12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 PlaceHolder
+RESULT: 13 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 PreSale
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                    97.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -693,48 +683,49 @@ RESULT: PASS Send Valid Contribution - 100 ETH From Account3 ac3->ps 100 ETH
 RESULT: PASS Send Valid Contribution - 100 ETH From Account3 ac4->apt 10 ETH
 1
 > 
-RESULT: crowdsaleContractAddress=0x43ac93ca1533f31e82ae941b6f477096cf9a28e6
+RESULT: crowdsaleContractAddress=0xe6ada9beed6e24be4c0259383db61b52bfca85f3
 RESULT: crowdsale.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: crowdsale.exchangeRate=1
 RESULT: crowdsale.investor_bonus=25
-RESULT: crowdsale.apt=0x1029670471248c1046263e47c431a061a7fa34ab
-RESULT: crowdsale.place_holder=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: crowdsale.apt=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: crowdsale.place_holder=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: crowdsale.preSaleWallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
 RESULT: crowdsale.totalSupplyCap=1000000
 RESULT: crowdsale.totalSold=97
 RESULT: crowdsale.minimum_investment=1e-17
-RESULT: crowdsale.startBlock=141
-RESULT: crowdsale.endBlock=156
-RESULT: crowdsale.initializedBlock=138
+RESULT: crowdsale.startBlock=26
+RESULT: crowdsale.endBlock=41
+RESULT: crowdsale.initializedBlock=23
 RESULT: crowdsale.finalizedBlock=0
 RESULT: crowdsale.paused=false
-RESULT: NewSale 0 #144: {"_amount":"87000000000000000000","_th":"0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0","_tokens":"87000000000000000000"}
-RESULT: NewSale 1 #145: {"_amount":"10000000000000000000","_th":"0xa44a08d3f6933c69212114bb66e2df1813651844","_tokens":"10000000000000000000"}
+RESULT: NewSale 0 #29: {"_amount":"87000000000000000000","_th":"0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0","_tokens":"87000000000000000000"}
+RESULT: NewSale 1 #29: {"_amount":"10000000000000000000","_th":"0xa44a08d3f6933c69212114bb66e2df1813651844","_tokens":"10000000000000000000"}
 undefined
 > 
-RESULT: placeHolderContractAddress=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: placeHolderContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: placeHolder.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: placeHolder.transferable=false
 undefined
 > 
-RESULT: tokenContractAddress=0x1029670471248c1046263e47c431a061a7fa34ab
-RESULT: token.controller=0x43ac93ca1533f31e82ae941b6f477096cf9a28e6
+RESULT: tokenContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: token.controller=0xe6ada9beed6e24be4c0259383db61b52bfca85f3
 RESULT: token.symbol=APT
 RESULT: token.name=Aigang Pre-Launch Token
 RESULT: token.decimals=18
 RESULT: token.totalSupply=97
-RESULT: totalSupplyHistory(0) = 144 => 87
-RESULT: totalSupplyHistory(1) = 145 => 97
-RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 144 => 87
-RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 145 => 10
-RESULT: Transfer 0 #144: _from=0x0000000000000000000000000000000000000000 _to=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 _amount=87
-RESULT: Transfer 1 #145: _from=0x0000000000000000000000000000000000000000 _to=0xa44a08d3f6933c69212114bb66e2df1813651844 _amount=10
+RESULT: totalSupplyHistory(0) = 29 => 97
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 29 => 87
+RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 29 => 10
+RESULT: Transfer 0 #29: _from=0x0000000000000000000000000000000000000000 _to=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 _amount=87
+RESULT: Transfer 1 #29: _from=0x0000000000000000000000000000000000000000 _to=0xa44a08d3f6933c69212114bb66e2df1813651844 _amount=10
 undefined
 > 
 RESULT: 
 undefined
 > 
 > 
+> 
+undefined
 > 
 undefined
 > 
@@ -748,25 +739,25 @@ undefined
 ... 
 undefined
 > 
-RESULT: validContribution3Tx gas=400000 gasUsed=93938 costETH=0.001690884 costUSD=0.347395499568 @ ETH/USD=205.452 gasPrice=18000000000 block=148 txId=0x80340040d3b3ee127f0580b03bc83d4ec3ef55ef82898b0acc6cba1e89644b7d
+RESULT: validContribution3Tx gas=400000 gasUsed=93938 costETH=0.001690884 costUSD=0.347395499568 @ ETH/USD=205.452 gasPrice=18000000000 block=32 txId=0x4309dc2ca986b3a5aae7c6d6bd1632b021c74bf50d912c08f4f5746d684e8b05
 undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      160.123287418000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      155.122921010000000000           0.000000000000000000 Account #0 - Miner
 RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.117053550000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976       98.000000000000000000           0.000000000000000000 Account #2 - Multisig
 RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0      -88.004154328000000000          88.000000000000000000 Account #3
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.002079540000000000          10.000000000000000000 Account #4
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.001713132000000000          10.000000000000000000 Account #4
 RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
 RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
 RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-RESULT: 10 0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-RESULT: 11 0x1029670471248c1046263e47c431a061a7fa34ab        0.000000000000000000           0.000000000000000000 APT
-RESULT: 12 0xa83b361b5b868fc289d586c3a1d3712d8075d8f8        0.000000000000000000           0.000000000000000000 PlaceHolder
-RESULT: 13 0x43ac93ca1533f31e82ae941b6f477096cf9a28e6        0.000000000000000000           0.000000000000000000 PreSale
+RESULT: 10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+RESULT: 11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 APT
+RESULT: 12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 PlaceHolder
+RESULT: 13 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 PreSale
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                    98.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -776,48 +767,49 @@ undefined
 RESULT: PASS Send Valid Contribution - 1 ETH From Account3 ac3->ps 1 ETH
 1
 > 
-RESULT: crowdsaleContractAddress=0x43ac93ca1533f31e82ae941b6f477096cf9a28e6
+RESULT: crowdsaleContractAddress=0xe6ada9beed6e24be4c0259383db61b52bfca85f3
 RESULT: crowdsale.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: crowdsale.exchangeRate=1
 RESULT: crowdsale.investor_bonus=25
-RESULT: crowdsale.apt=0x1029670471248c1046263e47c431a061a7fa34ab
-RESULT: crowdsale.place_holder=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: crowdsale.apt=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: crowdsale.place_holder=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: crowdsale.preSaleWallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
 RESULT: crowdsale.totalSupplyCap=1000000
 RESULT: crowdsale.totalSold=98
 RESULT: crowdsale.minimum_investment=1e-17
-RESULT: crowdsale.startBlock=141
-RESULT: crowdsale.endBlock=156
-RESULT: crowdsale.initializedBlock=138
+RESULT: crowdsale.startBlock=26
+RESULT: crowdsale.endBlock=41
+RESULT: crowdsale.initializedBlock=23
 RESULT: crowdsale.finalizedBlock=0
 RESULT: crowdsale.paused=false
-RESULT: NewSale 0 #148: {"_amount":"1000000000000000000","_th":"0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0","_tokens":"1000000000000000000"}
+RESULT: NewSale 0 #32: {"_amount":"1000000000000000000","_th":"0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0","_tokens":"1000000000000000000"}
 undefined
 > 
-RESULT: placeHolderContractAddress=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: placeHolderContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: placeHolder.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: placeHolder.transferable=false
 undefined
 > 
-RESULT: tokenContractAddress=0x1029670471248c1046263e47c431a061a7fa34ab
-RESULT: token.controller=0x43ac93ca1533f31e82ae941b6f477096cf9a28e6
+RESULT: tokenContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: token.controller=0xe6ada9beed6e24be4c0259383db61b52bfca85f3
 RESULT: token.symbol=APT
 RESULT: token.name=Aigang Pre-Launch Token
 RESULT: token.decimals=18
 RESULT: token.totalSupply=98
-RESULT: totalSupplyHistory(0) = 144 => 87
-RESULT: totalSupplyHistory(1) = 145 => 97
-RESULT: totalSupplyHistory(2) = 148 => 98
-RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 144 => 87
-RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 1) = 148 => 88
-RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 145 => 10
-RESULT: Transfer 0 #148: _from=0x0000000000000000000000000000000000000000 _to=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 _amount=1
+RESULT: totalSupplyHistory(0) = 29 => 97
+RESULT: totalSupplyHistory(1) = 32 => 98
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 29 => 87
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 1) = 32 => 88
+RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 29 => 10
+RESULT: Transfer 0 #32: _from=0x0000000000000000000000000000000000000000 _to=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 _amount=1
 undefined
 > 
 RESULT: 
 undefined
 > 
 > 
+> 
+undefined
 > 
 undefined
 > 
@@ -831,25 +823,25 @@ undefined
 ... 
 undefined
 > 
-RESULT: validContribution4Tx gas=400000 gasUsed=93938 costETH=0.001690884 costUSD=0.347395499568 @ ETH/USD=205.452 gasPrice=18000000000 block=150 txId=0xbaf1c0181307a5b710aa0b9e4e1ff1cfc175176f5a17b331ad631259397b238c
+RESULT: validContribution4Tx gas=400000 gasUsed=93938 costETH=0.001690884 costUSD=0.347395499568 @ ETH/USD=205.452 gasPrice=18000000000 block=34 txId=0x0ed8cf5ab0d2269138ecd75aa5a68f2900f1cd5e6a554649a76e7c480f6b7e3b
 undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      170.124978302000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      165.124611894000000000           0.000000000000000000 Account #0 - Miner
 RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.117053550000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976      101.000000000000000000           0.000000000000000000 Account #2 - Multisig
 RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0      -91.005845212000000000          91.000000000000000000 Account #3
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.002079540000000000          10.000000000000000000 Account #4
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.001713132000000000          10.000000000000000000 Account #4
 RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
 RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
 RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-RESULT: 10 0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-RESULT: 11 0x1029670471248c1046263e47c431a061a7fa34ab        0.000000000000000000           0.000000000000000000 APT
-RESULT: 12 0xa83b361b5b868fc289d586c3a1d3712d8075d8f8        0.000000000000000000           0.000000000000000000 PlaceHolder
-RESULT: 13 0x43ac93ca1533f31e82ae941b6f477096cf9a28e6        0.000000000000000000           0.000000000000000000 PreSale
+RESULT: 10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+RESULT: 11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 APT
+RESULT: 12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 PlaceHolder
+RESULT: 13 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 PreSale
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                   101.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -859,44 +851,43 @@ undefined
 RESULT: PASS Send Valid Contribution - 3 ETH From Account3 ac3->ps 3 ETH
 1
 > 
-RESULT: crowdsaleContractAddress=0x43ac93ca1533f31e82ae941b6f477096cf9a28e6
+RESULT: crowdsaleContractAddress=0xe6ada9beed6e24be4c0259383db61b52bfca85f3
 RESULT: crowdsale.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: crowdsale.exchangeRate=1
 RESULT: crowdsale.investor_bonus=25
-RESULT: crowdsale.apt=0x1029670471248c1046263e47c431a061a7fa34ab
-RESULT: crowdsale.place_holder=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: crowdsale.apt=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: crowdsale.place_holder=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: crowdsale.preSaleWallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
 RESULT: crowdsale.totalSupplyCap=1000000
 RESULT: crowdsale.totalSold=101
 RESULT: crowdsale.minimum_investment=1e-17
-RESULT: crowdsale.startBlock=141
-RESULT: crowdsale.endBlock=156
-RESULT: crowdsale.initializedBlock=138
+RESULT: crowdsale.startBlock=26
+RESULT: crowdsale.endBlock=41
+RESULT: crowdsale.initializedBlock=23
 RESULT: crowdsale.finalizedBlock=0
 RESULT: crowdsale.paused=false
-RESULT: NewSale 0 #150: {"_amount":"3000000000000000000","_th":"0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0","_tokens":"3000000000000000000"}
+RESULT: NewSale 0 #34: {"_amount":"3000000000000000000","_th":"0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0","_tokens":"3000000000000000000"}
 undefined
 > 
-RESULT: placeHolderContractAddress=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: placeHolderContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: placeHolder.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: placeHolder.transferable=false
 undefined
 > 
-RESULT: tokenContractAddress=0x1029670471248c1046263e47c431a061a7fa34ab
-RESULT: token.controller=0x43ac93ca1533f31e82ae941b6f477096cf9a28e6
+RESULT: tokenContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: token.controller=0xe6ada9beed6e24be4c0259383db61b52bfca85f3
 RESULT: token.symbol=APT
 RESULT: token.name=Aigang Pre-Launch Token
 RESULT: token.decimals=18
 RESULT: token.totalSupply=101
-RESULT: totalSupplyHistory(0) = 144 => 87
-RESULT: totalSupplyHistory(1) = 145 => 97
-RESULT: totalSupplyHistory(2) = 148 => 98
-RESULT: totalSupplyHistory(3) = 150 => 101
-RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 144 => 87
-RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 1) = 148 => 88
-RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 2) = 150 => 91
-RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 145 => 10
-RESULT: Transfer 0 #150: _from=0x0000000000000000000000000000000000000000 _to=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 _amount=3
+RESULT: totalSupplyHistory(0) = 29 => 97
+RESULT: totalSupplyHistory(1) = 32 => 98
+RESULT: totalSupplyHistory(2) = 34 => 101
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 29 => 87
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 1) = 32 => 88
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 2) = 34 => 91
+RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 29 => 10
+RESULT: Transfer 0 #34: _from=0x0000000000000000000000000000000000000000 _to=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 _amount=3
 undefined
 > 
 RESULT: 
@@ -910,13 +901,13 @@ undefined
 > 
 undefined
 > 
-RESULT: Waiting until endBlock #156 currentBlock=151
+RESULT: Waiting until endBlock #41 currentBlock=35
 undefined
 > 
 ... 
 undefined
 > 
-RESULT: Waited until endBlock #156 currentBlock=157
+RESULT: Waited until endBlock #41 currentBlock=42
 undefined
 > 
 RESULT: 
@@ -930,9 +921,7 @@ undefined
 > 
 undefined
 > 
-undefined
-> 
-RESULT: Claim Ethers
+RESULT: Claim Ethers But No Ethers
 undefined
 > 
 undefined
@@ -940,78 +929,75 @@ undefined
 ... 
 undefined
 > 
-RESULT: claimEthersTx gas=2000000 gasUsed=2000000 costETH=0.036 costUSD=7.396272 @ ETH/USD=205.452 gasPrice=18000000000 block=159 txId=0x1e76faac55a5a4994ba317656074b9d600c8181cb83bc6008fd1c9d4badd833c
+RESULT: claimEthersTx gas=2000000 gasUsed=2000000 costETH=0.036 costUSD=7.396272 @ ETH/USD=205.452 gasPrice=18000000000 block=44 txId=0xd03ebdc08882105494bedfaf5b80f4e8a72e8ffad95b480c6d497c10c42dc00d
 undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      215.160978302000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      215.160611894000000000           0.000000000000000000 Account #0 - Miner
 RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.153053550000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976      101.000000000000000000           0.000000000000000000 Account #2 - Multisig
 RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0      -91.005845212000000000          91.000000000000000000 Account #3
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.002079540000000000          10.000000000000000000 Account #4
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.001713132000000000          10.000000000000000000 Account #4
 RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
 RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
 RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-RESULT: 10 0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-RESULT: 11 0x1029670471248c1046263e47c431a061a7fa34ab        0.000000000000000000           0.000000000000000000 APT
-RESULT: 12 0xa83b361b5b868fc289d586c3a1d3712d8075d8f8        0.000000000000000000           0.000000000000000000 PlaceHolder
-RESULT: 13 0x43ac93ca1533f31e82ae941b6f477096cf9a28e6        0.000000000000000000           0.000000000000000000 PreSale
+RESULT: 10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+RESULT: 11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 APT
+RESULT: 12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 PlaceHolder
+RESULT: 13 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 PreSale
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                   101.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT: 
 undefined
 > 
-RESULT: FAIL Claim Ethers
-0
+RESULT: PASS Claim Ethers But No Ethers
+1
 > 
-RESULT: crowdsaleContractAddress=0x43ac93ca1533f31e82ae941b6f477096cf9a28e6
+RESULT: crowdsaleContractAddress=0xe6ada9beed6e24be4c0259383db61b52bfca85f3
 RESULT: crowdsale.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: crowdsale.exchangeRate=1
 RESULT: crowdsale.investor_bonus=25
-RESULT: crowdsale.apt=0x1029670471248c1046263e47c431a061a7fa34ab
-RESULT: crowdsale.place_holder=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: crowdsale.apt=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: crowdsale.place_holder=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: crowdsale.preSaleWallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
 RESULT: crowdsale.totalSupplyCap=1000000
 RESULT: crowdsale.totalSold=101
 RESULT: crowdsale.minimum_investment=1e-17
-RESULT: crowdsale.startBlock=141
-RESULT: crowdsale.endBlock=156
-RESULT: crowdsale.initializedBlock=138
+RESULT: crowdsale.startBlock=26
+RESULT: crowdsale.endBlock=41
+RESULT: crowdsale.initializedBlock=23
 RESULT: crowdsale.finalizedBlock=0
 RESULT: crowdsale.paused=false
 undefined
 > 
-RESULT: placeHolderContractAddress=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: placeHolderContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: placeHolder.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: placeHolder.transferable=false
 undefined
 > 
-RESULT: tokenContractAddress=0x1029670471248c1046263e47c431a061a7fa34ab
-RESULT: token.controller=0x43ac93ca1533f31e82ae941b6f477096cf9a28e6
+RESULT: tokenContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: token.controller=0xe6ada9beed6e24be4c0259383db61b52bfca85f3
 RESULT: token.symbol=APT
 RESULT: token.name=Aigang Pre-Launch Token
 RESULT: token.decimals=18
 RESULT: token.totalSupply=101
-RESULT: totalSupplyHistory(0) = 144 => 87
-RESULT: totalSupplyHistory(1) = 145 => 97
-RESULT: totalSupplyHistory(2) = 148 => 98
-RESULT: totalSupplyHistory(3) = 150 => 101
-RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 144 => 87
-RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 1) = 148 => 88
-RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 2) = 150 => 91
-RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 145 => 10
+RESULT: totalSupplyHistory(0) = 29 => 97
+RESULT: totalSupplyHistory(1) = 32 => 98
+RESULT: totalSupplyHistory(2) = 34 => 101
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 29 => 87
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 1) = 32 => 88
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 2) = 34 => 91
+RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 29 => 10
 undefined
 > 
 RESULT: 
 undefined
 > 
 > 
-> 
-undefined
 > 
 undefined
 > 
@@ -1027,25 +1013,25 @@ undefined
 ... 
 undefined
 > 
-RESULT: finalisePresaleTx gas=2000000 gasUsed=49014 costETH=0.000882252 costUSD=0.181260437904 @ ETH/USD=205.452 gasPrice=18000000000 block=164 txId=0xe61b6713f33814b1fffda48589b90e6d0bed121e648994846c50048eaec40956
+RESULT: finalisePresaleTx gas=2000000 gasUsed=49014 costETH=0.000882252 costUSD=0.181260437904 @ ETH/USD=205.452 gasPrice=18000000000 block=48 txId=0xed1b0e2035c428b42be132f7e810df6fc6d43781120adc1ce0d8ce14b2749612
 undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      240.161860554000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      235.161494146000000000           0.000000000000000000 Account #0 - Miner
 RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.153935802000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976      101.000000000000000000           0.000000000000000000 Account #2 - Multisig
 RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0      -91.005845212000000000          91.000000000000000000 Account #3
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.002079540000000000          10.000000000000000000 Account #4
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.001713132000000000          10.000000000000000000 Account #4
 RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
 RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
 RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-RESULT: 10 0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-RESULT: 11 0x1029670471248c1046263e47c431a061a7fa34ab        0.000000000000000000           0.000000000000000000 APT
-RESULT: 12 0xa83b361b5b868fc289d586c3a1d3712d8075d8f8        0.000000000000000000           0.000000000000000000 PlaceHolder
-RESULT: 13 0x43ac93ca1533f31e82ae941b6f477096cf9a28e6        0.000000000000000000           0.000000000000000000 PreSale
+RESULT: 10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+RESULT: 11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 APT
+RESULT: 12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 PlaceHolder
+RESULT: 13 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 PreSale
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                   101.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -1055,51 +1041,48 @@ undefined
 RESULT: PASS Finalise PreSale
 1
 > 
-RESULT: crowdsaleContractAddress=0x43ac93ca1533f31e82ae941b6f477096cf9a28e6
+RESULT: crowdsaleContractAddress=0xe6ada9beed6e24be4c0259383db61b52bfca85f3
 RESULT: crowdsale.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: crowdsale.exchangeRate=1
 RESULT: crowdsale.investor_bonus=25
-RESULT: crowdsale.apt=0x1029670471248c1046263e47c431a061a7fa34ab
-RESULT: crowdsale.place_holder=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: crowdsale.apt=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: crowdsale.place_holder=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: crowdsale.preSaleWallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
 RESULT: crowdsale.totalSupplyCap=1000000
 RESULT: crowdsale.totalSold=101
 RESULT: crowdsale.minimum_investment=1e-17
-RESULT: crowdsale.startBlock=141
-RESULT: crowdsale.endBlock=156
-RESULT: crowdsale.initializedBlock=138
-RESULT: crowdsale.finalizedBlock=164
+RESULT: crowdsale.startBlock=26
+RESULT: crowdsale.endBlock=41
+RESULT: crowdsale.initializedBlock=23
+RESULT: crowdsale.finalizedBlock=48
 RESULT: crowdsale.paused=false
-RESULT: Finalized 0 #164: {"_now":"164"}
+RESULT: Finalized 0 #48: {"_now":"48"}
 undefined
 > 
-RESULT: placeHolderContractAddress=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: placeHolderContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: placeHolder.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: placeHolder.transferable=false
 undefined
 > 
-RESULT: tokenContractAddress=0x1029670471248c1046263e47c431a061a7fa34ab
-RESULT: token.controller=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: tokenContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: token.controller=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: token.symbol=APT
 RESULT: token.name=Aigang Pre-Launch Token
 RESULT: token.decimals=18
 RESULT: token.totalSupply=101
-RESULT: totalSupplyHistory(0) = 144 => 87
-RESULT: totalSupplyHistory(1) = 145 => 97
-RESULT: totalSupplyHistory(2) = 148 => 98
-RESULT: totalSupplyHistory(3) = 150 => 101
-RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 144 => 87
-RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 1) = 148 => 88
-RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 2) = 150 => 91
-RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 145 => 10
+RESULT: totalSupplyHistory(0) = 29 => 97
+RESULT: totalSupplyHistory(1) = 32 => 98
+RESULT: totalSupplyHistory(2) = 34 => 101
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 29 => 87
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 1) = 32 => 88
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 2) = 34 => 91
+RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 29 => 10
 undefined
 > 
 RESULT: 
 undefined
 > 
 > 
-> 
-undefined
 > 
 undefined
 > 
@@ -1115,25 +1098,25 @@ undefined
 ... 
 undefined
 > 
-RESULT: generateTokensTx gas=2000000 gasUsed=94708 costETH=0.001704744 costUSD=0.350243064288 @ ETH/USD=205.452 gasPrice=18000000000 block=166 txId=0x0d9b9d52c7a73917426bcdb55e1c742adb16be184fd9946971fe56fc8ba5b603
+RESULT: generateTokensTx gas=2000000 gasUsed=94708 costETH=0.001704744 costUSD=0.350243064288 @ ETH/USD=205.452 gasPrice=18000000000 block=52 txId=0xd7c551668fe5305eb66bf1dc9a8e74a47fe0aa98060fcbbaa5a1629b19e1e0cc
 undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      250.163565298000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      255.163198890000000000           0.000000000000000000 Account #0 - Miner
 RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.155640546000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976      101.000000000000000000           0.000000000000000000 Account #2 - Multisig
 RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0      -91.005845212000000000          91.000000000000000000 Account #3
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.002079540000000000          10.000000000000000000 Account #4
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.001713132000000000          10.000000000000000000 Account #4
 RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000     1000000.000000000000000000 Account #5
 RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
 RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-RESULT: 10 0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-RESULT: 11 0x1029670471248c1046263e47c431a061a7fa34ab        0.000000000000000000           0.000000000000000000 APT
-RESULT: 12 0xa83b361b5b868fc289d586c3a1d3712d8075d8f8        0.000000000000000000           0.000000000000000000 PlaceHolder
-RESULT: 13 0x43ac93ca1533f31e82ae941b6f477096cf9a28e6        0.000000000000000000           0.000000000000000000 PreSale
+RESULT: 10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+RESULT: 11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 APT
+RESULT: 12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 PlaceHolder
+RESULT: 13 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 PreSale
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                               1000101.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -1143,44 +1126,44 @@ undefined
 RESULT: PASS Generate Tokens After Finalisation
 1
 > 
-RESULT: crowdsaleContractAddress=0x43ac93ca1533f31e82ae941b6f477096cf9a28e6
+RESULT: crowdsaleContractAddress=0xe6ada9beed6e24be4c0259383db61b52bfca85f3
 RESULT: crowdsale.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: crowdsale.exchangeRate=1
 RESULT: crowdsale.investor_bonus=25
-RESULT: crowdsale.apt=0x1029670471248c1046263e47c431a061a7fa34ab
-RESULT: crowdsale.place_holder=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: crowdsale.apt=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: crowdsale.place_holder=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: crowdsale.preSaleWallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
 RESULT: crowdsale.totalSupplyCap=1000000
 RESULT: crowdsale.totalSold=101
 RESULT: crowdsale.minimum_investment=1e-17
-RESULT: crowdsale.startBlock=141
-RESULT: crowdsale.endBlock=156
-RESULT: crowdsale.initializedBlock=138
-RESULT: crowdsale.finalizedBlock=164
+RESULT: crowdsale.startBlock=26
+RESULT: crowdsale.endBlock=41
+RESULT: crowdsale.initializedBlock=23
+RESULT: crowdsale.finalizedBlock=48
 RESULT: crowdsale.paused=false
 undefined
 > 
-RESULT: placeHolderContractAddress=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: placeHolderContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: placeHolder.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: placeHolder.transferable=false
 undefined
 > 
-RESULT: tokenContractAddress=0x1029670471248c1046263e47c431a061a7fa34ab
-RESULT: token.controller=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: tokenContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: token.controller=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: token.symbol=APT
 RESULT: token.name=Aigang Pre-Launch Token
 RESULT: token.decimals=18
 RESULT: token.totalSupply=1000101
-RESULT: totalSupplyHistory(0) = 144 => 87
-RESULT: totalSupplyHistory(1) = 145 => 97
-RESULT: totalSupplyHistory(2) = 148 => 98
-RESULT: totalSupplyHistory(3) = 150 => 101
-RESULT: totalSupplyHistory(4) = 166 => 1000101
-RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 144 => 87
-RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 1) = 148 => 88
-RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 2) = 150 => 91
-RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 145 => 10
-RESULT: Transfer 0 #166: _from=0x0000000000000000000000000000000000000000 _to=0xa55a151eb00fded1634d27d1127b4be4627079ea _amount=1000000
+RESULT: totalSupplyHistory(0) = 29 => 97
+RESULT: totalSupplyHistory(1) = 32 => 98
+RESULT: totalSupplyHistory(2) = 34 => 101
+RESULT: totalSupplyHistory(3) = 52 => 1000101
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 29 => 87
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 1) = 32 => 88
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 2) = 34 => 91
+RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 29 => 10
+RESULT: balanceHistory(0xa55a151eb00fded1634d27d1127b4be4627079ea, 0) = 52 => 1000000
+RESULT: Transfer 0 #52: _from=0x0000000000000000000000000000000000000000 _to=0xa55a151eb00fded1634d27d1127b4be4627079ea _amount=1000000
 undefined
 > 
 RESULT: 
@@ -1209,31 +1192,31 @@ undefined
 ... 
 undefined
 > 
-RESULT: cannotTransfer1Tx gas=100000 gasUsed=100000 costETH=0.0018 costUSD=0.3698136 @ ETH/USD=205.452 gasPrice=18000000000 block=169 txId=0x502f900d9d947cc646e63955985714338f9310970729153dc42e1506971ae694
+RESULT: cannotTransfer1Tx gas=100000 gasUsed=100000 costETH=0.0018 costUSD=0.3698136 @ ETH/USD=205.452 gasPrice=18000000000 block=56 txId=0xd99d5076bde5106284ffe421cfeb60f6188f0b5600c19efaf8ab6994c744b8f5
 undefined
 > 
-RESULT: cannotTransfer2Tx gas=100000 gasUsed=100000 costETH=0.0018 costUSD=0.3698136 @ ETH/USD=205.452 gasPrice=18000000000 block=169 txId=0x9bc87e17fc194e8f5d2b656b7b0accec522628ae13b9ded487cbda144b1ae461
+RESULT: cannotTransfer2Tx gas=100000 gasUsed=100000 costETH=0.0018 costUSD=0.3698136 @ ETH/USD=205.452 gasPrice=18000000000 block=56 txId=0x4baf5b9c13bd161883728eeffbf0ba210d4c1a910976df487af4dd47214f88af
 undefined
 > 
-RESULT: cannotTransfer3Tx gas=200000 gasUsed=25373 costETH=0.000456714 costUSD=0.093832804728 @ ETH/USD=205.452 gasPrice=18000000000 block=171 txId=0x91dc3a92da09cea9be06682ef6f558188f74bea955ecb69b344942ae98dca2a4
+RESULT: cannotTransfer3Tx gas=200000 gasUsed=25373 costETH=0.000456714 costUSD=0.093832804728 @ ETH/USD=205.452 gasPrice=18000000000 block=58 txId=0x8325fb74f79090eca0a5967f23e68cf06ee9efa6584f0acaebe6add06aae4053
 undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      275.167622012000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      285.167255604000000000           0.000000000000000000 Account #0 - Miner
 RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.155640546000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976      101.000000000000000000           0.000000000000000000 Account #2 - Multisig
 RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0      -91.005845212000000000          91.000000000000000000 Account #3
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.003879540000000000          10.000000000000000000 Account #4
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.003513132000000000          10.000000000000000000 Account #4
 RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea       -0.001800000000000000     1000000.000000000000000000 Account #5
 RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec       -0.000456714000000000           0.000000000000000000 Account #7
 RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-RESULT: 10 0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-RESULT: 11 0x1029670471248c1046263e47c431a061a7fa34ab        0.000000000000000000           0.000000000000000000 APT
-RESULT: 12 0xa83b361b5b868fc289d586c3a1d3712d8075d8f8        0.000000000000000000           0.000000000000000000 PlaceHolder
-RESULT: 13 0x43ac93ca1533f31e82ae941b6f477096cf9a28e6        0.000000000000000000           0.000000000000000000 PreSale
+RESULT: 10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+RESULT: 11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 APT
+RESULT: 12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 PlaceHolder
+RESULT: 13 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 PreSale
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                               1000101.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -1249,51 +1232,49 @@ RESULT: PASS Cannot Move Tokens Before allowTransfers(...) - approve 0.03 tokens
 RESULT: PASS Cannot Move Tokens Before allowTransfers(...) - transferFrom 0.03 tokens ac5 -> ac7. CHECK no movement
 1
 > 
-RESULT: crowdsaleContractAddress=0x43ac93ca1533f31e82ae941b6f477096cf9a28e6
+RESULT: crowdsaleContractAddress=0xe6ada9beed6e24be4c0259383db61b52bfca85f3
 RESULT: crowdsale.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: crowdsale.exchangeRate=1
 RESULT: crowdsale.investor_bonus=25
-RESULT: crowdsale.apt=0x1029670471248c1046263e47c431a061a7fa34ab
-RESULT: crowdsale.place_holder=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: crowdsale.apt=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: crowdsale.place_holder=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: crowdsale.preSaleWallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
 RESULT: crowdsale.totalSupplyCap=1000000
 RESULT: crowdsale.totalSold=101
 RESULT: crowdsale.minimum_investment=1e-17
-RESULT: crowdsale.startBlock=141
-RESULT: crowdsale.endBlock=156
-RESULT: crowdsale.initializedBlock=138
-RESULT: crowdsale.finalizedBlock=164
+RESULT: crowdsale.startBlock=26
+RESULT: crowdsale.endBlock=41
+RESULT: crowdsale.initializedBlock=23
+RESULT: crowdsale.finalizedBlock=48
 RESULT: crowdsale.paused=false
 undefined
 > 
-RESULT: placeHolderContractAddress=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: placeHolderContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: placeHolder.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: placeHolder.transferable=false
 undefined
 > 
-RESULT: tokenContractAddress=0x1029670471248c1046263e47c431a061a7fa34ab
-RESULT: token.controller=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: tokenContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: token.controller=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: token.symbol=APT
 RESULT: token.name=Aigang Pre-Launch Token
 RESULT: token.decimals=18
 RESULT: token.totalSupply=1000101
-RESULT: totalSupplyHistory(0) = 144 => 87
-RESULT: totalSupplyHistory(1) = 145 => 97
-RESULT: totalSupplyHistory(2) = 148 => 98
-RESULT: totalSupplyHistory(3) = 150 => 101
-RESULT: totalSupplyHistory(4) = 166 => 1000101
-RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 144 => 87
-RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 1) = 148 => 88
-RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 2) = 150 => 91
-RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 145 => 10
+RESULT: totalSupplyHistory(0) = 29 => 97
+RESULT: totalSupplyHistory(1) = 32 => 98
+RESULT: totalSupplyHistory(2) = 34 => 101
+RESULT: totalSupplyHistory(3) = 52 => 1000101
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 29 => 87
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 1) = 32 => 88
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 2) = 34 => 91
+RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 29 => 10
+RESULT: balanceHistory(0xa55a151eb00fded1634d27d1127b4be4627079ea, 0) = 52 => 1000000
 undefined
 > 
 RESULT: 
 undefined
 > 
 > 
-> 
-undefined
 > 
 undefined
 > 
@@ -1309,71 +1290,71 @@ undefined
 ... 
 undefined
 > 
-RESULT: allowTransfersTx gas=2000000 gasUsed=26920 costETH=0.00048456 costUSD=0.09955382112 @ ETH/USD=205.452 gasPrice=18000000000 block=174 txId=0x5041ea8245981be3eca455ff9f84b7ec439d259774b4c258dc43bc83c4930dc8
+RESULT: allowTransfersTx gas=2000000 gasUsed=26920 costETH=0.00048456 costUSD=0.09955382112 @ ETH/USD=205.452 gasPrice=18000000000 block=60 txId=0x840786ef8f40a511f1a4e7c8cedebe2046c965a96dc7eed69665ba22efc8eb40
 undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      290.168106572000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      295.167740164000000000           0.000000000000000000 Account #0 - Miner
 RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.156125106000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976      101.000000000000000000           0.000000000000000000 Account #2 - Multisig
 RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0      -91.005845212000000000          91.000000000000000000 Account #3
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.003879540000000000          10.000000000000000000 Account #4
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.003513132000000000          10.000000000000000000 Account #4
 RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea       -0.001800000000000000     1000000.000000000000000000 Account #5
 RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec       -0.000456714000000000           0.000000000000000000 Account #7
 RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-RESULT: 10 0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-RESULT: 11 0x1029670471248c1046263e47c431a061a7fa34ab        0.000000000000000000           0.000000000000000000 APT
-RESULT: 12 0xa83b361b5b868fc289d586c3a1d3712d8075d8f8        0.000000000000000000           0.000000000000000000 PlaceHolder
-RESULT: 13 0x43ac93ca1533f31e82ae941b6f477096cf9a28e6        0.000000000000000000           0.000000000000000000 PreSale
+RESULT: 10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+RESULT: 11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 APT
+RESULT: 12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 PlaceHolder
+RESULT: 13 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 PreSale
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                               1000101.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT: 
 undefined
 > 
-RESULT: PASS Allow transfers
+RESULT: PASS Allow Transfers
 1
 > 
-RESULT: crowdsaleContractAddress=0x43ac93ca1533f31e82ae941b6f477096cf9a28e6
+RESULT: crowdsaleContractAddress=0xe6ada9beed6e24be4c0259383db61b52bfca85f3
 RESULT: crowdsale.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: crowdsale.exchangeRate=1
 RESULT: crowdsale.investor_bonus=25
-RESULT: crowdsale.apt=0x1029670471248c1046263e47c431a061a7fa34ab
-RESULT: crowdsale.place_holder=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: crowdsale.apt=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: crowdsale.place_holder=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: crowdsale.preSaleWallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
 RESULT: crowdsale.totalSupplyCap=1000000
 RESULT: crowdsale.totalSold=101
 RESULT: crowdsale.minimum_investment=1e-17
-RESULT: crowdsale.startBlock=141
-RESULT: crowdsale.endBlock=156
-RESULT: crowdsale.initializedBlock=138
-RESULT: crowdsale.finalizedBlock=164
+RESULT: crowdsale.startBlock=26
+RESULT: crowdsale.endBlock=41
+RESULT: crowdsale.initializedBlock=23
+RESULT: crowdsale.finalizedBlock=48
 RESULT: crowdsale.paused=false
 undefined
 > 
-RESULT: placeHolderContractAddress=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: placeHolderContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: placeHolder.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: placeHolder.transferable=true
 undefined
 > 
-RESULT: tokenContractAddress=0x1029670471248c1046263e47c431a061a7fa34ab
-RESULT: token.controller=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: tokenContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: token.controller=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: token.symbol=APT
 RESULT: token.name=Aigang Pre-Launch Token
 RESULT: token.decimals=18
 RESULT: token.totalSupply=1000101
-RESULT: totalSupplyHistory(0) = 144 => 87
-RESULT: totalSupplyHistory(1) = 145 => 97
-RESULT: totalSupplyHistory(2) = 148 => 98
-RESULT: totalSupplyHistory(3) = 150 => 101
-RESULT: totalSupplyHistory(4) = 166 => 1000101
-RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 144 => 87
-RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 1) = 148 => 88
-RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 2) = 150 => 91
-RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 145 => 10
+RESULT: totalSupplyHistory(0) = 29 => 97
+RESULT: totalSupplyHistory(1) = 32 => 98
+RESULT: totalSupplyHistory(2) = 34 => 101
+RESULT: totalSupplyHistory(3) = 52 => 1000101
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 29 => 87
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 1) = 32 => 88
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 2) = 34 => 91
+RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 29 => 10
+RESULT: balanceHistory(0xa55a151eb00fded1634d27d1127b4be4627079ea, 0) = 52 => 1000000
 undefined
 > 
 RESULT: 
@@ -1402,31 +1383,31 @@ undefined
 ... 
 undefined
 > 
-RESULT: canTransfer1Tx gas=100000 gasUsed=95890 costETH=0.00172602 costUSD=0.35461426104 @ ETH/USD=205.452 gasPrice=18000000000 block=176 txId=0xa1358f4b379c4a23e9dc4e989227e473adb36173a541a5f9e247ae06e143500d
+RESULT: canTransfer1Tx gas=100000 gasUsed=95890 costETH=0.00172602 costUSD=0.35461426104 @ ETH/USD=205.452 gasPrice=18000000000 block=63 txId=0x00989ce97fb719dc3cec9e57d8d849ce9ea660b5d2835f2080b89ec9b2edf5fd
 undefined
 > 
-RESULT: canTransfer2Tx gas=100000 gasUsed=46932 costETH=0.000844776 costUSD=0.173560918752 @ ETH/USD=205.452 gasPrice=18000000000 block=176 txId=0x8e2e2c3578ea5481e944b180682394437a3ca8f748fbe9f520c4005203bc3203
+RESULT: canTransfer2Tx gas=100000 gasUsed=46932 costETH=0.000844776 costUSD=0.173560918752 @ ETH/USD=205.452 gasPrice=18000000000 block=63 txId=0x7c3c4acecfa54ecc8d64b77462a29f02ccd2aba85635cc79447603a281946e6a
 undefined
 > 
-RESULT: canTransfer3Tx gas=200000 gasUsed=87747 costETH=0.001579446 costUSD=0.324500339592 @ ETH/USD=205.452 gasPrice=18000000000 block=178 txId=0x5be203ea7a68e0cd80df2c5da8d9d8399ec6d9a53a5443462b184388cc1e652c
+RESULT: canTransfer3Tx gas=200000 gasUsed=87747 costETH=0.001579446 costUSD=0.324500339592 @ ETH/USD=205.452 gasPrice=18000000000 block=65 txId=0x858d24c1fa58429858c13f2f5c5d0b9d56931663ba4ae2cc0482f87bcec45216
 undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      310.172256814000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      325.171890406000000000           0.000000000000000000 Account #0 - Miner
 RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.156125106000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976      101.000000000000000000           0.000000000000000000 Account #2 - Multisig
 RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0      -91.005845212000000000          91.000000000000000000 Account #3
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.005605560000000000           9.999999000000000000 Account #4
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.005239152000000000           9.999999000000000000 Account #4
 RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea       -0.002644776000000000      999999.970000000000000000 Account #5
 RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000001000000000000 Account #6
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec       -0.002036160000000000           0.030000000000000000 Account #7
 RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-RESULT: 10 0x8b97d31ff6bfc0c2fd7a0fff69d6b4bd485a832b        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-RESULT: 11 0x1029670471248c1046263e47c431a061a7fa34ab        0.000000000000000000           0.000000000000000000 APT
-RESULT: 12 0xa83b361b5b868fc289d586c3a1d3712d8075d8f8        0.000000000000000000           0.000000000000000000 PlaceHolder
-RESULT: 13 0x43ac93ca1533f31e82ae941b6f477096cf9a28e6        0.000000000000000000           0.000000000000000000 PreSale
+RESULT: 10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+RESULT: 11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 APT
+RESULT: 12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 PlaceHolder
+RESULT: 13 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 PreSale
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                               1000101.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -1442,50 +1423,252 @@ RESULT: PASS Can Move Tokens After allowTransfers(...) - approve 0.03 tokens ac5
 RESULT: PASS Can Move Tokens After allowTransfers(...) - transferFrom 0.03 tokens ac5 -> ac7. CHECK for movement
 1
 > 
-RESULT: crowdsaleContractAddress=0x43ac93ca1533f31e82ae941b6f477096cf9a28e6
+RESULT: crowdsaleContractAddress=0xe6ada9beed6e24be4c0259383db61b52bfca85f3
 RESULT: crowdsale.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: crowdsale.exchangeRate=1
 RESULT: crowdsale.investor_bonus=25
-RESULT: crowdsale.apt=0x1029670471248c1046263e47c431a061a7fa34ab
-RESULT: crowdsale.place_holder=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: crowdsale.apt=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: crowdsale.place_holder=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: crowdsale.preSaleWallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
 RESULT: crowdsale.totalSupplyCap=1000000
 RESULT: crowdsale.totalSold=101
 RESULT: crowdsale.minimum_investment=1e-17
-RESULT: crowdsale.startBlock=141
-RESULT: crowdsale.endBlock=156
-RESULT: crowdsale.initializedBlock=138
-RESULT: crowdsale.finalizedBlock=164
+RESULT: crowdsale.startBlock=26
+RESULT: crowdsale.endBlock=41
+RESULT: crowdsale.initializedBlock=23
+RESULT: crowdsale.finalizedBlock=48
 RESULT: crowdsale.paused=false
 undefined
 > 
-RESULT: placeHolderContractAddress=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: placeHolderContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: placeHolder.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: placeHolder.transferable=true
 undefined
 > 
-RESULT: tokenContractAddress=0x1029670471248c1046263e47c431a061a7fa34ab
-RESULT: token.controller=0xa83b361b5b868fc289d586c3a1d3712d8075d8f8
+RESULT: tokenContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: token.controller=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
 RESULT: token.symbol=APT
 RESULT: token.name=Aigang Pre-Launch Token
 RESULT: token.decimals=18
 RESULT: token.totalSupply=1000101
-RESULT: totalSupplyHistory(0) = 144 => 87
-RESULT: totalSupplyHistory(1) = 145 => 97
-RESULT: totalSupplyHistory(2) = 148 => 98
-RESULT: totalSupplyHistory(3) = 150 => 101
-RESULT: totalSupplyHistory(4) = 166 => 1000101
-RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 144 => 87
-RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 1) = 148 => 88
-RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 2) = 150 => 91
-RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 145 => 10
-RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 1) = 176 => 9.999999
-RESULT: Approval 0 #176 _owner=0xa55a151eb00fded1634d27d1127b4be4627079ea _spender=0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec _amount=0.03
-RESULT: Transfer 0 #176: _from=0xa44a08d3f6933c69212114bb66e2df1813651844 _to=0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 _amount=0.000001
-RESULT: Transfer 1 #178: _from=0xa55a151eb00fded1634d27d1127b4be4627079ea _to=0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec _amount=0.03
+RESULT: totalSupplyHistory(0) = 29 => 97
+RESULT: totalSupplyHistory(1) = 32 => 98
+RESULT: totalSupplyHistory(2) = 34 => 101
+RESULT: totalSupplyHistory(3) = 52 => 1000101
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 29 => 87
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 1) = 32 => 88
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 2) = 34 => 91
+RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 29 => 10
+RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 1) = 63 => 9.999999
+RESULT: balanceHistory(0xa55a151eb00fded1634d27d1127b4be4627079ea, 0) = 52 => 1000000
+RESULT: balanceHistory(0xa55a151eb00fded1634d27d1127b4be4627079ea, 1) = 65 => 999999.97
+RESULT: Approval 0 #63 _owner=0xa55a151eb00fded1634d27d1127b4be4627079ea _spender=0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec _amount=0.03
+RESULT: Transfer 0 #63: _from=0xa44a08d3f6933c69212114bb66e2df1813651844 _to=0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 _amount=0.000001
+RESULT: Transfer 1 #65: _from=0xa55a151eb00fded1634d27d1127b4be4627079ea _to=0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec _amount=0.03
 undefined
 > 
 RESULT: 
 undefined
+> 
+> 
+> 
+undefined
+> 
+undefined
+> 
+undefined
+> 
+RESULT: Change Controller
+undefined
+> 
+undefined
+> 
+... 
+undefined
+> 
+RESULT: changeControllerTx gas=2000000 gasUsed=28948 costETH=0.000521064 costUSD=0.107053640928 @ ETH/USD=205.452 gasPrice=18000000000 block=68 txId=0x3e16a9c7aea584773f8436fb97d8880772695c3ef678f0121b2b51380f9a95c5
+undefined
+> 
+RESULT:  # Account                                             EtherBalanceChange                          Token Name
+RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      335.172411470000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.156646170000000000           0.000000000000000000 Account #1 - Contract Owner
+RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976      101.000000000000000000           0.000000000000000000 Account #2 - Multisig
+RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0      -91.005845212000000000          91.000000000000000000 Account #3
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.005239152000000000           9.999999000000000000 Account #4
+RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea       -0.002644776000000000      999999.970000000000000000 Account #5
+RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000001000000000000 Account #6
+RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec       -0.002036160000000000           0.030000000000000000 Account #7
+RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
+RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
+RESULT: 10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+RESULT: 11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 APT
+RESULT: 12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 PlaceHolder
+RESULT: 13 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 PreSale
+RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+RESULT:                                                                               1000101.000000000000000000 Total Token Balances
+RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+RESULT: 
+undefined
+> 
+RESULT: PASS Change Controller
+1
+> 
+RESULT: crowdsaleContractAddress=0xe6ada9beed6e24be4c0259383db61b52bfca85f3
+RESULT: crowdsale.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+RESULT: crowdsale.exchangeRate=1
+RESULT: crowdsale.investor_bonus=25
+RESULT: crowdsale.apt=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: crowdsale.place_holder=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: crowdsale.preSaleWallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
+RESULT: crowdsale.totalSupplyCap=1000000
+RESULT: crowdsale.totalSold=101
+RESULT: crowdsale.minimum_investment=1e-17
+RESULT: crowdsale.startBlock=26
+RESULT: crowdsale.endBlock=41
+RESULT: crowdsale.initializedBlock=23
+RESULT: crowdsale.finalizedBlock=48
+RESULT: crowdsale.paused=false
+undefined
+> 
+RESULT: placeHolderContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: placeHolder.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+RESULT: placeHolder.transferable=true
+undefined
+> 
+RESULT: tokenContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: token.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+RESULT: token.symbol=APT
+RESULT: token.name=Aigang Pre-Launch Token
+RESULT: token.decimals=18
+RESULT: token.totalSupply=1000101
+RESULT: totalSupplyHistory(0) = 29 => 97
+RESULT: totalSupplyHistory(1) = 32 => 98
+RESULT: totalSupplyHistory(2) = 34 => 101
+RESULT: totalSupplyHistory(3) = 52 => 1000101
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 29 => 87
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 1) = 32 => 88
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 2) = 34 => 91
+RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 29 => 10
+RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 1) = 63 => 9.999999
+RESULT: balanceHistory(0xa55a151eb00fded1634d27d1127b4be4627079ea, 0) = 52 => 1000000
+RESULT: balanceHistory(0xa55a151eb00fded1634d27d1127b4be4627079ea, 1) = 65 => 999999.97
+undefined
+> 
+RESULT: 
+undefined
+> 
+> 
+> 
+undefined
+> 
+undefined
+> 
+undefined
+> 
+RESULT: Can Move Tokens After allowTransfers(...)
+undefined
+> 
+undefined
+> 
+undefined
+> 
+... 
+undefined
+> 
+undefined
+> 
+... 
+undefined
+> 
+RESULT: canTransfer4Tx gas=100000 gasUsed=81398 costETH=0.001465164 costUSD=0.301020874128 @ ETH/USD=205.452 gasPrice=18000000000 block=72 txId=0xee4ee615df27e94c2871ee348912fb0e08338066249889d98cf26bb9f668e0a0
+undefined
+> 
+RESULT: canTransfer5Tx gas=100000 gasUsed=46038 costETH=0.000828684 costUSD=0.170254785168 @ ETH/USD=205.452 gasPrice=18000000000 block=72 txId=0x88c8480bff8d11938e4fe506963591d4337656506017d96569b648bff0ffd7d5
+undefined
+> 
+RESULT: canTransfer6Tx gas=200000 gasUsed=73255 costETH=0.00131859 costUSD=0.27090695268 @ ETH/USD=205.452 gasPrice=18000000000 block=74 txId=0xfecb73dccaba7c89df234b468f790f2cf49fd1c32fe211ee3c8a99d954a41028
+undefined
+> 
+RESULT:  # Account                                             EtherBalanceChange                          Token Name
+RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      370.176023908000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.156646170000000000           0.000000000000000000 Account #1 - Contract Owner
+RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976      101.000000000000000000           0.000000000000000000 Account #2 - Multisig
+RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0      -91.005845212000000000          91.000000000000000000 Account #3
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.006704316000000000           9.999998000000000000 Account #4
+RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea       -0.003473460000000000      999999.940000000000000000 Account #5
+RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000002000000000000 Account #6
+RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec       -0.003354750000000000           0.060000000000000000 Account #7
+RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
+RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
+RESULT: 10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+RESULT: 11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 APT
+RESULT: 12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 PlaceHolder
+RESULT: 13 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 PreSale
+RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+RESULT:                                                                               1000101.000000000000000000 Total Token Balances
+RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+RESULT: 
+undefined
+> 
+RESULT: PASS Can Move Tokens After Change Controller - transfer 0.000001 tokens ac4 -> ac6. CHECK for movement
+1
+> 
+RESULT: PASS Can Move Tokens After Change Controller - approve 0.03 tokens ac5 -> ac7
+1
+> 
+RESULT: PASS Can Move Tokens After Change Controller - transferFrom 0.03 tokens ac5 -> ac7. CHECK for movement
+1
+> 
+RESULT: crowdsaleContractAddress=0xe6ada9beed6e24be4c0259383db61b52bfca85f3
+RESULT: crowdsale.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+RESULT: crowdsale.exchangeRate=1
+RESULT: crowdsale.investor_bonus=25
+RESULT: crowdsale.apt=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: crowdsale.place_holder=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: crowdsale.preSaleWallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
+RESULT: crowdsale.totalSupplyCap=1000000
+RESULT: crowdsale.totalSold=101
+RESULT: crowdsale.minimum_investment=1e-17
+RESULT: crowdsale.startBlock=26
+RESULT: crowdsale.endBlock=41
+RESULT: crowdsale.initializedBlock=23
+RESULT: crowdsale.finalizedBlock=48
+RESULT: crowdsale.paused=false
+undefined
+> 
+RESULT: placeHolderContractAddress=0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff
+RESULT: placeHolder.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+RESULT: placeHolder.transferable=true
+undefined
+> 
+RESULT: tokenContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: token.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+RESULT: token.symbol=APT
+RESULT: token.name=Aigang Pre-Launch Token
+RESULT: token.decimals=18
+RESULT: token.totalSupply=1000101
+RESULT: totalSupplyHistory(0) = 29 => 97
+RESULT: totalSupplyHistory(1) = 32 => 98
+RESULT: totalSupplyHistory(2) = 34 => 101
+RESULT: totalSupplyHistory(3) = 52 => 1000101
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 29 => 87
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 1) = 32 => 88
+RESULT: balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 2) = 34 => 91
+RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 29 => 10
+RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 1) = 63 => 9.999999
+RESULT: balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 2) = 72 => 9.999998
+RESULT: balanceHistory(0xa55a151eb00fded1634d27d1127b4be4627079ea, 0) = 52 => 1000000
+RESULT: balanceHistory(0xa55a151eb00fded1634d27d1127b4be4627079ea, 1) = 65 => 999999.97
+RESULT: balanceHistory(0xa55a151eb00fded1634d27d1127b4be4627079ea, 2) = 74 => 999999.94
+RESULT: Approval 0 #72 _owner=0xa55a151eb00fded1634d27d1127b4be4627079ea _spender=0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec _amount=0.03
+RESULT: Transfer 0 #72: _from=0xa44a08d3f6933c69212114bb66e2df1813651844 _to=0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 _amount=0.000001
+RESULT: Transfer 1 #74: _from=0xa55a151eb00fded1634d27d1127b4be4627079ea _to=0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec _amount=0.03
+undefined
+> 
+RESULT: 
+undefined
+> 
 > 
 > 
