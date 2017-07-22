@@ -36,7 +36,9 @@ Commit [https://github.com/AigangNetwork/aigang-contracts/commit/6ec3a02f67903fb
   For the *APT* contracts, the *APT* contract controller is initially set to the *PreSale* contract address, and this is not updated when
   `PreSale.finalize()` is called. This will result in the *APT* token contract having an owner (`controller`) that can never be altered.
 
-  * [ ] ACTION Review whether there is a need to reassign the *APT* contract controller when `PreSale.finalize()` is called.
+  * [x] ACTION Review whether there is a need to reassign the *APT* contract controller when `PreSale.finalize()` is called.
+
+    Fixed in second review.
 
 * **SAFETY IMPROVEMENT** There is no minimum funding goal and no refunds due if a minimum funding goal is not reached. It is far safer 
   therefore to immediately transfer the contributed funds into a multisig, hardware or regular wallet as these are more security tested.
@@ -47,7 +49,122 @@ Commit [https://github.com/AigangNetwork/aigang-contracts/commit/6ec3a02f67903fb
   or accumulated in the *PreSale* contract and automatically transferred out to an external wallet when the `PreSale.finalize()` function is
   called. The `PreSale.claimTokens(0)` is an emergency function to extract any tokens or ETH accidentally trapped in the crowdsale contract.
 
-  * [ ] ACTION Alter contribution flow to immediately transfer contributed ETH into a multisig, hardware or regular wallet.
+  * [x] ACTION Alter contribution flow to immediately transfer contributed ETH into a multisig, hardware or regular wallet.
+
+    Fixed in second review.
+
+### Second Review
+
+* **IMPORTANT** There is the ability for the token owner to generate tokens AFTER the PreSale is finalised
+
+  In my testing results [test/test1results.txt](test/test1results.txt]), I generated many tokens after the PreSale was finalised (`crowdsale.finalizedBlock=1550`) :
+  
+      Finalise PreSale
+      finalisePresaleTx gas=2000000 gasUsed=49014 costETH=0.000882252 costUSD=0.181260437904 @ ETH/USD=205.452 gasPrice=18000000000 block=1550 txId=0x003de798fb2a18ba3446bd150420557436953904ddf31f326b9249f2c7dec5f2
+       # Account                                             EtherBalanceChange                          Token Name
+      -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+       0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      205.161496450000000000           0.000000000000000000 Account #0 - Miner
+       1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.153938106000000000           0.000000000000000000 Account #1 - Contract Owner
+       2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976      101.000000000000000000           0.000000000000000000 Account #2 - Multisig
+       3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0      -91.005845212000000000          91.000000000000000000 Account #3
+       4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.001713132000000000          10.000000000000000000 Account #4
+       5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
+      ...
+      10 0x1aa3ebfd892954f32a37b698673505d1dafef4f5        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+      11 0xe00ccdd988b1395489290c4c22e85a9c989f40f6        0.000000000000000000           0.000000000000000000 APT
+      12 0xf3d9d349146b55cf4e0b622edc71bc4af76b014c        0.000000000000000000           0.000000000000000000 PlaceHolder
+      13 0xb797d2439cd318684f93de852b4928ea75ae6917        0.000000000000000000           0.000000000000000000 PreSale
+      -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+                                                                                        101.000000000000000000 Total Token Balances
+      -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+
+      PASS Finalise PreSale
+      crowdsaleContractAddress=0xb797d2439cd318684f93de852b4928ea75ae6917
+      crowdsale.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+      crowdsale.exchangeRate=1
+      crowdsale.investor_bonus=25
+      crowdsale.apt=0xe00ccdd988b1395489290c4c22e85a9c989f40f6
+      crowdsale.place_holder=0xf3d9d349146b55cf4e0b622edc71bc4af76b014c
+      crowdsale.preSaleWallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
+      crowdsale.totalSupplyCap=1000000
+      crowdsale.totalSold=101
+      crowdsale.minimum_investment=1e-17
+      crowdsale.startBlock=1530
+      crowdsale.endBlock=1545
+      crowdsale.initializedBlock=1527
+      crowdsale.finalizedBlock=1550
+      crowdsale.paused=false
+      Finalized 0 #1550: {"_now":"1550"}
+      placeHolderContractAddress=0xf3d9d349146b55cf4e0b622edc71bc4af76b014c
+      placeHolder.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+      placeHolder.transferable=false
+      tokenContractAddress=0xe00ccdd988b1395489290c4c22e85a9c989f40f6
+      token.controller=0xf3d9d349146b55cf4e0b622edc71bc4af76b014c
+      token.symbol=APT
+      token.name=Aigang Pre-Launch Token
+      token.decimals=18
+      token.totalSupply=101
+      totalSupplyHistory(0) = 1533 => 97
+      totalSupplyHistory(1) = 1535 => 98
+      totalSupplyHistory(2) = 1538 => 101
+      balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 1533 => 87
+      balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 1) = 1535 => 88
+      balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 2) = 1538 => 91
+      balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 1533 => 10
+
+      Generate Tokens - Should not be possible
+      generateTokensTx gas=2000000 gasUsed=94836 costETH=0.001707048 costUSD=0.350716425696 @ ETH/USD=205.452 gasPrice=18000000000 block=1552 txId=0x5cef60a9c31788c724afe3e0629c5f63b150fc492a839013a139c5758cc22cd0
+       # Account                                             EtherBalanceChange                          Token Name
+      -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+       0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      215.163203498000000000           0.000000000000000000 Account #0 - Miner
+       1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.155645154000000000           0.000000000000000000 Account #1 - Contract Owner
+       2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976      101.000000000000000000           0.000000000000000000 Account #2 - Multisig
+       3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0      -91.005845212000000000          91.000000000000000000 Account #3
+       4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.001713132000000000          10.000000000000000000 Account #4
+       5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000  1000000000.000000000000000000 Account #5
+      ...
+      10 0x1aa3ebfd892954f32a37b698673505d1dafef4f5        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
+      11 0xe00ccdd988b1395489290c4c22e85a9c989f40f6        0.000000000000000000           0.000000000000000000 APT
+      12 0xf3d9d349146b55cf4e0b622edc71bc4af76b014c        0.000000000000000000           0.000000000000000000 PlaceHolder
+      13 0xb797d2439cd318684f93de852b4928ea75ae6917        0.000000000000000000           0.000000000000000000 PreSale
+      -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+                                                                                 1000000101.000000000000000000 Total Token Balances
+      -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
+
+      PASS Generate Tokens - Should not be possible
+      crowdsaleContractAddress=0xb797d2439cd318684f93de852b4928ea75ae6917
+      crowdsale.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+      crowdsale.exchangeRate=1
+      crowdsale.investor_bonus=25
+      crowdsale.apt=0xe00ccdd988b1395489290c4c22e85a9c989f40f6
+      crowdsale.place_holder=0xf3d9d349146b55cf4e0b622edc71bc4af76b014c
+      crowdsale.preSaleWallet=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976
+      crowdsale.totalSupplyCap=1000000
+      crowdsale.totalSold=101
+      crowdsale.minimum_investment=1e-17
+      crowdsale.startBlock=1530
+      crowdsale.endBlock=1545
+      crowdsale.initializedBlock=1527
+      crowdsale.finalizedBlock=1550
+      crowdsale.paused=false
+      placeHolderContractAddress=0xf3d9d349146b55cf4e0b622edc71bc4af76b014c
+      placeHolder.controller=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+      placeHolder.transferable=false
+      tokenContractAddress=0xe00ccdd988b1395489290c4c22e85a9c989f40f6
+      token.controller=0xf3d9d349146b55cf4e0b622edc71bc4af76b014c
+      token.symbol=APT
+      token.name=Aigang Pre-Launch Token
+      token.decimals=18
+      token.totalSupply=1000000101
+      totalSupplyHistory(0) = 1533 => 97
+      totalSupplyHistory(1) = 1535 => 98
+      totalSupplyHistory(2) = 1538 => 101
+      totalSupplyHistory(3) = 1552 => 1000000101
+      balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 0) = 1533 => 87
+      balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 1) = 1535 => 88
+      balanceHistory(0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0, 2) = 1538 => 91
+      balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 1533 => 10
+      Transfer 0 #1552: _from=0x0000000000000000000000000000000000000000 _to=0xa55a151eb00fded1634d27d1127b4be4627079ea _amount=1000000000
 
 <br />
 

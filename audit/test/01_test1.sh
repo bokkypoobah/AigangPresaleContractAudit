@@ -305,6 +305,7 @@ while (txpool.status.pending > 0) {
 printBalances();
 failIfGasEqualsGasUsed(psTx, psMessage);
 printCrowdsaleContractDetails();
+printPlaceHolderContractDetails();
 printTokenContractDetails();
 console.log("RESULT: ");
 
@@ -321,6 +322,7 @@ printTxData("aptChangeControllerTx", aptChangeControllerTx);
 printBalances();
 failIfGasEqualsGasUsed(aptChangeControllerTx, aptChangeControllerMessage);
 printCrowdsaleContractDetails();
+printPlaceHolderContractDetails();
 printTokenContractDetails();
 console.log("RESULT: ");
 
@@ -343,6 +345,7 @@ printTxData("initialisePresaleTx", initialisePresaleTx);
 printBalances();
 failIfGasEqualsGasUsed(initialisePresaleTx, initialisePresaleMessage);
 printCrowdsaleContractDetails();
+printPlaceHolderContractDetails();
 printTokenContractDetails();
 console.log("RESULT: ");
 
@@ -370,6 +373,7 @@ printBalances();
 failIfGasEqualsGasUsed(validContribution1Tx, validContribution1Message + " ac3->ps 100 ETH");
 failIfGasEqualsGasUsed(validContribution2Tx, validContribution1Message + " ac4->apt 10 ETH");
 printCrowdsaleContractDetails();
+printPlaceHolderContractDetails();
 printTokenContractDetails();
 console.log("RESULT: ");
 
@@ -384,6 +388,7 @@ printTxData("validContribution3Tx", validContribution3Tx);
 printBalances();
 failIfGasEqualsGasUsed(validContribution3Tx, validContribution2Message + " ac3->ps 1 ETH");
 printCrowdsaleContractDetails();
+printPlaceHolderContractDetails();
 printTokenContractDetails();
 console.log("RESULT: ");
 
@@ -398,6 +403,7 @@ printTxData("validContribution4Tx", validContribution4Tx);
 printBalances();
 failIfGasEqualsGasUsed(validContribution4Tx, validContribution3Message + " ac3->ps 3 ETH");
 printCrowdsaleContractDetails();
+printPlaceHolderContractDetails();
 printTokenContractDetails();
 console.log("RESULT: ");
 
@@ -424,6 +430,7 @@ printTxData("claimEthersTx", claimEthersTx);
 printBalances();
 failIfGasEqualsGasUsed(claimEthersTx, claimEthersMessage);
 printCrowdsaleContractDetails();
+printPlaceHolderContractDetails();
 printTokenContractDetails();
 console.log("RESULT: ");
 
@@ -440,6 +447,24 @@ printTxData("finalisePresaleTx", finalisePresaleTx);
 printBalances();
 failIfGasEqualsGasUsed(finalisePresaleTx, finalisePresaleMessage);
 printCrowdsaleContractDetails();
+printPlaceHolderContractDetails();
+printTokenContractDetails();
+console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+// Generate Tokens - Should not be possible 
+// -----------------------------------------------------------------------------
+var generateTokensMessage = "Generate Tokens - Should not be possible";
+console.log("RESULT: " + generateTokensMessage);
+var generateTokensTx = ph.generateTokens(account5, "1000000000000000000000000000", {from: contractOwnerAccount, gas: 2000000});
+while (txpool.status.pending > 0) {
+}
+printTxData("generateTokensTx", generateTokensTx);
+printBalances();
+failIfGasEqualsGasUsed(generateTokensTx, generateTokensMessage);
+printCrowdsaleContractDetails();
+printPlaceHolderContractDetails();
 printTokenContractDetails();
 console.log("RESULT: ");
 
