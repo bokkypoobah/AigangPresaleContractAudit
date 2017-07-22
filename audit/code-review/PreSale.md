@@ -27,7 +27,9 @@ contract PreSale is Controlled, TokenController {
 
   // BK Ok
   MiniMeToken public apt;
+  // BK Ok
   address public place_holder;
+  // BK Ok
   address public preSaleWallet;
 
   // BK Ok - APT token cap, in the natural number, i.e. 1 APT = 1,000,000,000,000,000,000 natural number
@@ -77,14 +79,18 @@ contract PreSale is Controlled, TokenController {
 
   // BK Ok - Constructor
   function PreSale(address _apt, address _place_holder) {
+    // BK Ok
     require(_apt != 0x0);
+    // BK Ok
     require(_place_holder != 0x0);
     // BK Ok - The token contract
     apt = MiniMeToken(_apt);
+    // BK Ok
     place_holder = _place_holder;
   }
 
   // BK Ok - The contracts need to be initialised to link the contracts together
+  // BK Ok - Only controller
   function initialize(
       address _preSaleWallet,
       uint256 _totalSupplyCap,
@@ -103,7 +109,9 @@ contract PreSale is Controlled, TokenController {
     // BK Ok - 18 decimal places
     assert(apt.decimals() == 18);  // Same amount of decimals as ETH
 
+    // BK Ok
     require(_preSaleWallet != 0x0);
+    // BK Ok
     preSaleWallet = _preSaleWallet;
 
     // BK Ok - Start block must be in the future
@@ -219,6 +227,7 @@ contract PreSale is Controlled, TokenController {
         // BK Ok - Keep a tally of the tokens generated
         totalSold = totalSold.add(tokensGenerated);
 
+        // BK Ok - Send funds immediately to the wallet
         preSaleWallet.transfer(toFund);
         // BK Ok - Log the number of tokens generated
         NewSale(_th, toFund, tokensGenerated);
@@ -271,6 +280,7 @@ contract PreSale is Controlled, TokenController {
     // BK Ok
     assert(msg.sender == controller || getBlockNumber() > endBlock || tokensForSale() == 0);
 
+    // BK Ok - Change token contracts contoller to the place holder
     apt.changeController(place_holder);
 
     // BK Ok - Store the block number when these contracts where finalised 
@@ -317,7 +327,9 @@ contract PreSale is Controlled, TokenController {
   //         - Normally this function would be only used to collect stray ETH or ERC20 tokens
   // BK Ok - Only the contract owner can execute this function
   function claimTokens(address _token) public onlyController {
+    // BK Ok
     if (apt.controller() == address(this)) {
+      // BK Ok
       apt.claimTokens(_token);
     }
 
