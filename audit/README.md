@@ -166,6 +166,12 @@ Commit [https://github.com/AigangNetwork/aigang-contracts/commit/6ec3a02f67903fb
       balanceHistory(0xa44a08d3f6933c69212114bb66e2df1813651844, 0) = 1533 => 10
       Transfer 0 #1552: _from=0x0000000000000000000000000000000000000000 _to=0xa55a151eb00fded1634d27d1127b4be4627079ea _amount=1000000000
 
+  * [ ] ACTION Review whether the token contract owner should have the ability to generate tokens after the PreSale is finalised
+
+* **IMPORTANT** There is the ability for the token contract owner to burn another user's tokens AFTER the PreSale is finalised
+
+  * [ ] ACTION Review whether the token contract owner should have the ability to burn another user's tokens after the PreSale is finalised
+
 <br />
 
 <hr />
@@ -218,10 +224,10 @@ audited source code, and that the deployment parameters are correctly set, inclu
 
 ## Risks
 
-### First Review
-
 * The risk of funds getting stolen or hacked from the *PreSale* contract can be greatly reduced by transferring the contributed funds to
   an external multisig, hardware or regular wallet.
+
+  [x] Fixed in the second review
 
 * This set of contracts have some complexity in the linkages between the separate *APT* (*MiniMeToken*) and *PreSale* contract. The set up
   of the contracts will need to be carefully verified after deployment to confirm that the contracts have been linked correctly.
@@ -255,12 +261,15 @@ audited source code, and that the deployment parameters are correctly set, inclu
       
           event ClaimedTokens(address indexed _token, address indexed _controller, uint _amount);
 
+  [x] Fixed in the second review
 
 <br />
 
 <hr />
 
 ## Trustlessness Of The Crowdsale Contract
+
+### First Review
 
 * From the *MiniMeToken* comment for the `transferFrom(...)` function:
 
@@ -272,6 +281,14 @@ audited source code, and that the deployment parameters are correctly set, inclu
   need to be set an account that no one controls like `0x0000000000000000000000000000000000000000`. Setting this `controller` to this
   "burn" address may prevent any future upgrades to this token contract, or the transfer of these presale tokens to the main crowdsale
   contract.
+
+  * [ ] ACTION Review whether the token contract owner should have the ability to burn another user's tokens after the PreSale is finalised
+  
+### Second Review
+
+* The token contract owner has the ability to burn another user's tokens after the PreSale is finalised (see Recommendation)
+
+  * [ ] ACTION Review whether the token contract owner should have the ability to generate tokens after the PreSale is finalised
 
 <br />
 
@@ -412,4 +429,4 @@ Outside Scope:
 
 <br />
 
-(c) BokkyPooBah / Bok Consulting Pty Ltd for Aigang Network - July 18 2017
+(c) BokkyPooBah / Bok Consulting Pty Ltd for Aigang Network - July 22 2017. The MIT Licence.
