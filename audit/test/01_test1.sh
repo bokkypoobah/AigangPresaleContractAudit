@@ -567,6 +567,22 @@ printTokenContractDetails();
 console.log("RESULT: ");
 
 
+// -----------------------------------------------------------------------------
+var canBurnMessage = "Owner Can Burn Tokens";
+// -----------------------------------------------------------------------------
+console.log("RESULT: " + canBurnMessage);
+var canBurnTx = apt.destroyTokens(account5, "100000000000000000000000", {from: contractOwnerAccount, gas: 200000});
+while (txpool.status.pending > 0) {
+}
+printTxData("canBurnTx", canBurnTx);
+printBalances();
+failIfGasEqualsGasUsed(canBurnTx, canBurnMessage);
+printCrowdsaleContractDetails();
+printPlaceHolderContractDetails();
+printTokenContractDetails();
+console.log("RESULT: ");
+
+
 EOF
 grep "DATA: " $TEST1OUTPUT | sed "s/DATA: //" > $DEPLOYMENTDATA
 cat $DEPLOYMENTDATA
