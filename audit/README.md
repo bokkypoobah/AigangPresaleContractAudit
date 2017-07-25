@@ -397,8 +397,7 @@ See [test/README.md](test/README.md), [test/01_test1.sh](test/01_test1.sh) and [
   `allowTransfers(...)` is called with a `true` parameter.
 * [x] `changeController(...)` does NOT have a `acceptController()` to prevent errorneous transfers of ownership of the token contract.
   This may not be appropriate as this function may need to be called from another contract.
-* [x] ETH contributed to the crowdsale contract is accumulated in the crowdsale contract. The owner must call `PreSale.claimTokens(0)` to
-  transfer the ETH to the owner (`controller`) of the contract. See [Recommendations](#recommendations).
+* [x] ETH contributed to the crowdsale contract is NOT accumulated in the crowdsale contract.
 * [x] Any ETH or tokens accidentally sent to the *PreSale* contract can be recovered using the `claimTokens(...)` function.
 * [x] Check potential division by zero.
 * [x] Areas with potential overflow errors in `transfer(...)` and `transferFrom(...)` have the logic to prevent overflows.

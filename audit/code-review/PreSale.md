@@ -14,7 +14,6 @@ pragma solidity ^0.4.11;
 import "./SafeMath.sol";
 import "./ERC20.sol";
 import "./MiniMeToken.sol";
-import "./PreSaleWallet.sol";
 
 contract PreSale is Controlled, TokenController {
   // BK Ok
