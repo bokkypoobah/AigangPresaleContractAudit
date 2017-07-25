@@ -25,6 +25,7 @@ No potential vulnerabilities have been identified in the crowdsale and token con
 * [Testing](#testing)
 * [Crowdsale And Token Contracts Overview](#crowdsale-and-token-contracts-overview)
 * [Code Review](#code-review)
+* [References](#references)
 
 <br />
 
@@ -457,6 +458,14 @@ Outside Scope:
 
   This is also the same source code as Status.im's multisig wallet at [0xa646e29877d52b9e2de457eca09c724ff16d0a2b](https://etherscan.io/address/0xa646e29877d52b9e2de457eca09c724ff16d0a2b#code) 
   currently holding 299,902.24 ethers.
+
+<br />
+
+<hr />
+
+## References
+
+* [Ethereum Contract Security Techniques and Tips](https://github.com/ConsenSys/smart-contract-best-practices)
 
 <br />
 
