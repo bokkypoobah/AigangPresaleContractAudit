@@ -1,12 +1,57 @@
 # Aigang Network Presale Contract Audit
 
-This is an audit of [Aigang Network's crowdsale](https://aigang.network/) contracts.
+## Summary
 
-First review commit [https://github.com/AigangNetwork/aigang-contracts/commit/6ec3a02f67903fb88fa18af86e5325c967cb26f2](https://github.com/AigangNetwork/aigang-contracts/commit/6ec3a02f67903fb88fa18af86e5325c967cb26f2).
+[Aigang Network](https://aigang.network/) intends to build a blockchain protocol for digital insurance.
 
-Second review commit [https://github.com/AigangNetwork/aigang-contracts/commit/10f0d5a729514661198d6edb9bccc45782ffcfb7](https://github.com/AigangNetwork/aigang-contracts/commit/10f0d5a729514661198d6edb9bccc45782ffcfb7).
+Bok Consulting Pty Ltd was commissioned to perform an audit on the Ethereum smart contracts for Aigang Network's presale.
 
-No potential vulnerabilities have been identified in the crowdsale and token contract.
+This audit has been conducted on the Aigang Network's source code in commits [6ec3a02f](https://github.com/AigangNetwork/aigang-contracts/commit/6ec3a02f67903fb88fa18af86e5325c967cb26f2) and
+[10f0d5a7](https://github.com/AigangNetwork/aigang-contracts/commit/10f0d5a729514661198d6edb9bccc45782ffcfb7).
+
+No potential vulnerabilities have been identified in the presale and token contract.
+
+<br />
+
+### Presale Mainnet Addresses
+
+The *PreSale* contract is deployed at [0x2d68a9a9dd9fcffb070ea1d8218c67863bfc55ff](https://etherscan.io/address/0x2d68a9a9dd9fcffb070ea1d8218c67863bfc55ff#code).
+
+The *APT* *MiniMeToken* contract is deployed at [0x23ae3c5b39b12f0693e05435eeaa1e51d8c61530](https://etherscan.io/address/0x23ae3c5b39b12f0693e05435eeaa1e51d8c61530#code).
+
+The `presaleWallet` multisig wallet is deployed at [0x1d9776c22b8790009f12927386c1e27da45fe1f3](https://etherscan.io/address/0x1d9776c22b8790009f12927386c1e27da45fe1f3#code).
+
+<br />
+
+### Presale Contract
+
+Ethers contributed by participants to the presale contract will result in APT tokens being allocated to the participant's 
+account in the token contract. The contributed ethers are immediately transferred to the `presaleWallet` multisig wallet, reducing the 
+risk of the loss of ethers in this bespoke smart contract.
+
+<br />
+
+### Token Contract
+
+The *APT* contract is built upon the *MiniMeToken* token contract. This token contract has a few features that that potential
+investors should be aware of:
+
+* After the *PreSale* contract  is finalised, the owner of the *APT* token contract has the ability to:
+  * Freeze and unfreeze the transfer of tokens
+  * Transfer an accounts's tokens
+  * Generate new tokens
+  * Burn an account's tokens
+
+The token contract is [ERC20](https://github.com/ethereum/eips/issues/20) compliant with the following features:
+
+* `decimals` is correctly defined as `uint8` instead of `uint256`
+* `transfer(...)` and `transferFrom(...)` will generally return false if there is an error instead of throwing an error
+* `transfer(...)` and `transferFrom(...)` have not been built with a check on the size of the data being passed
+* `approve(...)` requires that a non-zero approval limit be set to 0 before a new non-zero limit can be set
+
+The token contract is built on the *MiniMeToken* token contract that stores snapshots of an account's token balance and 
+the `totalSupply()` in history. One side effect of this snapshot feature is that regular transfer operations consume a
+little more gas in transaction fees when compared to non-*MiniMeToken* token contracts.
 
 <br />
 
@@ -14,28 +59,19 @@ No potential vulnerabilities have been identified in the crowdsale and token con
 
 ## Table Of Contents
 
-* [Updates](#updates)
+* [Summary](#summary)
 * [Recommendations](#recommendations)
 * [Potential Vulnerabilities](#potential-vulnerabilities)
 * [Scope](#scope)
 * [Limitations](#limitations)
 * [Due Diligence](#due-diligence)
 * [Risks](#risks)
-* [Trustlessness Of The Crowdsale Contract](#trustlessness-of-the-crowdsale-contract)
 * [Notes](#notes)
 * [Testing](#testing)
 * [Crowdsale And Token Contracts Overview](#crowdsale-and-token-contracts-overview)
 * [Code Review](#code-review)
 * [References](#references)
 
-
-<br />
-
-<hr />
-
-## Updates
-
-* Jul 29 2017 The crowdsale contract has been deployed to [0x2d68a9a9dd9fcffb070ea1d8218c67863bfc55ff](https://etherscan.io/address/0x2d68a9a9dd9fcffb070ea1d8218c67863bfc55ff).
 
 <br />
 
@@ -73,146 +109,13 @@ No potential vulnerabilities have been identified in the crowdsale and token con
 ### Second Review
 
 * **IMPORTANT** There is the ability for the token owner to generate tokens AFTER the PreSale is finalised
-
-  In my testing results [test/test1results.txt](test/test1results.txt), I generated many tokens after the PreSale was finalised (`crowdsale.finalizedBlock=1550`) :
-
-      Finalise PreSale
-      finalisePresaleTx gas=2000000 gasUsed=49014 costETH=0.000882252 costUSD=0.181260437904 @ ETH/USD=205.452 gasPrice=18000000000 block=42 txId=0xed1b0e2035c428b42be132f7e810df6fc6d43781120adc1ce0d8ce14b2749612
-       # Account                                             EtherBalanceChange                          Token Name
-      -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-       0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      210.161494146000000000           0.000000000000000000 Account #0 - Miner
-       1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.153935802000000000           0.000000000000000000 Account #1 - Contract Owner
-       2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976      101.000000000000000000           0.000000000000000000 Account #2 - Multisig
-       3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0      -91.005845212000000000          91.000000000000000000 Account #3
-       4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.001713132000000000          10.000000000000000000 Account #4
-       5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
-       6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
-       7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
-       8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
-       9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-      10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-      11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 APT
-      12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 PlaceHolder
-      13 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 PreSale
-      -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-                                                                                        101.000000000000000000 Total Token Balances
-      -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-      
-      PASS Finalise PreSale
-      ...
-      crowdsale.finalizedBlock=42
-      ...
-      token.totalSupply=101
-      ...
-      Generate Tokens After Finalisation
-      generateTokensTx gas=2000000 gasUsed=94708 costETH=0.001704744 costUSD=0.350243064288 @ ETH/USD=205.452 gasPrice=18000000000 block=44 txId=0xd7c551668fe5305eb66bf1dc9a8e74a47fe0aa98060fcbbaa5a1629b19e1e0cc
-       # Account                                             EtherBalanceChange                          Token Name
-      -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-       0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      220.163198890000000000           0.000000000000000000 Account #0 - Miner
-       1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.155640546000000000           0.000000000000000000 Account #1 - Contract Owner
-       2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976      101.000000000000000000           0.000000000000000000 Account #2 - Multisig
-       3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0      -91.005845212000000000          91.000000000000000000 Account #3
-       4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.001713132000000000          10.000000000000000000 Account #4
-       5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000     1000000.000000000000000000 Account #5
-       6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
-       7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec        0.000000000000000000           0.000000000000000000 Account #7
-       8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
-       9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-      10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-      11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 APT
-      12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 PlaceHolder
-      13 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 PreSale
-      -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-                                                                                    1000101.000000000000000000 Total Token Balances
-      -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-      
-      PASS Generate Tokens After Finalisation
-      ...
-      crowdsale.finalizedBlock=42
-      ...
-      token.totalSupply=1000101
-
   * [x] ACTION Review whether the token contract owner should have the ability to generate tokens after the PreSale is finalised
     * [x] Discussed with Lukas and Aigang wants the ability to generate tokens after the PreSale is finalised
 
 * **IMPORTANT** There is the ability for the token contract owner to burn another user's tokens AFTER the PreSale is finalised
-
-  In my testing results [test/test1results.txt](test/test1results.txt), I burnt an account's tokens after the PreSale was finalised (`crowdsale.finalizedBlock=1550`) :
-  
-       # Account                                             EtherBalanceChange                          Token Name
-      -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-       0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      325.176023908000000000           0.000000000000000000 Account #0 - Miner
-       1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.156646170000000000           0.000000000000000000 Account #1 - Contract Owner
-       2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976      101.000000000000000000           0.000000000000000000 Account #2 - Multisig
-       3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0      -91.005845212000000000          91.000000000000000000 Account #3
-       4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.006704316000000000           9.999998000000000000 Account #4
-       5 0xa55a151eb00fded1634d27d1127b4be4627079ea       -0.003473460000000000      999999.940000000000000000 Account #5
-       6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000002000000000000 Account #6
-       7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec       -0.003354750000000000           0.060000000000000000 Account #7
-       8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
-       9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-      10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-      11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 APT
-      12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 PlaceHolder
-      13 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 PreSale
-      -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-                                                                                    1000101.000000000000000000 Total Token Balances
-      -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-      ...
-      crowdsale.finalizedBlock=42
-      ...
-      token.totalSupply=1000101
-      totalSupplyHistory(0) = 23 => 97
-      totalSupplyHistory(1) = 27 => 98
-      totalSupplyHistory(2) = 29 => 101
-      totalSupplyHistory(3) = 44 => 1000101
-      ...
-      balanceHistory(0xa55a151eb00fded1634d27d1127b4be4627079ea, 0) = 44 => 1000000
-      balanceHistory(0xa55a151eb00fded1634d27d1127b4be4627079ea, 1) = 56 => 999999.97
-      balanceHistory(0xa55a151eb00fded1634d27d1127b4be4627079ea, 2) = 64 => 999999.94
-      ...
-
-      Owner Can Burn Tokens
-      canBurnTx gas=200000 gasUsed=80447 costETH=0.001448046 costUSD=0.297503946792 @ ETH/USD=205.452 gasPrice=18000000000 block=68 txId=0x617b5baf8dedbea3c93765451ea2eb95535207bee8edcd96c883aa0decc9aa72
-       # Account                                             EtherBalanceChange                          Token Name
-      -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-       0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e      340.177471954000000000           0.000000000000000000 Account #0 - Miner
-       1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.158094216000000000           0.000000000000000000 Account #1 - Contract Owner
-       2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976      101.000000000000000000           0.000000000000000000 Account #2 - Multisig
-       3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0      -91.005845212000000000          91.000000000000000000 Account #3
-       4 0xa44a08d3f6933c69212114bb66e2df1813651844      -10.006704316000000000           9.999998000000000000 Account #4
-       5 0xa55a151eb00fded1634d27d1127b4be4627079ea       -0.003473460000000000      899999.940000000000000000 Account #5
-       6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000002000000000000 Account #6
-       7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec       -0.003354750000000000           0.060000000000000000 Account #7
-       8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.000000000000000000           0.000000000000000000 Account #8
-       9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
-      10 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 MiniMeTokenFactory
-      11 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 APT
-      12 0xdf9f36fd5654d92e0844c78d2d2dd562404cd1ff        0.000000000000000000           0.000000000000000000 PlaceHolder
-      13 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 PreSale
-      -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-                                                                                     900101.000000000000000000 Total Token Balances
-      -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-      
-      PASS Owner Can Burn Tokens
-      ...
-      token.totalSupply=900101
-      totalSupplyHistory(0) = 23 => 97
-      totalSupplyHistory(1) = 27 => 98
-      totalSupplyHistory(2) = 29 => 101
-      totalSupplyHistory(3) = 44 => 1000101
-      totalSupplyHistory(4) = 68 => 900101
-      ...
-      balanceHistory(0xa55a151eb00fded1634d27d1127b4be4627079ea, 0) = 44 => 1000000
-      balanceHistory(0xa55a151eb00fded1634d27d1127b4be4627079ea, 1) = 56 => 999999.97
-      balanceHistory(0xa55a151eb00fded1634d27d1127b4be4627079ea, 2) = 64 => 999999.94
-      balanceHistory(0xa55a151eb00fded1634d27d1127b4be4627079ea, 3) = 68 => 899999.94
-      Transfer 0 #68: _from=0xa55a151eb00fded1634d27d1127b4be4627079ea _to=0x0000000000000000000000000000000000000000 _amount=100000
-
   * [x] ACTION Review whether the token contract owner should have the ability to burn another user's tokens after the PreSale is finalised
     * [x] Discussed with Lukas and Aigang does not have any intention of exercising their ability to burn an account's tokens after 
       the PreSale is finalised, and will communicate this to the PreSale investors.
-
 
 <br />
 
@@ -278,38 +181,6 @@ audited source code, and that the deployment parameters are correctly set, inclu
 
 <hr />
 
-## Trustlessness Of The Crowdsale Contract
-
-### First Review
-
-* From the *MiniMeToken* comment for the `transferFrom(...)` function:
-
-  > The controller of this contract can move tokens around at will, this is important to recognize! Confirm that you trust the
-  > controller of this contract, which in most situations should be another open source smart contract or 0x0
-
-  * [x] ACTION Review whether the token contract owner should have these abilities after the PreSale is finalised
-
-* The *APT* (*MiniMeToken*) contract `controller` has the ability to burn any accounts token balances using `destroyTokens(...)`, or to
-  disable and enable any transfers using `enableTransfers(...)`. For this contract to be trustless, the *APT* contract `controller` will
-  need to be set an account that no one controls like `0x0000000000000000000000000000000000000000`. Setting this `controller` to this
-  "burn" address may prevent any future upgrades to this token contract, or the transfer of these presale tokens to the main crowdsale
-  contract.
-
-  * [x] ACTION Review whether the token contract owner should have the ability to burn another user's tokens after the PreSale is finalised
-
-### Second Review
-
-* Note that the token contract owner has the following abilities after the PreSale is finalised, and Aigang is aware of this:
-
-  * Freeze and unfreeze the transfer of tokens
-  * Transfer an accounts's tokens
-  * Generate new tokens
-  * Burn an account's tokens
-
-<br />
-
-<hr />
-
 ## Notes
 
 ### First Review
@@ -350,34 +221,7 @@ audited source code, and that the deployment parameters are correctly set, inclu
   > already 0 to mitigate the race condition described here: https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
 
 * **LOW IMPORTANCE** The *APT* (*MiniMeToken*) contract does not have the function to transfer any other ERC20 tokens accidentally sent
-  to this contract. The Status.im version of the *MiniMeToken* has the following additional function and event:
-
-      //////////
-      // Safety Methods
-      //////////
-      
-          /// @notice This method can be used by the controller to extract mistakenly
-          ///  sent tokens to this contract.
-          /// @param _token The address of the token contract that you want to recover
-          ///  set to 0 in case you want to extract ether.
-          function claimTokens(address _token) onlyController {
-              if (_token == 0x0) {
-                  controller.transfer(this.balance);
-                  return;
-              }
-      
-              ERC20Token token = ERC20Token(_token);
-              uint balance = token.balanceOf(this);
-              token.transfer(controller, balance);
-              ClaimedTokens(_token, controller, balance);
-          }
-      
-      ////////////////
-      // Events
-      ////////////////
-      
-          event ClaimedTokens(address indexed _token, address indexed _controller, uint _amount);
-
+  to this contract.
   [x] Fixed in the second review
 
 ### Second Review
@@ -391,7 +235,21 @@ audited source code, and that the deployment parameters are correctly set, inclu
 
 ## Testing
 
-See [test/README.md](test/README.md), [test/01_test1.sh](test/01_test1.sh) and [test/test1results.txt](test/test1results.txt).
+The following functions were tested using the script [test/01_test1.sh](test/01_test1.sh) with the results saved in [test/test1results.txt](test/test1results.txt):
+
+* [x] Deploy token contract
+* [x] Deploy PreSale and associated contracts
+* [x] Transfer ownership of the token contract to the PreSale contract
+* [x] Contribute ETH to the PreSale contract in exchange for tokens
+* [x] Finalise the sale
+* [x] `transfer(...)` and `transferFrom(...)` the tokens
+* [x] Transfer ownership of the token contract to a regular account
+* [x] Disable token transfers and confirm `transfer(...)` and `transferFrom(...)` fails
+* [x] Mint new tokens after finalisation
+* [x] Destroy an account's tokens after finalisation
+* [x] Enable token transfers
+
+Details of the testing environment can be found in [test](test).
 
 <br />
 
@@ -481,4 +339,4 @@ Outside Scope:
 
 <br />
 
-(c) BokkyPooBah / Bok Consulting Pty Ltd for Aigang Network - July 23 2017. The MIT Licence.
+(c) BokkyPooBah / Bok Consulting Pty Ltd for Aigang Network - Aug 3 2017. The MIT Licence.

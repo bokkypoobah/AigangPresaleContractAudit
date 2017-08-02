@@ -1,4 +1,4 @@
-# InvestFeed Crowdsale Contract - Testing
+# Contract - Testing
 
 <br />
 
@@ -36,15 +36,6 @@
       ./01_test1.sh
 
 * See  [test1results.txt](test1results.txt) for the results and [test1output.txt](test1output.txt) for the full output.
-
-<br />
-
-<hr />
-
-# The Tests
-
-* Test 1 Before The Crowdsale
-  * Test 1.1 Deploy Token Contract
 
 <br />
 
